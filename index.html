@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="!scroll-smooth">
+  <head>
+    <meta charset="UTF-R" />
+    <link rel="icon" type="image/svg+xml" href="https://i.postimg.cc/tgpJ2Hcy/Lebron-20251025-153441-0000.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lebr{o}n | Designer & Programador</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Library for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: 'hsl(222, 24%, 12%)',
+              foreground: 'hsl(210, 40%, 98%)',
+              card: 'hsl(216, 28%, 16%)',
+              'card-foreground': 'hsl(210, 40%, 98%)',
+              primary: 'hsl(263, 60%, 58%)',
+              'primary-foreground': 'hsl(210, 40%, 98%)',
+              secondary: 'hsl(165, 42%, 52%)',
+              'secondary-foreground': 'hsl(222.2, 47.4%, 11.2%)',
+              'about-bg': '#271c3a',
+            },
+            fontFamily: {
+              primary: ['Poppins', 'sans-serif'],
+              secondary: ['Montserrat', 'sans-serif'],
+              oxstars: ['Oxstars', 'sans-serif'],
+            },
+            keyframes: {
+              'text-gradient': {
+                'to': { 'background-position': '200% center' },
+              },
+            },
+            animation: {
+              'text-gradient': 'text-gradient 4s linear infinite',
+            },
+          },
+        },
+      }
+    </script>
+    
+    <style>
+      @font-face {
+        font-family: 'Oxstars';
+        src: url('/fonts/Oxstars.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+      }
+      body {
+        background-color: hsl(222, 24%, 12%);
+        color: hsl(210, 40%, 98%);
+        font-family: 'Poppins', sans-serif;
+      }
+      .gradient-title-animation {
+        background: linear-gradient(to right, #7d6cba, #23a6d5, #41b59a, #7d6cba);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: text-gradient 4s linear infinite;
+      }
+      .gradient-title-animation:hover {
+        background: none;
+        -webkit-text-fill-color: inherit;
+      }
+
+      .rn-btn {
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+      .rn-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, hsl(var(--primary)), hsl(var(--secondary)));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 0;
+      }
+      .rn-btn:hover {
+        transform: translateY(-5px);
+      }
+      .rn-btn:hover::before {
+        opacity: 1;
+      }
+      .rn-btn > * {
+        position: relative;
+        z-index: 1;
+      }
+      .rn-btn .filter-primary {
+        filter: invert(47%) sepia(50%) saturate(1471%) hue-rotate(222deg) brightness(91%) contrast(85%); /* -> primary color */
+      }
+      .rn-btn:hover .filter-primary {
+        filter: brightness(0) invert(1);
+      }
+      .rn-btn:hover .text-primary {
+        color: hsl(210, 40%, 98%) !important;
+      }
+
+      .shape-divider-bottom {
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+      }
+      .shape-divider-bottom svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 70px;
+      }
+      .shape-divider-bottom .shape-fill {
+        fill: hsl(222, 24%, 12%);
+      }
+      
+      .shape-divider-top {
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+      }
+      .shape-divider-top svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 70px;
+      }
+      .shape-divider-top .shape-fill {
+        fill: hsl(222, 24%, 12%);
+      }
+
+      #tools .shape-divider-top .shape-fill {
+        fill: #271c3a; /* about-bg color */
+      }
+      
+      /* New animation for tools */
+      @keyframes icon-entry {
+        0% {
+          transform: scale(0.5) translateY(20px);
+          opacity: 0;
+        }
+        60% {
+          transform: scale(1.1) translateY(0);
+          opacity: 1;
+        }
+        80% {
+          transform: scale(1.05) translateY(-7px); /* The small jump */
+        }
+        100% {
+          transform: scale(1) translateY(0);
+          opacity: 1;
+        }
+      }
+      [data-aos="icon-entry"] {
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+      [data-aos="icon-entry"].aos-animate {
+        animation: icon-entry 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      }
+
+      /* Modal Animations */
+      @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes zoom-in {
+        from { 
+          opacity: 0;
+          transform: scale(0.95); 
+        }
+        to { 
+          opacity: 1;
+          transform: scale(1); 
+        }
+      }
+
+      .modal-backdrop-animate {
+        animation: fade-in 0.2s ease-out forwards;
+      }
+
+      .modal-content-animate {
+        animation: zoom-in 0.2s ease-out forwards;
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: hsl(222, 24%, 12%);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #7d6cba;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #41b59a;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+          "react/": "https://aistudiocdn.com/react@^19.2.0/",
+          "react": "https://aistudiocdn.com/react@^19.2.0",
+          "lucide-react": "https://aistudiocdn.com/lucide-react@0.417.0"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
