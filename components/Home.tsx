@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const typingWords = ["Apps.", "Websites.", "Logos."];
+const typingWords = ["Apps.", "Websites.", "Logos.", "Identidade Visual."];
 
 const Home: React.FC = () => {
   const [index, setIndex] = useState(0);
