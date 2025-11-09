@@ -94,7 +94,7 @@ export const portfolio = [
       { image: 'https://iili.io/KbnLDJf.png', description: 'Mapa interativo mostrando os principais pontos turísticos de Brasília que inspiram os souvenirs, além de informações de contato e localização.' }
     ]
   },
-  { id: 4, category: 'Apps', title: 'Têca Estoque', images: ['https://i.postimg.cc/8cHTRVxf/1761768850618.jpg', 'https://i.postimg.cc/02kk8bJK/1761768459633.png', 'https://i.postimg.cc/vZcjkfR4/1762430295149.jpg', 'https://i.postimg.cc/MZbZ2yXR/1761769035345.jpg', 'https://i.postimg.cc/bYHYcQdq/1761769176769.jpg', 'https://i.postimg.cc/44b4kznV/1761769244222.jpg', 'https://i.postimg.cc/Mpv4NVkH/1762429896102.jpg', 'https://i.postimg.cc/htfw6TFf/1762430466573.jpg', 'https://i.postimg.cc/VL7pK4hY/1762430613369.jpg'], description: 'Um catálogo completo e gerenciador de estoque desenvolvido para as lojas de almofadas Têca Decoração e Ione Lourenço Decor, centralizando o controle de produtos e otimizando a gestão.', tools: ['Flutter', 'React', 'Figma'], liveUrl: 'https://tecalojas.vercel.app/', behanceUrl: null, logo: 'https://i.postimg.cc/PvWWC5rM/Logos-lojas-Teca-2025-20251027-233927-0000.png',
+  { id: 4, category: 'Apps', title: 'Têca Estoque', images: ['https://i.postimg.cc/8cHTRVxf/1761768850618.jpg', 'https://i.postimg.cc/02kk8bJK/1761768459633.png', 'https://i.postimg.cc/vZcjkfR4/1762430295149.jpg', 'https://i.postimg.cc/MZbZ2yXR/1761769035345.jpg', 'https://i.postimg.cc/bYHYcQdq/1761769176769.jpg', 'https://i.postimg.cc/44b4kznV/1761769244222.jpg', 'https://i.postimg.cc/Mpv4NVkH/1762429896102.jpg', 'https://i.postimg.cc/htfw6TFf/1762430466573.jpg', 'https://i.postimg.cc/VL7pK4hY/1762430613369.jpg'], description: 'Um catálogo completo e gerenciador de estoque desenvolvido para as lojas de almofadas Têca Decoração e Ione Lourenço Decor, centralizando o controle de produtos e otimizando a gestão.', tools: ['Flutter', 'React', 'Figma', 'Android Studio'], liveUrl: 'https://tecalojas.vercel.app/', behanceUrl: null, logo: 'https://i.postimg.cc/PvWWC5rM/Logos-lojas-Teca-2025-20251027-233927-0000.png',
     detailedContent: [
         { image: 'https://i.postimg.cc/8cHTRVxf/1761768850618.jpg', description: 'Visualização do catálogo de produtos, permitindo uma navegação fácil e intuitiva entre as diferentes categorias de almofadas.' },
         { image: 'https://i.postimg.cc/02kk8bJK/1761768459633.png', description: 'A tela inicial do app, chamada de "Vitrine", apresenta os produtos em destaque e as principais categorias, oferecendo uma experiência de navegação convidativa e visual.' },
@@ -120,7 +120,7 @@ export const portfolio = [
       'https://iili.io/KbqBndN.png'
     ], 
     description: 'Website para o restaurante Gusto, com um sistema de reservas online integrado e um cardápio digital interativo para aprimorar a experiência do cliente.', 
-    tools: ['HTML', 'CSS', 'JavaScript'], 
+    tools: ['HTML', 'CSS', 'JavaScript', 'VSCode'], 
     liveUrl: 'https://lebrontech.github.io/Restaurante-Gusto/index.html',
     logo: 'https://iili.io/KbfPeoJ.png',
     detailedContent: [
@@ -155,7 +155,20 @@ export const portfolio = [
       { image: 'https://iili.io/KDvIoJV.png', description: '' }
     ]
   },
-  { id: 11, category: 'Logos', title: 'Sabor & Prosa', images: ['https://i.postimg.cc/d1c3q2Fm/image.png'], description: 'Logo para uma cafeteria e bistrô.', tools: ['Illustrator'], liveUrl: null },
+  { 
+    id: 11, 
+    category: 'Logos', 
+    title: 'Sabor & Prosa', 
+    images: [
+      'https://iili.io/KbAx0xa.png',
+      'https://iili.io/KbAxMfR.png',
+      'https://iili.io/KbAxEiv.png',
+      'https://iili.io/KbAx1WJ.png'
+    ], 
+    description: 'Criação de logotipo para uma cafeteria e bistrô que une o aconchego do café com a sofisticação da boa conversa. O resultado é uma marca acolhedora, moderna e memorável, projetada para conectar e encantar clientes.', 
+    tools: ['Canva', 'Photoshop'], 
+    liveUrl: null 
+  },
   { id: 9, category: 'Identidade Visual', title: 'Capilar Ela', images: ['https://i.postimg.cc/SRBN7ZCq/Capilar2.jpg'], description: 'Identidade para um salão de beleza especializado em terapia capilar.', tools: ['Illustrator', 'Canva'], liveUrl: null,
     detailedContent: [
       { image: 'https://i.postimg.cc/SRBN7ZCq/Capilar2.jpg', description: 'Design de marca que transmite cuidado, saúde e beleza, com um logotipo delicado e aplicações em materiais de divulgação.' }
