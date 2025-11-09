@@ -48,6 +48,7 @@ export const tools = {
     { name: 'CSS', icon: 'https://i.postimg.cc/sXvtdwHX/1024x1024-logo-2582747-960-720.png' },
     { name: 'JavaScript', icon: 'https://i.postimg.cc/g2rNbHcn/1761770699957.png' },
     { name: 'React', icon: 'https://i.postimg.cc/g00TPxwS/toppng-com-react-native-svg-transformer-allows-you-import-svg-aperture-science-innovators-logo-986x1.png' },
+    { name: 'Angular', icon: 'https://iili.io/KbAcdas.png' },
     { name: 'Node.js', icon: 'https://i.postimg.cc/gkh37mNQ/1761417804462.png' },
     { name: 'Next.js', icon: 'https://i.postimg.cc/v8p7YcKN/nextjs-icon.png' },
     { name: 'Python', icon: 'https://i.postimg.cc/s2v1GJQN/pngaaa-com-619137.png' },
@@ -59,6 +60,27 @@ export const tools = {
 };
 
 export const portfolio = [
+  {
+    id: 14,
+    category: 'Websites',
+    title: 'Corações Sagrados',
+    images: [
+      'https://iili.io/KbAVqJt.png',
+      'https://iili.io/KbAVCen.png',
+      'https://iili.io/KbAVB5X.png',
+      'https://iili.io/KbAVnbs.png',
+    ],
+    description: 'Website focado na Igreja Católica, desenvolvido para a comunidade Corações Sagrados. Apresenta um design sereno e inspirador, com seções dedicadas a novenas e à história dos santos, fortalecendo a conexão entre os membros.',
+    tools: ['React', 'Next.js', 'Node.js'],
+    liveUrl: null,
+    logo: 'https://iili.io/KbAVxzG.jpg',
+    detailedContent: [
+      { image: 'https://iili.io/KbAVqJt.png', description: 'Visualização inicial do site, focado na Igreja Católica, com acesso a novenas, histórias de santos e informações de contato para a comunidade.' },
+      { image: 'https://iili.io/KbAVCen.png', description: "Uma seção especial dedicada a São José, com sua história, orações e informações relevantes para os devotos." },
+      { image: 'https://iili.io/KbAVB5X.png', description: 'Página da novena, onde os fiéis podem acompanhar as orações diárias e se aprofundar na sua jornada de fé.' },
+      { image: 'https://iili.io/KbAVnbs.png', description: "Aba 'Santo do Dia', apresentando a biografia e os ensinamentos do santo celebrado em cada data, inspirando os visitantes." }
+    ]
+  },
   { 
     id: 13, 
     category: 'Logos', 
@@ -193,6 +215,7 @@ export const skills = {
     { name: 'HTML & CSS', level: 95 },
     { name: 'JavaScript', level: 85 },
     { name: 'React / Next.js', level: 80 },
+    { name: 'Angular', level: 70 },
     { name: 'Flutter', level: 75 },
     { name: 'WordPress', level: 90 },
   ],
