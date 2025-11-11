@@ -47,6 +47,7 @@ export const tools = {
     { name: 'HTML', icon: 'https://i.postimg.cc/pXMmp8Bv/1024x1024-logo-2582748-1280.png' },
     { name: 'CSS', icon: 'https://i.postimg.cc/sXvtdwHX/1024x1024-logo-2582747-960-720.png' },
     { name: 'JavaScript', icon: 'https://i.postimg.cc/g2rNbHcn/1761770699957.png' },
+    { name: 'Bootstrap', icon: 'https://iili.io/KpTVxrQ.png' },
     { name: 'TypeScript', icon: 'https://iili.io/Kpz8mIp.png' },
     { name: 'React', icon: 'https://i.postimg.cc/g00TPxwS/toppng-com-react-native-svg-transformer-allows-you-import-svg-aperture-science-innovators-logo-986x1.png' },
     { name: 'Angular', icon: 'https://iili.io/KbAcdas.png' },
@@ -142,10 +143,13 @@ export const portfolio = [
       'https://iili.io/KbqBHe1.png',
       'https://iili.io/KbqBndN.png'
     ], 
-    description: 'Website para o restaurante Gusto, com um sistema de reservas online integrado e um cardápio digital interativo para aprimorar a experiência do cliente.', 
-    tools: ['HTML', 'CSS', 'JavaScript', 'VSCode'], 
+    description: 'Atuei como o principal responsável pelo projeto de website institucional do restaurante. Minha responsabilidade começou na fase de Design UI/UX, onde desenhei os protótipos e a interface (usando Figma). Após a aprovação do design, desenvolvi o site completo usando HTML5, CSS3, JavaScript e o framework Bootstrap para garantir um design responsivo e moderno (mobile-first). O projeto foi gerido com práticas ágeis (Scrum) e incluiu a criação de um cardápio digital e um sistema de agendamento de reservas online.', 
+    tools: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Figma', 'Illustrator'], 
     liveUrl: 'https://lebrontech.github.io/Restaurante-Gusto/index.html',
     logo: 'https://iili.io/KbfPeoJ.png',
+    role: 'Desenvolvedor Frontend & UI/UX Designer',
+    timeline: 'Fev. de 2023 – mar. de 2023',
+    methodology: 'Scrum (princípios ágeis)',
     detailedContent: [
       { image: 'https://iili.io/KbqqjRt.png', description: 'Este projeto apresenta um design totalmente responsivo, garantindo uma experiência de usuário perfeita em desktops, tablets e smartphones.' },
       { image: 'https://iili.io/KbqqkWG.png', description: 'A página inicial foi cuidadosamente projetada para ser convidativa, com uma navegação clara e acesso rápido às principais seções do restaurante.' },

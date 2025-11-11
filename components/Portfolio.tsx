@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import SectionTitle from './SectionTitle';
 import { portfolio, tools } from './data';
-import { ArrowLeft, ArrowRight, X, LayoutGrid, Globe, Smartphone, Palette, PenTool } from 'lucide-react';
+import { ArrowLeft, ArrowRight, X, LayoutGrid, Globe, Smartphone, Palette, PenTool, Briefcase, Calendar, ClipboardList } from 'lucide-react';
 
 const allTools = Object.values(tools).flat();
 
@@ -19,6 +19,9 @@ interface Project {
     image: string;
     description: string;
   }>;
+  role?: string;
+  timeline?: string;
+  methodology?: string;
 }
 
 
@@ -252,7 +255,29 @@ const Portfolio: React.FC = () => {
               <div className="flex flex-col sm:flex-row justify-between items-start gap-6 mb-8 text-center sm:text-left">
                 <div>
                   <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-2">{selectedProject.title}</h2>
-                  <p className="text-foreground/80 max-w-2xl">{selectedProject.description}</p>
+                  <p className="text-foreground/80 max-w-2xl leading-relaxed">{selectedProject.description}</p>
+                   {(selectedProject.role || selectedProject.timeline || selectedProject.methodology) && (
+                    <div className="mt-4 flex flex-col sm:flex-row sm:flex-wrap items-start text-left gap-x-6 gap-y-2 text-sm">
+                        {selectedProject.role && (
+                            <div className="flex items-center gap-2">
+                                <Briefcase className="w-4 h-4 text-secondary flex-shrink-0" />
+                                <span className="text-foreground/80"><strong className="font-semibold text-foreground/90">Função:</strong> {selectedProject.role}</span>
+                            </div>
+                        )}
+                        {selectedProject.timeline && (
+                            <div className="flex items-center gap-2">
+                                <Calendar className="w-4 h-4 text-secondary flex-shrink-0" />
+                                <span className="text-foreground/80"><strong className="font-semibold text-foreground/90">Período:</strong> {selectedProject.timeline}</span>
+                            </div>
+                        )}
+                        {selectedProject.methodology && (
+                            <div className="flex items-center gap-2">
+                                <ClipboardList className="w-4 h-4 text-secondary flex-shrink-0" />
+                                <span className="text-foreground/80"><strong className="font-semibold text-foreground/90">Metodologia:</strong> {selectedProject.methodology}</span>
+                            </div>
+                        )}
+                    </div>
+                  )}
                 </div>
                 {selectedProject.logo && (
                   <img src={selectedProject.logo} alt={`${selectedProject.title} Logo`} className="h-24 w-24 rounded-full object-cover flex-shrink-0 mx-auto sm:mx-0 shadow-lg" />
