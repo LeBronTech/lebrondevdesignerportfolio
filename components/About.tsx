@@ -30,16 +30,16 @@ const About: React.FC = () => {
           </div>
           <div className="lg:col-span-3 text-left" data-aos="fade-left" data-aos-delay="200">
             <h2 className="text-3xl lg:text-4xl font-bold font-secondary mb-2">Leandro José (LeBron)</h2>
-            <p className="font-primary uppercase tracking-widest text-sm gradient-title-animation mb-6">Designer e Programador</p>
+            <p className="font-primary uppercase tracking-widest text-sm gradient-title-animation mb-6"><span className="font-bold">Designer UI/UX</span> e Programador Full-Stack</p>
             <p className="text-foreground/80 mb-6 leading-relaxed">
-              Olá! Sou Leandro José (criador da <span className="font-bold">LeBron Design</span>), designer e programador com 2 anos de experiência, focado em transformar ideias em soluções digitais que geram credibilidade e vendas. Minha atuação é especializada em:
+              Olá! Sou Leandro José, <span className="font-bold text-foreground">Designer UI/UX</span> e Programador Full-Stack com 2 anos na área, especializado no ecossistemas <span className="font-bold text-foreground">JavaScript</span>, usando principalmente da metodologia <span className="font-bold text-foreground">Scrum</span>, focado em transformar ideias em soluções digitais que geram credibilidade e vendas. Minha atuação é especializada em:
             </p>
             <ul className="text-foreground/80 list-none space-y-3 mb-6">
               <li><span className="text-secondary font-bold">💻 Web & Apps de Alto Impacto:</span> Desenvolvimento de Websites Institucionais, Landing Pages, E-commerces e Aplicativos Mobile. Seu projeto com código limpo e foco total na funcionalidade.</li>
               <li><span className="text-secondary font-bold">🖌️ Branding e Design Estratégico:</span> Criação de Identidade Visual completa (Logotipo e Manual de Marca) e material profissional para Marketing Online.</li>
             </ul>
             <p className="text-foreground/80 mb-8 leading-relaxed">
-              Se você busca um profissional que entrega um projeto completo, do design à programação, e com o compromisso de crescimento do seu negócio, me envie uma solicitação. Vamos construir a presença digital que sua marca realmente merece.
+              Se você busca um profissional que une o Design (UI/UX) estratégico à execução técnica Full-Stack, entregando um projeto completo e com o compromisso de crescimento do seu negócio, me envie uma solicitação. Vamos construir a presença digital que sua marca realmente merece.
             </p>
             <div className="mt-8">
               <h3 className="font-primary uppercase tracking-widest text-sm gradient-title-animation text-center mb-4">

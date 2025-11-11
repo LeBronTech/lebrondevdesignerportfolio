@@ -53,9 +53,9 @@ export const tools = {
     { name: 'Next.js', icon: 'https://i.postimg.cc/v8p7YcKN/nextjs-icon.png' },
     { name: 'Python', icon: 'https://i.postimg.cc/s2v1GJQN/pngaaa-com-619137.png' },
     { name: 'Flutter', icon: 'https://i.postimg.cc/brK94JXq/pngwing-com.png' },
+    { name: 'Android Studio', icon: 'https://i.postimg.cc/c4XMw04P/Android-Studio-icon-svg.png' },
     { name: 'WordPress', icon: 'https://i.postimg.cc/GmQTdCvb/word500.png' },
     { name: 'VSCode', icon: 'https://i.postimg.cc/QdbKh31z/vscode500.png' },
-    { name: 'Android Studio', icon: 'https://i.postimg.cc/c4XMw04P/Android-Studio-icon-svg.png' },
   ],
 };
 
@@ -72,7 +72,7 @@ export const portfolio = [
     ],
     description: 'Website focado na Igreja Católica, desenvolvido para a comunidade Corações Sagrados. Apresenta um design sereno e inspirador, com seções dedicadas a novenas e à história dos santos, fortalecendo a conexão entre os membros.',
     tools: ['React', 'Next.js', 'Node.js'],
-    liveUrl: null,
+    liveUrl: 'https://lebrontech.github.io/Novenascoracoessagrados/#apresentacao_ns',
     logo: 'https://iili.io/KbAVxzG.jpg',
     detailedContent: [
       { image: 'https://iili.io/KbAVqJt.png', description: 'Visualização inicial do site, focado na Igreja Católica, com acesso a novenas, histórias de santos e informações de contato para a comunidade.' },
