@@ -47,6 +47,7 @@ export const tools = {
     { name: 'HTML', icon: 'https://i.postimg.cc/pXMmp8Bv/1024x1024-logo-2582748-1280.png' },
     { name: 'CSS', icon: 'https://i.postimg.cc/sXvtdwHX/1024x1024-logo-2582747-960-720.png' },
     { name: 'JavaScript', icon: 'https://i.postimg.cc/g2rNbHcn/1761770699957.png' },
+    { name: 'TypeScript', icon: 'https://iili.io/Kpz8mIp.png' },
     { name: 'React', icon: 'https://i.postimg.cc/g00TPxwS/toppng-com-react-native-svg-transformer-allows-you-import-svg-aperture-science-innovators-logo-986x1.png' },
     { name: 'Angular', icon: 'https://iili.io/KbAcdas.png' },
     { name: 'Node.js', icon: 'https://i.postimg.cc/gkh37mNQ/1761417804462.png' },
@@ -214,6 +215,7 @@ export const skills = {
   "Desenvolvimento": [
     { name: 'HTML & CSS', level: 95 },
     { name: 'JavaScript', level: 85 },
+    { name: 'TypeScript', level: 80 },
     { name: 'React / Next.js', level: 80 },
     { name: 'Angular', level: 70 },
     { name: 'Flutter', level: 75 },
