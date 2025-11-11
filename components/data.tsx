@@ -118,7 +118,19 @@ export const portfolio = [
       { image: 'https://iili.io/KbnLDJf.png', description: 'Mapa interativo mostrando os principais pontos turísticos de Brasília que inspiram os souvenirs, além de informações de contato e localização.' }
     ]
   },
-  { id: 4, category: 'Apps', title: 'Têca Estoque', images: ['https://i.postimg.cc/8cHTRVxf/1761768850618.jpg', 'https://i.postimg.cc/02kk8bJK/1761768459633.png', 'https://i.postimg.cc/vZcjkfR4/1762430295149.jpg', 'https://i.postimg.cc/MZbZ2yXR/1761769035345.jpg', 'https://i.postimg.cc/bYHYcQdq/1761769176769.jpg', 'https://i.postimg.cc/44b4kznV/1761769244222.jpg', 'https://i.postimg.cc/Mpv4NVkH/1762429896102.jpg', 'https://i.postimg.cc/htfw6TFf/1762430466573.jpg', 'https://i.postimg.cc/VL7pK4hY/1762430613369.jpg'], description: 'Um catálogo completo e gerenciador de estoque desenvolvido para as lojas de almofadas Têca Decoração e Ione Lourenço Decor, centralizando o controle de produtos e otimizando a gestão.', tools: ['Flutter', 'React', 'Figma', 'Android Studio'], liveUrl: 'https://tecalojas.vercel.app/', behanceUrl: null, logo: 'https://i.postimg.cc/PvWWC5rM/Logos-lojas-Teca-2025-20251027-233927-0000.png',
+  { 
+    id: 4, 
+    category: 'Apps', 
+    title: 'Têca Estoque', 
+    images: ['https://i.postimg.cc/8cHTRVxf/1761768850618.jpg', 'https://i.postimg.cc/02kk8bJK/1761768459633.png', 'https://i.postimg.cc/vZcjkfR4/1762430295149.jpg', 'https://i.postimg.cc/MZbZ2yXR/1761769035345.jpg', 'https://i.postimg.cc/bYHYcQdq/1761769176769.jpg', 'https://i.postimg.cc/44b4kznV/1761769244222.jpg', 'https://i.postimg.cc/Mpv4NVkH/1762429896102.jpg', 'https://i.postimg.cc/htfw6TFf/1762430466573.jpg', 'https://i.postimg.cc/VL7pK4hY/1762430613369.jpg'], 
+    description: 'Atuei como o principal responsável por arquitetar e desenvolver uma plataforma digital integrada para a loja de decorações Ionedecor. Minha responsabilidade foi unificar os canais de venda (E-commerce, Aplicativo Mobile e PDV Físico) para permitir uma gestão centralizada. O projeto incluiu o desenvolvimento do E-commerce (Next.js/React) otimizado para SEO, um aplicativo nativo (Flutter) para iOS e Android, e o sistema de Ponto de Venda (PDV) para a loja física. Criei também a API Backend (Node.js) para controlar o inventário, pedidos e dados de clientes de forma unificada em todas as frentes.', 
+    tools: ['Next.js', 'React', 'TypeScript', 'Flutter', 'Node.js', 'Figma', 'Illustrator'], 
+    liveUrl: 'https://tecalojas.vercel.app/', 
+    behanceUrl: null, 
+    logo: 'https://i.postimg.cc/PvWWC5rM/Logos-lojas-Teca-2025-20251027-233927-0000.png',
+    role: 'Engenheiro de Software Full Stack',
+    timeline: 'jun. de 2025 – Atual',
+    methodology: 'Scrum (princípios ágeis)',
     detailedContent: [
         { image: 'https://i.postimg.cc/8cHTRVxf/1761768850618.jpg', description: 'Visualização do catálogo de produtos, permitindo uma navegação fácil e intuitiva entre as diferentes categorias de almofadas.' },
         { image: 'https://i.postimg.cc/02kk8bJK/1761768459633.png', description: 'A tela inicial do app, chamada de "Vitrine", apresenta os produtos em destaque e as principais categorias, oferecendo uma experiência de navegação convidativa e visual.' },
