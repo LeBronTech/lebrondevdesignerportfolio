@@ -72,7 +72,7 @@ export const portfolio = [
       'https://iili.io/KbAVnbs.png',
     ],
     description: 'Website focado na Igreja Católica, desenvolvido para a comunidade Corações Sagrados. Apresenta um design sereno e inspirador, com seções dedicadas a novenas e à história dos santos, fortalecendo a conexão entre os membros.',
-    tools: ['React', 'Next.js', 'Node.js'],
+    tools: ['React', 'Next.js', 'Node.js', 'TypeScript'],
     liveUrl: 'https://lebrontech.github.io/Novenascoracoessagrados/#apresentacao_ns',
     logo: 'https://iili.io/KbAVxzG.jpg',
     detailedContent: [
