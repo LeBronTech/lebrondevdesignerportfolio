@@ -1,4 +1,5 @@
-import { Instagram, Github } from 'lucide-react';
+
+import { Instagram, Github, Linkedin } from 'lucide-react';
 
 export const navLinks = [
   { name: 'Home', path: '#home' },
@@ -12,7 +13,7 @@ export const navLinks = [
 export const socials = [
   { name: 'Behance', url: 'https://www.behance.net/lebrondesigner1', icon: 'https://i.postimg.cc/cHJHst0z/beha.png' },
   { name: 'WhatsApp', url: 'https://wa.me/5561984836034?text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20saber%20mais%20sobre%20seus%20servi%C3%A7os', icon: 'https://i.postimg.cc/nhk9pJqZ/whatsapp.png' },
-  { name: 'GetNinjas', url: 'https://www.getninjas.com.br/anuncios/design-e-tecnologia/aplicativos-para-celular-e-redes-sociais/design-e-tecnologia-lebrondev-designer?ref=internal', icon: 'https://i.postimg.cc/XNZKCVp6/Design-sem-nome-1.png' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/leandro-josé-455389398/', icon: Linkedin },
   { name: 'Instagram', url: 'https://www.instagram.com/lebrondesign?igsh=bjJpNDV0cDRoeTh5', icon: Instagram },
   { name: 'GitHub', url: 'https://github.com/LeBronTech', icon: Github },
 ];
@@ -44,18 +45,18 @@ export const tools = {
     { name: 'Figma', icon: 'https://i.postimg.cc/t4H4sM9R/figma500.png' },
   ],
   "Desenvolvimento": [
+    { name: 'TypeScript', icon: 'https://iili.io/Kpz8mIp.png' },
     { name: 'HTML', icon: 'https://i.postimg.cc/pXMmp8Bv/1024x1024-logo-2582748-1280.png' },
     { name: 'CSS', icon: 'https://i.postimg.cc/sXvtdwHX/1024x1024-logo-2582747-960-720.png' },
     { name: 'JavaScript', icon: 'https://i.postimg.cc/g2rNbHcn/1761770699957.png' },
-    { name: 'Bootstrap', icon: 'https://iili.io/KpTVxrQ.png' },
-    { name: 'TypeScript', icon: 'https://iili.io/Kpz8mIp.png' },
     { name: 'React', icon: 'https://i.postimg.cc/g00TPxwS/toppng-com-react-native-svg-transformer-allows-you-import-svg-aperture-science-innovators-logo-986x1.png' },
+    { name: 'Next.js', icon: 'https://i.postimg.cc/v8p7YcKN/nextjs-icon.png' },
     { name: 'Angular', icon: 'https://iili.io/KbAcdas.png' },
     { name: 'Node.js', icon: 'https://i.postimg.cc/gkh37mNQ/1761417804462.png' },
-    { name: 'Next.js', icon: 'https://i.postimg.cc/v8p7YcKN/nextjs-icon.png' },
     { name: 'Python', icon: 'https://i.postimg.cc/s2v1GJQN/pngaaa-com-619137.png' },
     { name: 'Flutter', icon: 'https://i.postimg.cc/brK94JXq/pngwing-com.png' },
     { name: 'Android Studio', icon: 'https://i.postimg.cc/c4XMw04P/Android-Studio-icon-svg.png' },
+    { name: 'Bootstrap', icon: 'https://iili.io/KpTVxrQ.png' },
     { name: 'WordPress', icon: 'https://i.postimg.cc/GmQTdCvb/word500.png' },
     { name: 'VSCode', icon: 'https://i.postimg.cc/QdbKh31z/vscode500.png' },
   ],
@@ -185,16 +186,19 @@ export const portfolio = [
       'https://iili.io/KDvzcN9.png',
       'https://iili.io/KDvIoJV.png'
     ], 
-    description: 'Identidade visual completa para um pet shop e clínica veterinária, transmitindo cuidado, alegria e profissionalismo.', 
-    tools: ['Illustrator', 'Photoshop'], 
+    description: 'Projeto de identidade visual completo para o petshop Doo & Dou, com o conceito central de "Paixão Profissional", abrangendo desde o briefing e conceituação até a execução técnica e a entrega de um manual de marca detalhado.', 
+    tools: ['Illustrator', 'Photoshop', 'Figma'], 
     liveUrl: null,
     behanceUrl: 'https://www.behance.net/gallery/238148345/Doo-DouPetshop',
+    role: 'Designer de Identidade Visual (Freelance)',
+    timeline: 'out. de 2025',
+    methodology: 'Design Centrado no Usuário',
     detailedContent: [
-      { image: 'https://iili.io/KDvzsDX.png', description: '' },
-      { image: 'https://iili.io/KDvxbyP.png', description: '' },
-      { image: 'https://iili.io/KDvxpu1.png', description: '' },
-      { image: 'https://iili.io/KDvzcN9.png', description: '' },
-      { image: 'https://iili.io/KDvIoJV.png', description: '' }
+      { image: 'https://iili.io/KDvzsDX.png', description: 'O conceito central "Paixão Profissional" guiou a criação do logotipo no Illustrator, resultando em uma marca que transmite cuidado, alegria e profissionalismo.' },
+      { image: 'https://iili.io/KDvxbyP.png', description: 'A paleta de cores e a tipografia foram definidas no Figma para criar um Style Guide coeso, garantindo consistência em todas as comunicações da marca.' },
+      { image: 'https://iili.io/KDvxpu1.png', description: 'O processo incluiu a criação de mockups no Photoshop para visualizar a aplicação da identidade em materiais de papelaria, como cartões de visita.' },
+      { image: 'https://iili.io/KDvzcN9.png', description: 'A versatilidade da marca foi testada em diversos produtos e embalagens, assegurando um visual impactante e alinhado com os valores do petshop.' },
+      { image: 'https://iili.io/KDvIoJV.png', description: 'O projeto foi finalizado com a entrega de um Manual de Marca completo, detalhando todas as diretrizes para o uso correto do logotipo e elementos visuais.' }
     ]
   },
   { 
@@ -223,29 +227,73 @@ export const portfolio = [
   },
 ];
 
-export const skills = {
-  "Design": [
-    { name: 'Photoshop', level: 90 },
-    { name: 'Illustrator', level: 95 },
-    { name: 'Figma', level: 85 },
-    { name: 'Canva', level: 90 },
-    { name: 'Capcut (Edição de Vídeo)', level: 80 },
-  ],
-  "Desenvolvimento": [
-    { name: 'HTML & CSS', level: 95 },
-    { name: 'JavaScript', level: 85 },
-    { name: 'TypeScript', level: 80 },
-    { name: 'React / Next.js', level: 80 },
-    { name: 'Angular', level: 70 },
-    { name: 'Flutter', level: 75 },
-    { name: 'WordPress', level: 90 },
-  ],
+// NOVOS DADOS DO CURRÍCULO
+
+export const experience = [
+  {
+    role: "Empreendedor | Desenvolvedor Full-Stack e Designer UI/UX",
+    company: "LeBronDev-Designer (Autônomo)",
+    period: "mar. de 2022 – o momento",
+    description: "Criador e microempreendedor de uma marca de programação e design gráfico, gerenciando projetos de ponta-a-ponta, desde o briefing com o cliente até a entrega final do software e design."
+  },
+  {
+    role: "Engenheiro de Software (Freelance)",
+    company: "Projeto: lonedecor",
+    period: "jun. de 2025 – nov. de 2025 (6 meses)",
+    description: "Plataforma de Vendas Omni-channel (E-commerce, App e PDV Físico). Criei uma plataforma digital integrada para uma loja de decorações, unificando os canais de venda online, mobile e físico para uma gestão centralizada. Inclui Web E-commerce (Next.js/React), App Mobile (Flutter), Sistema PDV e API Backend (Node.js)."
+  },
+  {
+    role: "Designer de Identidade Visual (Freelance)",
+    company: "Projeto: Doo & Dou Petshop",
+    period: "out. de 2025 (1 mês)",
+    description: "Conceito Central: 'Paixão Profissional'. Conduzi o projeto desde o Briefing até a Conceituação e Execução Técnica. Entrega com Manual de Marca completo e Style Guide."
+  },
+  {
+    role: "Especialista em Rede de Computadores",
+    company: "7Tech",
+    period: "out. de 2024 – out. de 2025 (1 ano e 1 mês)",
+    description: "Técnico de Infraestrutura e Redes (Projeto/Contrato). Atendimento a clientes como McDonald's e Postos Shell. Instalação e manutenção de infraestrutura de rede local, cabeamento estruturado (Cisco), CFTV (Intelbras) e suporte a servidores."
+  },
+  {
+    role: "Estagiário de TI",
+    company: "Única Kids",
+    period: "18 de mar. de 2024 – 18 de nov. de 2024 (6 meses)",
+    description: "Suporte técnico a usuários e hardware. Manutenção de sistemas e redes. Instalação e configuração de softwares."
+  }
+];
+
+export const technicalSkills = {
+  "Frontend": ["React.js", "Next.js", "Angular", "HTML5", "CSS3", "JavaScript (ES6+)", "Python"],
+  "Backend": ["Node.js", "Firebase"],
+  "Mobile": ["Flutter", "React Native"],
+  "Metodologias": ["Scrum", "Kanban", "Metodologias Ágeis"],
+  "Design & UI/UX": ["Figma", "Adobe Illustrator", "Adobe Photoshop", "Canva", "UI/UX Design", "Identidade Visual"],
+  "DevOps": ["Git", "GitHub", "Docker", "Linux", "Apache"],
+  "Infraestrutura & Redes": ["Protocolo Cisco", "Roteadores/Switches", "Suporte a Servidores", "Cabeamento", "CFTV (Intelbras)"],
+  "Cloud & IA": ["Microsoft Azure (Fundamentals, Security)", "Conceitos de IA"],
+  "CMS & Frameworks": ["WordPress", "Vue.js", "Bootstrap"]
 };
 
 export const education = [
-  { title: 'Análise e Desenvolvimento de Sistemas', institution: 'Universidade Estácio de Sá', year: '2023 - Cursando' },
-  { title: 'Certificação em Design Gráfico', institution: 'Udemy', year: '2022' },
-  { title: 'Certificação em Desenvolvimento Web Full Stack', institution: 'Codecademy', year: '2023' },
+  { 
+    title: 'Análise e Desenvolvimento de Sistemas', 
+    institution: 'Cruzeiro do Sul Virtual', 
+    year: 'Cursando',
+    skills: ['Frontend: HTML, CSS, JS, React, Next.js', 'Backend: Node.js, PHP, Python', 'Mobile: Flutter, React Native', 'Metodologias Ágeis']
+  }
+];
+
+export const certifications = [
+  { name: "Microsoft Certified: Azure Fundamentals", issuer: "Microsoft" },
+  { name: "Cisco Certified Network Associate (CCNA)", issuer: "Cisco" }
+];
+
+export const softSkills = [
+  { title: "Liderança e Mentoria", desc: "Experiência coordenando equipes e mentorando +30 estudantes de programação e design." },
+  { title: "Pensamento Analítico", desc: "Otimização de processos e análise de dados para tomada de decisão estratégica." },
+  { title: "Comunicação Eficaz", desc: "Habilidade em apresentar projetos técnicos e conceitos de design de forma clara." },
+  { title: "Adaptabilidade", desc: "Transição eficiente entre diferentes tecnologias e contextos de projeto (autônomo, freelancer, PJ)." },
+  { title: "Foco em Resultados", desc: "Histórico de entrega de projetos com impacto mensurável, seguindo metodologias ágeis (Scrum)." }
 ];
 
 export const testimonials = [

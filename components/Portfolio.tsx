@@ -39,14 +39,21 @@ const ProjectCard = ({
 }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
+    // Optimization: Only load secondary images if user interacts
+    const [hasInteracted, setHasInteracted] = useState(false);
 
     const getToolIcon = (toolName: string) => {
         const tool = allTools.find(t => t.name.toLowerCase() === toolName.toLowerCase());
         return tool ? tool.icon : '';
     };
 
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+        setHasInteracted(true);
+    };
+
     useEffect(() => {
-        if (project.images.length <= 1 || isHovered || isPreview) {
+        if (project.images.length <= 1 || !isHovered || isPreview) {
             return;
         };
 
@@ -64,7 +71,7 @@ const ProjectCard = ({
     return (
         <div
             className="group relative rounded-lg overflow-hidden cursor-pointer shadow-lg h-72"
-            onMouseEnter={() => setIsHovered(true)}
+            onMouseEnter={handleMouseEnter}
             onMouseLeave={() => setIsHovered(false)}
             onClick={onTogglePreview}
             role="button"
@@ -72,43 +79,54 @@ const ProjectCard = ({
             aria-label={`View details for ${project.title}`}
         >
             {/* Image Carousel with Fade Transition */}
-            {project.images.map((image, index) => (
-                <img 
-                    key={image}
-                    src={image} 
-                    alt={project.title} 
-                    className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-700 ease-in-out group-hover:scale-110 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
-                />
-            ))}
+            {project.images.map((image, index) => {
+                // PERFORMANCE OPTIMIZATION:
+                // Only render the first image initially. 
+                // Render others only if hovered/interacted to save bandwidth.
+                if (index !== 0 && !hasInteracted && !isPreview) return null;
+
+                return (
+                    <img 
+                        key={image}
+                        src={image} 
+                        alt={project.title}
+                        loading="lazy" 
+                        decoding="async"
+                        className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-700 ease-in-out group-hover:scale-110 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
+                    />
+                );
+            })}
 
             {/* Persistent Info Bar */}
             <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-10 flex justify-between items-end">
                  <div>
-                    <h3 className="text-lg font-bold text-white truncate">{project.title}</h3>
+                    <h3 className="text-lg font-bold text-white truncate drop-shadow-md">{project.title}</h3>
                     <div className="flex gap-2 mt-1">
                         {project.tools.slice(0, 4).map(tool => (
-                        <img key={tool} src={getToolIcon(tool)} alt={tool} className="w-5 h-5 object-contain"/>
+                        <img key={tool} src={getToolIcon(tool)} alt={tool} loading="lazy" className="w-5 h-5 object-contain bg-white/10 rounded-sm p-0.5 backdrop-blur-sm"/>
                         ))}
                     </div>
                  </div>
-                 <span className="bg-primary/80 backdrop-blur-sm text-primary-foreground text-xs font-semibold py-1 px-2.5 rounded-full whitespace-nowrap">
+                 <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground text-xs font-semibold py-1 px-2.5 rounded-full whitespace-nowrap shadow-sm">
                     {project.category}
                  </span>
             </div>
 
             {/* Preview Overlay (controlled by parent) */}
-            <div className={`absolute inset-0 bg-card/90 p-4 flex flex-col justify-center items-center text-center transition-opacity duration-300 z-20 ${isPreview ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                <h3 className="text-xl font-bold text-primary">{project.title}</h3>
-                 <div className="flex gap-2 my-2">
-                    {project.tools.slice(0, 3).map(tool => (
-                      <img key={tool} src={getToolIcon(tool)} alt={tool} className="w-6 h-6 object-contain"/>
+            <div className={`absolute inset-0 bg-card/95 p-4 flex flex-col justify-center items-center text-center transition-opacity duration-300 z-20 ${isPreview ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                <h3 className="text-xl font-bold text-primary mb-2">{project.title}</h3>
+                 <div className="flex gap-3 mb-4 flex-wrap justify-center">
+                    {project.tools.map(tool => (
+                      <div key={tool} className="bg-background/50 p-1.5 rounded-md" title={tool}>
+                        <img src={getToolIcon(tool)} alt={tool} className="w-6 h-6 object-contain"/>
+                      </div>
                     ))}
                   </div>
                 <button
                     onClick={handleDetailsClick}
-                    className="mt-2 text-sm font-semibold py-2 px-4 bg-primary text-primary-foreground rounded-full hover:bg-secondary transition-colors"
+                    className="mt-2 text-sm font-semibold py-2.5 px-6 bg-primary text-primary-foreground rounded-full hover:bg-secondary transition-all transform hover:scale-105 shadow-lg"
                 >
-                    Ver mais detalhes
+                    Ver detalhes completos
                 </button>
             </div>
         </div>
@@ -126,7 +144,7 @@ const LogoCarousel = ({ project }: { project: Project }) => {
     return (
         <div className="flex flex-col items-center">
             {/* Main Image */}
-            <div className="mb-4 rounded-lg overflow-hidden bg-background/20 p-2 w-full max-w-md">
+            <div className="mb-4 rounded-lg overflow-hidden bg-background/20 p-4 w-full max-w-md border border-white/5">
                 <img 
                     src={project.images[currentIndex]} 
                     alt={`${project.title} - view ${currentIndex + 1}`} 
@@ -141,13 +159,14 @@ const LogoCarousel = ({ project }: { project: Project }) => {
                         <button 
                             key={index}
                             onClick={() => setCurrentIndex(index)}
-                            className={`w-20 h-20 rounded-md overflow-hidden border-2 transition-all duration-200 ${currentIndex === index ? 'border-primary scale-105' : 'border-transparent hover:border-primary/50'}`}
+                            className={`w-16 h-16 rounded-md overflow-hidden border-2 transition-all duration-200 ${currentIndex === index ? 'border-primary scale-105 ring-2 ring-primary/30' : 'border-transparent hover:border-primary/50 opacity-70 hover:opacity-100'}`}
                             aria-label={`View image ${index + 1}`}
                         >
                             <img 
                                 src={img} 
                                 alt={`Thumbnail ${index + 1}`} 
                                 className="w-full h-full object-cover"
+                                loading="lazy"
                             />
                         </button>
                     ))}
@@ -207,18 +226,18 @@ const Portfolio: React.FC = () => {
 
   return (
     <>
-      <section id="portfolio" className="pb-20">
-        <div className="container mx-auto px-6 md:px-12">
-          <SectionTitle title="Meu Portfólo" subtitle="Portfólio" />
+      <section id="portfolio" className="pb-20 pt-10">
+        <div className="container mx-auto px-4 md:px-12">
+          <SectionTitle title="Meu Portfólio" subtitle="Projetos Recentes" />
           
-          <div className="flex justify-center flex-wrap gap-4 mb-12" data-aos="fade-up">
+          <div className="flex justify-center flex-wrap gap-3 mb-12" data-aos="fade-up">
             {filters.map(filter => {
               const Icon = filterIcons[filter];
               return (
                 <button
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
-                  className={`flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-300 ${activeFilter === filter ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground hover:bg-primary/80'}`}
+                  className={`flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 shadow-sm ${activeFilter === filter ? 'bg-primary text-primary-foreground transform scale-105' : 'bg-card text-foreground hover:bg-card/80 border border-white/5'}`}
                 >
                   {Icon && <Icon size={16} />}
                   <span>{filter}</span>
@@ -227,7 +246,7 @@ const Portfolio: React.FC = () => {
             })}
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {filteredPortfolio.map((project, index) => (
               <div key={project.id} data-aos="fade-up" data-aos-delay={index * 50}>
                 <ProjectCard 
@@ -244,69 +263,87 @@ const Portfolio: React.FC = () => {
 
       {/* Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 modal-backdrop-animate" onClick={closeModal}>
-          <div className="bg-card rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto modal-content-animate" onClick={e => e.stopPropagation()}>
-            <div className="p-6 md:p-8 relative">
-              <button onClick={closeModal} className="absolute top-4 right-4 text-foreground/70 hover:text-primary z-50 bg-card/50 rounded-full p-1">
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 sm:p-6 modal-backdrop-animate backdrop-blur-sm" onClick={closeModal}>
+          <div className="bg-card rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto modal-content-animate border border-white/10 shadow-2xl" onClick={e => e.stopPropagation()}>
+            <div className="p-6 md:p-10 relative">
+              <button onClick={closeModal} className="absolute top-4 right-4 text-foreground/70 hover:text-primary z-50 bg-background/50 hover:bg-background rounded-full p-2 transition-colors">
                 <X size={24} />
               </button>
               
               {/* Header */}
-              <div className="flex flex-col sm:flex-row justify-between items-start gap-6 mb-8 text-center sm:text-left">
-                <div>
-                  <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-2">{selectedProject.title}</h2>
-                  <p className="text-foreground/80 max-w-2xl leading-relaxed">{selectedProject.description}</p>
+              <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-10">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-3">
+                     <span className="bg-primary/20 text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">{selectedProject.category}</span>
+                  </div>
+                  <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">{selectedProject.title}</h2>
+                  <p className="text-gray-300 leading-relaxed text-lg">{selectedProject.description}</p>
                    {(selectedProject.role || selectedProject.timeline || selectedProject.methodology) && (
-                    <div className="mt-4 flex flex-col sm:flex-row sm:flex-wrap items-start text-left gap-x-6 gap-y-2 text-sm">
+                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm bg-background/30 p-4 rounded-xl border border-white/5">
                         {selectedProject.role && (
-                            <div className="flex items-center gap-2">
-                                <Briefcase className="w-4 h-4 text-secondary flex-shrink-0" />
-                                <span className="text-foreground/80"><strong className="font-semibold text-foreground/90">Função:</strong> {selectedProject.role}</span>
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-secondary/10 rounded-lg text-secondary"><Briefcase size={18} /></div>
+                                <div className="flex flex-col">
+                                    <span className="text-xs text-gray-400 font-semibold uppercase">Função</span>
+                                    <span className="text-gray-200">{selectedProject.role}</span>
+                                </div>
                             </div>
                         )}
                         {selectedProject.timeline && (
-                            <div className="flex items-center gap-2">
-                                <Calendar className="w-4 h-4 text-secondary flex-shrink-0" />
-                                <span className="text-foreground/80"><strong className="font-semibold text-foreground/90">Período:</strong> {selectedProject.timeline}</span>
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-secondary/10 rounded-lg text-secondary"><Calendar size={18} /></div>
+                                <div className="flex flex-col">
+                                    <span className="text-xs text-gray-400 font-semibold uppercase">Período</span>
+                                    <span className="text-gray-200">{selectedProject.timeline}</span>
+                                </div>
                             </div>
                         )}
                         {selectedProject.methodology && (
-                            <div className="flex items-center gap-2">
-                                <ClipboardList className="w-4 h-4 text-secondary flex-shrink-0" />
-                                <span className="text-foreground/80"><strong className="font-semibold text-foreground/90">Metodologia:</strong> {selectedProject.methodology}</span>
+                            <div className="flex items-center gap-3 sm:col-span-2">
+                                <div className="p-2 bg-secondary/10 rounded-lg text-secondary"><ClipboardList size={18} /></div>
+                                <div className="flex flex-col">
+                                    <span className="text-xs text-gray-400 font-semibold uppercase">Metodologia</span>
+                                    <span className="text-gray-200">{selectedProject.methodology}</span>
+                                </div>
                             </div>
                         )}
                     </div>
                   )}
                 </div>
                 {selectedProject.logo && (
-                  <img src={selectedProject.logo} alt={`${selectedProject.title} Logo`} className="h-24 w-24 rounded-full object-cover flex-shrink-0 mx-auto sm:mx-0 shadow-lg" />
+                  <div className="flex-shrink-0 mx-auto lg:mx-0">
+                    <img src={selectedProject.logo} alt={`${selectedProject.title} Logo`} className="h-32 w-32 rounded-full object-cover shadow-2xl border-4 border-card bg-white" />
+                  </div>
                 )}
               </div>
               
               {/* Tools */}
-               <div className="mb-12">
-                  <h3 className="font-semibold text-center text-xl mb-6 gradient-title-animation">Ferramentas Usadas</h3>
-                  <div className="flex flex-wrap gap-4 justify-center">
+               <div className="mb-12 border-t border-white/10 pt-8">
+                  <h3 className="font-semibold text-lg mb-6 flex items-center gap-2">
+                    <span className="w-1 h-6 bg-secondary rounded-full"></span>
+                    Tecnologias Utilizadas
+                  </h3>
+                  <div className="flex flex-wrap gap-3">
                     {selectedProject.tools.map(tool => (
-                      <div key={tool} className="flex items-center gap-2 bg-background p-2 rounded-md">
-                         <img src={getToolIcon(tool)} alt={tool} className="w-6 h-6"/>
-                         <span className="text-sm">{tool}</span>
+                      <div key={tool} className="flex items-center gap-2 bg-background/50 border border-white/5 px-4 py-2 rounded-lg hover:border-primary/50 transition-colors">
+                         <img src={getToolIcon(tool)} alt={tool} loading="lazy" className="w-5 h-5 object-contain"/>
+                         <span className="text-sm font-medium text-gray-300">{tool}</span>
                       </div>
                     ))}
                   </div>
               </div>
 
               {(selectedProject.liveUrl || selectedProject.behanceUrl) && (
-                <div className="flex flex-col sm:flex-row justify-center sm:justify-end items-center gap-4 mb-12">
+                <div className="flex flex-col sm:flex-row gap-4 mb-12">
                   {selectedProject.liveUrl && (
-                    <a href={selectedProject.liveUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold py-2 px-6 rounded-lg hover:bg-secondary transition-colors w-full sm:w-auto">
+                    <a href={selectedProject.liveUrl} target="_blank" rel="noreferrer" className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold py-3 px-8 rounded-xl hover:bg-secondary transition-all transform hover:-translate-y-1 shadow-lg shadow-primary/20">
+                      <Globe size={20} />
                       Ver projeto ao vivo
                     </a>
                   )}
                   {selectedProject.behanceUrl && (
-                    <a href={selectedProject.behanceUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 bg-card text-foreground font-bold py-2 px-6 rounded-lg hover:bg-primary/80 border border-primary/50 w-full sm:w-auto">
-                       <img src="https://i.postimg.cc/cHJHst0z/beha.png" alt="Behance" className="w-5 h-5" />
+                    <a href={selectedProject.behanceUrl} target="_blank" rel="noreferrer" className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-[#1769ff] text-white font-bold py-3 px-8 rounded-xl hover:bg-[#1769ff]/80 transition-all transform hover:-translate-y-1 shadow-lg shadow-blue-500/20">
+                       <img src="https://i.postimg.cc/cHJHst0z/beha.png" alt="Behance" className="w-5 h-5 invert brightness-0" />
                       Ver no Behance
                     </a>
                   )}
@@ -314,65 +351,55 @@ const Portfolio: React.FC = () => {
               )}
 
              {/* Detailed Content */}
+             <div className="space-y-12">
               {selectedProject.category === 'Identidade Visual' && selectedProject.detailedContent ? (
-                <div className="flex flex-col">
+                <div className="grid gap-6">
                   {selectedProject.detailedContent.map((item, index) => (
                       <img 
                           key={index}
                           src={item.image} 
-                          alt={`Detalhe ${index + 1} do projeto ${selectedProject.title}`} 
-                          className="w-full h-auto"
+                          alt={`Detalhe ${index + 1}`} 
+                          loading="lazy"
+                          className="w-full h-auto rounded-lg shadow-lg"
                       />
                   ))}
                 </div>
               ) : selectedProject.category === 'Logos' ? (
                 <LogoCarousel project={selectedProject} />
               ) : (
-                <div className="flex flex-col items-center gap-y-16 md:gap-y-24">
+                <div className="flex flex-col gap-y-16">
                   {(selectedProject.detailedContent || [{ image: selectedProject.images[0], description: '' }]).map((item, index, arr) => (
-                    <div key={index} className="relative w-full max-w-3xl mx-auto">
-                      
-                      {/* The wave connector passing behind - hidden on mobile */}
-                      {index < arr.length - 1 && (
-                        <div className="hidden md:block absolute top-1/2 left-0 w-full h-[150%] z-0">
-                          <svg className="w-full h-full" viewBox="0 0 200 300" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path 
-                              d={index % 2 === 0 
-                                ? "M 50 100 C 150 150, 50 200, 150 250" // Left to Right
-                                : "M 150 100 C 50 150, 150 200, 50 250" // Right to Left
-                              } 
-                              className="stroke-primary/30" 
-                              strokeWidth="2"
+                    <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center`}>
+                        
+                        <div className="w-full lg:w-1/2 group">
+                          <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-white/5 bg-background">
+                            <img 
+                                src={item.image} 
+                                alt={`Detalhe ${index + 1}`} 
+                                loading="lazy"
+                                className="w-full h-auto transform transition-transform duration-700 group-hover:scale-105" 
                             />
-                          </svg>
-                        </div>
-                      )}
-
-                      <div className={`relative z-10 flex flex-col md:items-center md:justify-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                        {/* Image container with z-index to be on top */}
-                        <div className="relative z-20 w-full md:w-[45%] flex-shrink-0">
-                          <img 
-                              src={item.image} 
-                              alt={`Detalhe ${index + 1} do projeto ${selectedProject.title}`} 
-                              className="rounded-2xl shadow-xl shadow-primary/30 w-full max-w-[260px] mx-auto" 
-                          />
+                          </div>
                         </div>
 
-                        {/* Text container with block shape, overlapping the image */}
-                        <div className={`relative w-full mt-[-2rem] md:mt-0 md:w-[55%] flex-shrink-0 bg-primary rounded-2xl flex items-center p-8 text-center md:text-left ${index % 2 === 0 ? 'md:-ml-40 md:pl-48 md:pr-8' : 'md:-mr-40 md:pr-48 md:pl-8'}`}>
-                            <p className="text-primary-foreground/90 leading-relaxed">{item.description}</p>
+                        <div className="w-full lg:w-1/2">
+                             <div className="flex items-start gap-4">
+                                <span className="text-6xl font-bold text-white/5 -mt-4 font-secondary">{String(index + 1).padStart(2, '0')}</span>
+                                <p className="text-gray-300 leading-relaxed text-lg pt-2 border-l-2 border-primary/30 pl-6">{item.description}</p>
+                             </div>
                         </div>
-                      </div>
                     </div>
                   ))}
                 </div>
               )}
+             </div>
 
-              <div className="text-center mt-12">
+              <div className="text-center mt-16 pt-8 border-t border-white/5">
                 <button
                   onClick={closeModal}
-                  className="inline-block bg-primary text-primary-foreground font-bold py-3 px-8 rounded-full hover:bg-secondary transition-all duration-300 ease-in-out transform hover:scale-105"
+                  className="inline-flex items-center gap-2 text-gray-400 hover:text-primary transition-colors font-medium"
                 >
+                  <ArrowLeft size={16} />
                   Voltar aos projetos
                 </button>
               </div>

@@ -25,18 +25,24 @@ const Tools: React.FC = () => {
           {Object.entries(tools).map(([category, toolList]) => (
             <div key={category} data-aos="fade-up">
               <h3 className="text-2xl font-secondary font-bold text-center mb-8 gradient-title-animation">{category}</h3>
-              <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex flex-wrap justify-center gap-6">
                 {toolList.map((tool, index) => (
-                  <div key={tool.name} className="flex flex-col items-center" data-aos="icon-entry" data-aos-delay={index * 50}>
+                  <div key={tool.name} className="flex flex-col items-center group" data-aos="icon-entry" data-aos-delay={index * 30}>
                     <button
                       onClick={() => handleToolClick(tool.name)}
-                      className={`w-16 h-16 rounded-lg bg-background flex items-center justify-center transition-all duration-300 transform hover:scale-110 ${activeTool === tool.name ? 'scale-110' : ''}`}
+                      className={`relative w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-background flex items-center justify-center transition-all duration-300 transform group-hover:-translate-y-2 shadow-lg ${activeTool === tool.name ? 'scale-110 ring-2 ring-primary' : 'hover:shadow-primary/20'}`}
                     >
-                      <div className={`w-full h-full p-2.5 rounded-lg transition-all duration-300 ${activeTool === tool.name ? 'bg-gradient-to-br from-primary to-secondary' : ''}`}>
-                         <img src={tool.icon} alt={tool.name} className="w-full h-full object-contain" />
+                      <div className={`w-full h-full p-3 rounded-2xl transition-all duration-300 ${activeTool === tool.name ? 'bg-gradient-to-br from-primary/20 to-secondary/20' : ''}`}>
+                         <img 
+                            src={tool.icon} 
+                            alt={tool.name} 
+                            className="w-full h-full object-contain filter drop-shadow-sm" 
+                            loading="lazy" 
+                            decoding="async" 
+                         />
                       </div>
                     </button>
-                    <span className={`mt-2 text-sm transition-opacity duration-300 ${activeTool === tool.name ? 'opacity-100 text-primary' : 'opacity-0'}`}>
+                    <span className={`mt-3 text-sm font-medium transition-all duration-300 ${activeTool === tool.name ? 'opacity-100 text-primary translate-y-0' : 'opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 text-gray-400'}`}>
                       {tool.name}
                     </span>
                   </div>

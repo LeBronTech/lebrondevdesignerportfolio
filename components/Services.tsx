@@ -15,7 +15,13 @@ const Services: React.FC = () => {
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
-              <img src={service.image} alt={service.title} className="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110" />
+              <img 
+                src={service.image} 
+                alt={service.title} 
+                loading="lazy" 
+                decoding="async"
+                className="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110" 
+              />
               <div className="absolute inset-0 bg-black/40"></div>
               <div className="title-overlay absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-300 group-hover:opacity-0">
                 <h3 className="text-2xl font-bold text-white">{service.title}</h3>
