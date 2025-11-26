@@ -10,7 +10,7 @@ const Tools: React.FC = () => {
   };
 
   return (
-    <section id="tools" className="bg-card">
+    <section id="tools" className="bg-card relative overflow-hidden">
       <div className="shape-divider-top">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 70" preserveAspectRatio="none">
             <path d="M0,0 L1200,0 L1200,30 C800,70 400,70 0,30 Z" className="shape-fill"></path>

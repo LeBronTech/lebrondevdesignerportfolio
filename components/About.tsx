@@ -12,23 +12,23 @@ const About: React.FC = () => {
   };
 
   return (
-    <section id="about" className="bg-about-bg">
+    <section id="about" className="bg-about-bg relative overflow-hidden">
       <div className="shape-divider-top">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 70" preserveAspectRatio="none">
             <path d="M0,0 L1200,0 L1200,30 C800,70 400,70 0,30 Z" className="shape-fill"></path>
         </svg>
       </div>
-      <div className="container mx-auto px-6 md:px-12 pb-16">
+      <div className="container mx-auto px-6 md:px-12 pb-16 pt-10">
         <SectionTitle title="Sobre Mim" subtitle="Minha Jornada" />
         <div className="grid lg:grid-cols-5 gap-12 items-center">
-          <div className="lg:col-span-2" data-aos="fade-right">
+          <div className="lg:col-span-2" data-aos="fade-up" data-aos-offset="300">
             <img 
               src="https://i.postimg.cc/P54vTj1n/soueu.webp" 
               alt="Leandro José" 
               className="rounded-lg shadow-2xl w-full mx-auto lg:max-w-sm"
             />
           </div>
-          <div className="lg:col-span-3 text-left" data-aos="fade-left" data-aos-delay="200">
+          <div className="lg:col-span-3 text-left" data-aos="fade-up" data-aos-delay="200" data-aos-offset="300">
             <h2 className="text-3xl lg:text-4xl font-bold font-secondary mb-2">Leandro José (LeBron)</h2>
             <p className="font-primary uppercase tracking-widest text-sm gradient-title-animation mb-6"><span className="font-bold">Designer UI/UX</span> e Programador Full-Stack</p>
             <p className="text-foreground/80 mb-6 leading-relaxed">

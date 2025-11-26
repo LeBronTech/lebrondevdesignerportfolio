@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/Lebron.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <title>Lebr{o}n | Designer & Programador</title>
 
     <!-- Google Fonts -->
@@ -55,6 +55,12 @@
         src: url('/fonts/Oxstars.otf') format('opentype');
         font-weight: normal;
         font-style: normal;
+      }
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+        max-width: 100vw;
       }
       body {
         background-color: hsl(222, 24%, 12%);
@@ -115,6 +121,9 @@
         overflow: hidden;
         line-height: 0;
         transform: rotate(180deg);
+        position: absolute;
+        bottom: -1px;
+        left: 0;
       }
       .shape-divider-bottom svg {
         position: relative;
@@ -130,6 +139,9 @@
         width: 100%;
         overflow: hidden;
         line-height: 0;
+        position: absolute;
+        top: -1px;
+        left: 0;
       }
       .shape-divider-top svg {
         position: relative;
