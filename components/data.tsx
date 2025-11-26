@@ -45,7 +45,7 @@ export const tools = {
     { name: 'Figma', icon: 'https://i.postimg.cc/t4H4sM9R/figma500.png' },
   ],
   "Desenvolvimento": [
-    { name: 'TypeScript', icon: 'https://iili.io/KpzoCFV.png' },
+    { name: 'TypeScript', icon: 'https://iili.io/Kpz8mIp.png' },
     { name: 'HTML', icon: 'https://i.postimg.cc/pXMmp8Bv/1024x1024-logo-2582748-1280.png' },
     { name: 'CSS', icon: 'https://i.postimg.cc/sXvtdwHX/1024x1024-logo-2582747-960-720.png' },
     { name: 'JavaScript', icon: 'https://i.postimg.cc/g2rNbHcn/1761770699957.png' },
