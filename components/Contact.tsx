@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
               rel="noreferrer"
               className="flex items-center gap-2 bg-[#25D366] text-white font-bold text-lg py-3 px-8 rounded-full hover:bg-[#128C7E] transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg w-full md:w-auto justify-center"
             >
-              <img src={whatsapp.icon} alt="WhatsApp" className="w-6 h-6 object-contain filter brightness-0 invert" />
+              <img src={whatsapp.icon as string} alt="WhatsApp" className="w-6 h-6 object-contain filter brightness-0 invert" />
               WhatsApp
             </a>
           )}

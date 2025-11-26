@@ -26,7 +26,7 @@ const App: React.FC = () => {
     window.AOS.init({
       duration: 1000,
       once: false, // Alterado para false: animação acontece toda vez que o elemento entra na tela
-      mirror: true, // Adicionado: animação acontece também ao rolar para cima
+      mirror: true, // Adicionado: animação acontece também ao rolar para cima e sair/entrar
       offset: 200, // O elemento precisa entrar 200px na tela antes de animar
       easing: 'ease-out-cubic',
     });
