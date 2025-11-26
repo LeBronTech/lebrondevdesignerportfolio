@@ -18,9 +18,17 @@ declare global {
 
 const App: React.FC = () => {
   useEffect(() => {
+    // Refresh AOS logic to ensure accurate positions
+    setTimeout(() => {
+      window.AOS.refresh();
+    }, 500);
+
     window.AOS.init({
       duration: 1000,
-      once: false,
+      once: true, // Animação acontece apenas uma vez (melhor performance e evita glitches ao subir a tela)
+      offset: 250, // Aumentado: O elemento precisa entrar 250px na tela antes de animar
+      mirror: false,
+      easing: 'ease-out-cubic',
     });
   }, []);
 
