@@ -99,7 +99,7 @@ export const portfolio = [
       'https://iili.io/Kbx98vt.png',
       'https://iili.io/Kbx9o42.png'
     ], 
-    description: 'Logo para uma marca de surfwear, com uma estética vibrante e dinâmica, inspirada nas ondas e na cultura do surfe.', 
+    description: 'LogoLogomarca  para uma marca de surfwear, com uma estética vibrante e dinâmica, inspirada nas ondas e na cultura do surfe.', 
     tools: ['Illustrator', 'Photoshop'], 
     liveUrl: null,
   },
