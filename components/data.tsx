@@ -227,8 +227,6 @@ export const portfolio = [
   },
 ];
 
-// NOVOS DADOS DO CURRÍCULO
-
 export const experience = [
   {
     role: "Empreendedor | Desenvolvedor Full-Stack e Designer UI/UX",

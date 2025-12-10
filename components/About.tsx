@@ -14,6 +14,13 @@ const About: React.FC = () => {
     return <IconComponent {...props} />;
   };
 
+  const handleSocialClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
+    e.preventDefault();
+    setTimeout(() => {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }, 400);
+  };
+
   const resumes = [
     { 
       label: 'Desenvolvedor', 
@@ -128,7 +135,13 @@ const About: React.FC = () => {
               </h3>
               <div className="flex items-center justify-center lg:justify-start gap-4">
                 {socials.map(({ name, url, icon }) => (
-                  <a key={name} href={url} target="_blank" rel="noreferrer" aria-label={name} className="rn-btn w-12 h-12 rounded-lg bg-card flex items-center justify-center border border-white/5 hover:border-primary/50">
+                  <a 
+                    key={name} 
+                    href={url} 
+                    onClick={(e) => handleSocialClick(e, url)}
+                    aria-label={name} 
+                    className="rn-btn w-12 h-12 rounded-lg bg-card flex items-center justify-center border border-white/5 hover:border-primary/50 cursor-pointer"
+                  >
                     {renderIcon(icon, { alt: name, className: 'w-6 h-6 text-primary', size: 24 })}
                   </a>
                 ))}
