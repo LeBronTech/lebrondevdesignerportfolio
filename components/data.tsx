@@ -99,7 +99,7 @@ export const portfolio = [
       'https://iili.io/Kbx98vt.png',
       'https://iili.io/Kbx9o42.png'
     ], 
-    description: 'Criação de logotipo para uma marca de surfwear, desenvolvendo uma identidade visual com estética vibrante e dinâmica, inspirada diretamente no movimento das ondas e na cultura do surfe.', 
+    description: 'Logomarca para uma marca de moda surfwear, incorporando elementos dinâmicos e vibrantes que remetem ao movimento do mar e ao estilo de vida praiano.', 
     tools: ['Illustrator', 'Photoshop'], 
     liveUrl: null,
   },
