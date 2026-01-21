@@ -172,68 +172,180 @@ export const portfolio = [
         { image: 'https://i.postimg.cc/htfw6TFf/1762430466573.jpg', description: 'Geração de QR Codes individuais para cada almofada, agilizando a consulta de informações e a gestão de inventário.' },
         { image: 'https://i.postimg.cc/VL7pK4hY/1762430613369.jpg', description: 'Assistente inteligente com sistema de alertas, que notifica sobre estoque baixo e outras informações importantes para a gestão da loja.' }
     ]
-  }
+  },
+  { 
+    id: 1, 
+    category: 'Websites', 
+    title: 'Restaurante Gusto', 
+    images: [
+      'https://iili.io/KbqqjRt.png',
+      'https://iili.io/KbqqkWG.png',
+      'https://iili.io/KbqqwOX.png',
+      'https://iili.io/Kbqqexs.png',
+      'https://iili.io/KbqBHe1.png',
+      'https://iili.io/KbqBndN.png'
+    ], 
+    description: 'Atuei como o principal responsável pelo projeto de website institucional do restaurante. Minha responsabilidade começou na fase de Design UI/UX, onde desenhei os protótipos e a interface (usando Figma). Após a aprovação do design, desenvolvi o site completo usando HTML5, CSS3, JavaScript e o framework Bootstrap para garantir um design responsivo e moderno (mobile-first). O projeto foi gerido com práticas ágeis (Scrum) e incluiu a criação de um cardápio digital e um sistema de agendamento de reservas online.', 
+    tools: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Figma', 'Illustrator'], 
+    liveUrl: 'https://lebrontech.github.io/Restaurante-Gusto/index.html',
+    logo: 'https://iili.io/KbfPeoJ.png',
+    role: 'Desenvolvedor Frontend & UI/UX Designer',
+    timeline: 'Fev. de 2023 – mar. de 2023',
+    methodology: 'Scrum (princípios ágeis)',
+    detailedContent: [
+      { image: 'https://iili.io/KbqqjRt.png', description: 'Este projeto apresenta um design totalmente responsivo, garantindo uma experiência de usuário perfeita em desktops, tablets e smartphones.' },
+      { image: 'https://iili.io/KbqqkWG.png', description: 'A página inicial foi cuidadosamente projetada para ser convidativa, com uma navegação clara e acesso rápido às principais seções do restaurante.' },
+      { image: 'https://iili.io/KbqqwOX.png', description: 'A seção \'Sobre Nós\' conta a história e a paixão por trás do Gusto, criando uma conexão mais profunda com os clientes.' },
+      { image: 'https://iili.io/Kbqqexs.png', description: 'Uma área dedicada para apresentar os chefs, destacando sua experiência e filosofia culinária para agregar credibilidade e um toque pessoal.' },
+      { image: 'https://iili.io/KbqBHe1.png', description: 'Cardápio digital interativo, apresentando pratos com fotos de alta qualidade e descrições detalhadas para abrir o apetite.' },
+      { image: 'https://iili.io/KbqBndN.png', description: 'Rodapé completo com informações de contato, horário de funcionamento e mapa de localização para facilitar a visita.' }
+    ]
+  },
+  { 
+    id: 7, 
+    category: 'Identidade Visual', 
+    title: 'Doo&Dou', 
+    images: [
+      'https://iili.io/KDvzsDX.png',
+      'https://iili.io/KDvxbyP.png',
+      'https://iili.io/KDvxpu1.png',
+      'https://iili.io/KDvzcN9.png',
+      'https://iili.io/KDvIoJV.png'
+    ], 
+    description: 'Projeto de identidade visual completo para o petshop Doo & Dou, com o conceito central de "Paixão Profissional", abrangendo desde o briefing e conceituação até a execução técnica e a entrega de um manual de marca detalhado.', 
+    tools: ['Illustrator', 'Photoshop', 'Figma'], 
+    liveUrl: null,
+    behanceUrl: 'https://www.behance.net/gallery/238148345/Doo-DouPetshop',
+    role: 'Designer de Identidade Visual (Freelance)',
+    timeline: 'out. de 2025',
+    methodology: 'Design Centrado no Usuário',
+    detailedContent: [
+      { image: 'https://iili.io/KDvzsDX.png', description: 'O conceito central "Paixão Profissional" guiou a criação do logotipo no Illustrator, resultando em uma marca que transmite cuidado, alegria e profissionalismo.' },
+      { image: 'https://iili.io/KDvxbyP.png', description: 'A paleta de cores e a tipografia foram definidas no Figma para criar um Style Guide coeso, garantindo consistência em todas as comunicações da marca.' },
+      { image: 'https://iili.io/KDvxpu1.png', description: 'O processo incluiu a criação de mockups no Photoshop para visualizar a aplicação da identidade em materiais de papelaria, como cartões de visita.' },
+      { image: 'https://iili.io/KDvzcN9.png', description: 'A versatilidade da marca foi testada em diversos produtos e embalagens, assegurando um visual impactante e alinhado com os valores do petshop.' },
+      { image: 'https://iili.io/KDvIoJV.png', description: 'O projeto foi finalizado com a entrega de um Manual de Marca completo, detalhando todas as diretrizes para o uso correto do logotipo e elementos visuais.' }
+    ]
+  },
+  { 
+    id: 11, 
+    category: 'Logos', 
+    title: 'Sabor & Prosa', 
+    images: [
+      'https://iili.io/KbAx0xa.png',
+      'https://iili.io/KbAxMfR.png',
+      'https://iili.io/KbAxEiv.png',
+      'https://iili.io/KbAx1WJ.png'
+    ], 
+    description: 'Criação de logotipo para uma cafeteria e bistrô que une o aconchego do café com a sofisticação da boa conversa. O resultado é uma marca acolhedora, moderna e memorável, projetada para conectar e encantar clientes.', 
+    tools: ['Canva', 'Photoshop'], 
+    liveUrl: null 
+  },
+  { id: 9, category: 'Identidade Visual', title: 'Capilar Ela', images: ['https://i.postimg.cc/SRBN7ZCq/Capilar2.jpg'], description: 'Identidade para um salão de beleza especializado em terapia capilar.', tools: ['Illustrator', 'Canva'], liveUrl: null,
+    detailedContent: [
+      { image: 'https://i.postimg.cc/SRBN7ZCq/Capilar2.jpg', description: 'Design de marca que transmite cuidado, saúde e beleza, com um logotipo delicado e aplicações em materiais de divulgação.' }
+    ]
+  },
+  { id: 8, category: 'Identidade Visual', title: 'Automotic', images: ['https://i.postimg.cc/50t0xQb3/Automotic4.jpg'], description: 'Identidade visual para uma startup de automação residencial.', tools: ['Illustrator', 'Figma'], liveUrl: null,
+    detailedContent: [
+      { image: 'https://i.postimg.cc/50t0xQb3/Automotic4.jpg', description: 'Conceito de marca que combina tecnologia e simplicidade, refletido em um logotipo moderno e uma paleta de cores sóbria e elegante.' }
+    ]
+  },
 ];
 
 export const experience = [
   {
-    role: "Engenheiro de Software Full Stack",
-    company: "Freelancer / Autônomo",
-    period: "2023 - Presente",
-    description: "Desenvolvimento de soluções web e mobile completas, utilizando React, Next.js, Flutter e Node.js. Especializado em transformar designs Figma em código limpo e performático, com foco em SEO e experiência do usuário."
+    role: "Empreendedor | Desenvolvedor Full-Stack e Designer UI/UX",
+    company: "LeBronDev-Designer (Autônomo)",
+    period: "mar. de 2022 – o momento",
+    description: "Criador e microempreendedor de uma marca de programação e design gráfico, gerenciando projetos de ponta-a-ponta, desde o briefing com o cliente até a entrega final do software e design."
   },
   {
-    role: "Designer UI/UX",
-    company: "Projetos Diversos",
-    period: "2022 - 2023",
-    description: "Criação de identidades visuais e interfaces intuitivas para clientes de diversos nichos, focando em usabilidade e estética moderna."
+    role: "Engenheiro de Software (Freelance)",
+    company: "Projeto: lonedecor",
+    period: "jun. de 2025 – nov. de 2025 (6 meses)",
+    description: "Plataforma de Vendas Omni-channel (E-commerce, App e PDV Físico). Criei uma plataforma digital integrada para uma loja de decorações, unificando os canais de venda online, mobile e físico para uma gestão centralizada. Inclui Web E-commerce (Next.js/React), App Mobile (Flutter), Sistema PDV e API Backend (Node.js)."
+  },
+  {
+    role: "Designer de Identidade Visual (Freelance)",
+    company: "Projeto: Doo & Dou Petshop",
+    period: "out. de 2025 (1 mês)",
+    description: "Conceito Central: 'Paixão Profissional'. Conduzi o projeto desde o Briefing até a Conceituação e Execução Técnica. Entrega com Manual de Marca completo e Style Guide."
+  },
+  {
+    role: "Especialista em Rede de Computadores",
+    company: "7Tech",
+    period: "out. de 2024 – out. de 2025 (1 ano e 1 mês)",
+    description: "Técnico de Infraestrutura e Redes (Projeto/Contrato). Atendimento a clientes como McDonald's e Postos Shell. Instalação e manutenção de infraestrutura de rede local, cabeamento estruturado (Cisco), CFTV (Intelbras) e suporte a servidores."
+  },
+  {
+    role: "Estagiário de TI",
+    company: "Única Kids",
+    period: "18 de mar. de 2024 – 18 de nov. de 2024 (6 meses)",
+    description: "Suporte técnico a usuários e hardware. Manutenção de sistemas e redes. Instalação e configuração de softwares."
   }
 ];
 
 export const technicalSkills = {
-  "Frontend": ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML5", "CSS3"],
-  "Backend": ["Node.js", "Express", "Python", "API REST"],
-  "Mobile": ["Flutter", "React Native", "Android Studio"],
-  "Design": ["Figma", "Photoshop", "Illustrator", "Canva"]
+  "Frontend": ["React.js", "Next.js", "Angular", "HTML5", "CSS3", "JavaScript (ES6+)", "Python"],
+  "Backend": ["Node.js", "Firebase"],
+  "Mobile": ["Flutter", "React Native"],
+  "Metodologias": ["Scrum", "Kanban", "Metodologias Ágeis"],
+  "Design & UI/UX": ["Figma", "Adobe Illustrator", "Adobe Photoshop", "Canva", "UI/UX Design", "Identidade Visual"],
+  "DevOps": ["Git", "GitHub", "Docker", "Linux", "Apache"],
+  "Infraestrutura & Redes": ["Protocolo Cisco", "Roteadores/Switches", "Suporte a Servidores", "Cabeamento", "CFTV (Intelbras)"],
+  "Cloud & IA": ["Microsoft Azure (Fundamentals, Security)", "Conceitos de IA"],
+  "CMS & Frameworks": ["WordPress", "Vue.js", "Bootstrap"]
 };
 
 export const education = [
-  {
-    title: "Análise e Desenvolvimento de Sistemas",
-    year: "2023 - 2025",
-    institution: "Universidade",
-    skills: ["Engenharia de Software", "Estrutura de Dados", "Programação Web e Mobile"]
+  { 
+    title: 'Análise e Desenvolvimento de Sistemas', 
+    institution: 'Cruzeiro do Sul Virtual', 
+    year: 'Cursando',
+    skills: ['Frontend: HTML, CSS, JS, React, Next.js', 'Backend: Node.js, PHP, Python', 'Mobile: Flutter, React Native', 'Metodologias Ágeis']
   }
 ];
 
 export const certifications = [
-  { name: "Desenvolvimento Web Completo", issuer: "Udemy" },
-  { name: "UI/UX Design Masterclass", issuer: "Domestika" }
+  { name: "Microsoft Certified: Azure Fundamentals", issuer: "Microsoft" },
+  { name: "Cisco Certified Network Associate (CCNA)", issuer: "Cisco" }
 ];
 
 export const softSkills = [
-  { title: "Comunicação", desc: "Clareza na transmissão de ideias e alinhamento com clientes." },
-  { title: "Autodidata", desc: "Capacidade de aprender novas tecnologias rapidamente." },
-  { title: "Visão de Negócio", desc: "Foco em criar soluções que geram valor real." }
+  { title: "Liderança e Mentoria", desc: "Experiência coordenando equipes e mentorando +30 estudantes de programação e design." },
+  { title: "Pensamento Analítico", desc: "Otimização de processos e análise de dados para tomada de decisão estratégica." },
+  { title: "Comunicação Eficaz", desc: "Habilidade em apresentar projetos técnicos e conceitos de design de forma clara." },
+  { title: "Adaptabilidade", desc: "Transição eficiente entre diferentes tecnologias e contextos de projeto (autônomo, freelancer, PJ)." },
+  { title: "Foco em Resultados", desc: "Histórico de entrega de projetos com impacto mensurável, seguindo metodologias ágeis (Scrum)." }
 ];
 
 export const testimonials = [
-    {
-        name: "Ione",
-        title: "Proprietária da Ionedecor",
-        quote: "O Leandro transformou a gestão da minha loja. O sistema integrado facilitou tudo, e o aplicativo ficou lindo!",
-        image: "https://randomuser.me/api/portraits/women/44.jpg",
-        project: "Têca Estoque",
-        rating: 5,
-        projectLogo: "https://i.postimg.cc/PvWWC5rM/Logos-lojas-Teca-2025-20251027-233927-0000.png"
-    },
-    {
-        name: "Comunidade Corações Sagrados",
-        title: "Líder Comunitário",
-        quote: "O site ficou incrível, muito além do que imaginávamos. A área de novenas é muito acessada.",
-        image: "https://randomuser.me/api/portraits/men/32.jpg",
-        project: "Corações Sagrados",
-        rating: 5,
-        projectLogo: "https://iili.io/KbAVxzG.jpg"
-    }
+  {
+    name: "Ana Silva",
+    title: "CEO, Café Aroma",
+    project: "Identidade Visual",
+    quote: "O trabalho foi excepcional! A nova identidade visual capturou perfeitamente a essência da nossa marca e tem recebido muitos elogios.",
+    image: "https://i.pravatar.cc/150?img=1",
+    rating: 5,
+    projectLogo: null,
+  },
+  {
+    name: "Ione Lourenço",
+    title: "CEO da Têca Lojas",
+    project: "App Têca Estoque",
+    quote: "O aplicativo Têca Estoque transformou a gestão da nossa loja. Ter o catálogo e o estoque na palma da mão otimizou todo o nosso processo. Um trabalho incrível e indispensável!",
+    image: "https://iili.io/KbBMVXn.png",
+    rating: 5,
+    projectLogo: "https://i.postimg.cc/PvWWC5rM/Logos-lojas-Teca-2025-20251027-233927-0000.png",
+  },
+  {
+    name: "Juliana Pereira",
+    title: "Gerente, EcoWear",
+    project: "E-commerce",
+    quote: "O e-commerce superou nossas expectativas. O design é limpo, a navegação é intuitiva e o processo de compra é muito fluido. Excelente!",
+    image: "https://i.pravatar.cc/150?img=3",
+    rating: 5,
+    projectLogo: null,
+  },
 ];
