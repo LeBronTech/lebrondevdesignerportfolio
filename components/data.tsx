@@ -43,13 +43,14 @@ export const tools = {
     { name: 'Capcut', icon: 'https://i.postimg.cc/br7NH6b4/capcuticon.webp' },
     { name: 'Canva', icon: 'https://i.postimg.cc/wMCTcWJS/canva500.png' },
     { name: 'Figma', icon: 'https://i.postimg.cc/t4H4sM9R/figma500.png' },
+    { name: 'Nano Banana', icon: 'https://iili.io/qVckVRa.png' },
   ],
   "Desenvolvimento": [
     { name: 'TypeScript', icon: 'https://iili.io/Kpz8mIp.png' },
     { name: 'HTML', icon: 'https://i.postimg.cc/pXMmp8Bv/1024x1024-logo-2582748-1280.png' },
     { name: 'CSS', icon: 'https://i.postimg.cc/sXvtdwHX/1024x1024-logo-2582747-960-720.png' },
     { name: 'JavaScript', icon: 'https://i.postimg.cc/g2rNbHcn/1761770699957.png' },
-    { name: 'Tailwind CSS', icon: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg' },
+    { name: 'Claude AI', icon: 'https://iili.io/qVl33ts.png' },
     { name: 'React', icon: 'https://i.postimg.cc/g00TPxwS/toppng-com-react-native-svg-transformer-allows-you-import-svg-aperture-science-innovators-logo-986x1.png' },
     { name: 'Next.js', icon: 'https://i.postimg.cc/v8p7YcKN/nextjs-icon.png' },
     { name: 'Angular', icon: 'https://iili.io/KbAcdas.png' },
@@ -65,6 +66,33 @@ export const tools = {
 
 export const portfolio = [
   {
+    id: 16,
+    category: 'Product',
+    title: 'NovaCasa - Qualitex Spray',
+    images: [
+      'https://iili.io/qVatoCX.png',
+      'https://iili.io/qVaPz4R.png',
+      'https://iili.io/qVa66Bf.png',
+      'https://iili.io/qVa6w1R.png',
+      'https://iili.io/qVa6UIn.png',
+      'https://iili.io/qVa68mX.png',
+      'https://iili.io/qVa6Q7S.png'
+    ],
+    description: 'Desenvolvimento de rótulo para tinta de uso geral em spray para a empresa NovaCasa (Qualitex). O projeto incluiu a criação do design do rótulo, post para redes sociais para divulgação e o catálogo completo de produtos, unindo estética industrial com clareza de informações técnicas.',
+    tools: ['Illustrator', 'Photoshop', 'Nano Banana'],
+    role: 'Product Designer',
+    timeline: '23 de fev. a 26 de fev. de 2026',
+    detailedContent: [
+      { image: 'https://iili.io/qVatoCX.png', description: 'Mockup profissional do spray Qualitex em ambiente 3D, destacando o design final do produto.' },
+      { image: 'https://iili.io/qVaPz4R.png', description: 'Post para redes sociais desenvolvido para a divulgação estratégica do novo spray Qualitex.' },
+      { image: 'https://iili.io/qVa66Bf.png', description: 'Capa do catálogo de produtos NovaCasa, apresentando a identidade visual da linha Qualitex.' },
+      { image: 'https://iili.io/qVa6w1R.png', description: 'Contra capa do catálogo com informações institucionais e especificações técnicas.' },
+      { image: 'https://iili.io/qVa6UIn.png', description: 'Página interna do catálogo detalhando a linha de produtos e cores disponíveis.' },
+      { image: 'https://iili.io/qVa68mX.png', description: 'Apresentação técnica dos produtos, focada em clareza para o consumidor e revendedor.' },
+      { image: 'https://iili.io/qVa6Q7S.png', description: 'Página final do catálogo com contatos e encerramento da apresentação visual.' }
+    ]
+  },
+  {
     id: 15,
     category: 'Websites',
     title: 'VitalTrimPro',
@@ -76,7 +104,7 @@ export const portfolio = [
       'https://iili.io/frGuNus.png'
     ],
     description: 'Landing page de alta conversão desenvolvida para promover o suplemento natural VitalTrimPro. O projeto apresenta um design moderno em tons de verde vibrante, focado em Direct Response Marketing. Inclui seções de prova social, garantia, composição do produto e um sistema bilíngue (Inglês/Português) com alternância fluida.',
-    tools: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS', 'Figma'],
+    tools: ['HTML', 'CSS', 'JavaScript', 'Claude AI', 'Figma'],
     liveUrl: 'https://vital-trim-pro.vercel.app/',
     role: 'Desenvolvedor Front-end & UI Designer',
     timeline: 'Jan. de 2026',
@@ -291,7 +319,7 @@ export const technicalSkills = {
   "Backend": ["Node.js", "Firebase"],
   "Mobile": ["Flutter", "React Native"],
   "Metodologias": ["Scrum", "Kanban", "Metodologias Ágeis"],
-  "Design & UI/UX": ["Figma", "Adobe Illustrator", "Adobe Photoshop", "Canva", "UI/UX Design", "Identidade Visual"],
+  "Design & UI/UX": ["Figma", "Adobe Illustrator", "Adobe Photoshop", "Nano Banana", "Canva", "UI/UX Design", "Identidade Visual", "Product"],
   "DevOps": ["Git", "GitHub", "Docker", "Linux", "Apache"],
   "Infraestrutura & Redes": ["Protocolo Cisco", "Roteadores/Switches", "Suporte a Servidores", "Cabeamento", "CFTV (Intelbras)"],
   "Cloud & IA": ["Microsoft Azure (Fundamentals, Security)", "Conceitos de IA"],
