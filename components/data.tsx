@@ -1,5 +1,4 @@
 
-import { Instagram, Github, Linkedin } from 'lucide-react';
 
 export const navLinks = [
   { name: 'Home', path: '#home' },
@@ -11,11 +10,11 @@ export const navLinks = [
 ];
 
 export const socials = [
-  { name: 'Behance', url: 'https://www.behance.net/lebrondesigner1', icon: 'https://i.postimg.cc/cHJHst0z/beha.png' },
-  { name: 'WhatsApp', url: 'https://wa.me/5561984836034?text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20saber%20mais%20sobre%20seus%20servi%C3%A7os', icon: 'https://i.postimg.cc/nhk9pJqZ/whatsapp.png' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/leandro-josé-455389398/', icon: Linkedin },
-  { name: 'Instagram', url: 'https://www.instagram.com/lebrondesign?igsh=bjJpNDV0cDRoeTh5', icon: Instagram },
-  { name: 'GitHub', url: 'https://github.com/LeBronTech', icon: Github },
+  { name: 'Behance', url: 'https://www.behance.net/lebrondesigner1', icon: 'https://iili.io/qXziIhx.webp' },
+  { name: 'GitHub', url: 'https://github.com/LeBronTech', icon: 'https://iili.io/qXznvV4.webp' },
+  { name: 'Instagram', url: 'https://www.instagram.com/lebrondesign?igsh=bjJpNDV0cDRoeTh5', icon: 'https://iili.io/qXznUf2.webp' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/leandro-josé-455389398/', icon: 'https://iili.io/qXznODG.webp' },
+  { name: 'WhatsApp', url: 'https://wa.me/5561984836034?text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20saber%20mais%20sobre%20seus%20servi%C3%A7os', icon: 'https://iili.io/qXznglS.webp' },
 ];
 
 export const services = [
@@ -40,17 +39,17 @@ export const tools = {
   "Design & Edição": [
     { name: 'Photoshop', icon: 'https://i.postimg.cc/hvdKj9w0/photoshop.png' },
     { name: 'Illustrator', icon: 'https://i.postimg.cc/HxjYGG9S/ilus.png' },
-    { name: 'Capcut', icon: 'https://i.postimg.cc/br7NH6b4/capcuticon.webp' },
+    { name: 'Capcut', icon: 'https://iili.io/qXTSwWN.webp' },
     { name: 'Canva', icon: 'https://i.postimg.cc/wMCTcWJS/canva500.png' },
     { name: 'Figma', icon: 'https://i.postimg.cc/t4H4sM9R/figma500.png' },
-    { name: 'Nano Banana', icon: 'https://iili.io/qVckVRa.png' },
+    { name: 'Nano Banana', icon: 'https://iili.io/qXIiMil.webp' },
   ],
   "Desenvolvimento": [
     { name: 'TypeScript', icon: 'https://iili.io/Kpz8mIp.png' },
     { name: 'HTML', icon: 'https://i.postimg.cc/pXMmp8Bv/1024x1024-logo-2582748-1280.png' },
     { name: 'CSS', icon: 'https://i.postimg.cc/sXvtdwHX/1024x1024-logo-2582747-960-720.png' },
     { name: 'JavaScript', icon: 'https://i.postimg.cc/g2rNbHcn/1761770699957.png' },
-    { name: 'Claude AI', icon: 'https://iili.io/qVl33ts.png' },
+    { name: 'Claude AI', icon: 'https://iili.io/qXIi0DG.webp' },
     { name: 'React', icon: 'https://i.postimg.cc/g00TPxwS/toppng-com-react-native-svg-transformer-allows-you-import-svg-aperture-science-innovators-logo-986x1.png' },
     { name: 'Next.js', icon: 'https://i.postimg.cc/v8p7YcKN/nextjs-icon.png' },
     { name: 'Angular', icon: 'https://iili.io/KbAcdas.png' },

@@ -9,7 +9,7 @@ const About: React.FC = () => {
 
   const renderIcon = (IconComponent: React.ElementType | string, props: any) => {
     if (typeof IconComponent === 'string') {
-      return <img src={IconComponent} alt={props.alt} loading="lazy" decoding="async" className="w-8 h-8 filter-primary" />;
+      return <img src={IconComponent} alt={props.alt} loading="lazy" decoding="async" className="w-8 h-8 object-contain" />;
     }
     return <IconComponent {...props} />;
   };
@@ -57,7 +57,7 @@ const About: React.FC = () => {
             <div className="relative w-full max-w-sm mx-auto lg:mx-0">
                <div className="absolute inset-0 bg-primary/20 rounded-lg transform translate-x-3 translate-y-3 -z-10"></div>
                <img 
-                src="https://i.postimg.cc/P54vTj1n/soueu.webp" 
+                src="https://iili.io/qXCrxtt.webp" 
                 alt="Leandro José" 
                 loading="lazy"
                 decoding="async"

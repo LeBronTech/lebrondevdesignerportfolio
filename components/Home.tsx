@@ -39,7 +39,7 @@ const Home: React.FC = () => {
       <div className="container mx-auto px-6" data-aos="fade-up">
         <span className="text-lg font-secondary uppercase tracking-widest font-bold gradient-title-animation">Bem vindo ao</span>
         <img 
-          src="https://i.postimg.cc/XJSnSSX9/Lebron-20251029-033750-0000.png" 
+          src="https://iili.io/qXfYpql.webp" 
           alt="LeBron Dev-Designer Logo"
           className="mx-auto my-4 w-full max-w-sm md:max-w-md lg:max-w-lg"
         />
