@@ -61,6 +61,8 @@ const About: React.FC = () => {
                 alt="Leandro José" 
                 loading="lazy"
                 decoding="async"
+                width="400"
+                height="400"
                 className="rounded-lg shadow-2xl w-full h-auto object-cover border border-white/10"
               />
             </div>

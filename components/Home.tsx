@@ -44,6 +44,8 @@ const Home: React.FC = () => {
           className="mx-auto my-4 w-full max-w-sm md:max-w-md lg:max-w-lg"
           fetchPriority="high"
           loading="eager"
+          width="512"
+          height="128"
         />
         <h2 className="text-2xl md:text-3xl font-secondary text-foreground/80 h-10">
           Criação de <span className="font-bold text-secondary gradient-title-animation">{`${typingWords[index].substring(0, subIndex)}`}</span>

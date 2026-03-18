@@ -26,7 +26,15 @@ export const Header: React.FC = () => {
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center h-20">
         <a href="#home" className="z-50">
-          <img src="https://iili.io/qXAudla.webp" alt="LeBron Logo" className="h-10 w-auto" />
+          <img 
+            src="https://iili.io/qXAudla.webp" 
+            alt="LeBron Logo" 
+            className="h-10 w-auto" 
+            fetchPriority="high"
+            loading="eager"
+            width="160"
+            height="40"
+          />
         </a>
         
         {/* Desktop Navigation */}
