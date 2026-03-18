@@ -60,7 +60,7 @@ const About: React.FC = () => {
                 <img 
                   src="https://iili.io/qXCrxtt.webp" 
                   alt="Leandro José" 
-                  loading="lazy"
+                  fetchpriority="high"
                   decoding="async"
                   width="400"
                   height="400"
@@ -70,7 +70,7 @@ const About: React.FC = () => {
                 <img 
                   src="https://iili.io/qX817sV.webp" 
                   alt="Leandro José" 
-                  loading="lazy"
+                  fetchpriority="high"
                   decoding="async"
                   width="400"
                   height="400"

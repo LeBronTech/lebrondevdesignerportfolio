@@ -46,7 +46,7 @@ const Home: React.FC = () => {
           fetchPriority="high"
           loading="eager"
           width="512"
-          height="128"
+          height="205"
         />
         {/* Mobile Logo */}
         <img 
@@ -56,7 +56,7 @@ const Home: React.FC = () => {
           fetchPriority="high"
           loading="eager"
           width="512"
-          height="128"
+          height="205"
         />
         <h2 className="text-2xl md:text-3xl font-secondary text-foreground/80 h-10">
           Criação de <span className="font-bold text-secondary gradient-title-animation">{`${typingWords[index].substring(0, subIndex)}`}</span>
