@@ -10,7 +10,7 @@ export const navLinks = [
 ];
 
 export const socials = [
-  { name: 'Behance', url: 'https://www.behance.net/lebrondesigner1', icon: 'https://iili.io/qXziIhx.webp' },
+  { name: 'Behance', url: 'https://www.behance.net/lebrondesigner1', icon: 'https://iili.io/qXVjM0b.webp' },
   { name: 'GitHub', url: 'https://github.com/LeBronTech', icon: 'https://iili.io/qXznvV4.webp' },
   { name: 'Instagram', url: 'https://www.instagram.com/lebrondesign?igsh=bjJpNDV0cDRoeTh5', icon: 'https://iili.io/qXznUf2.webp' },
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/leandro-josé-455389398/', icon: 'https://iili.io/qXznODG.webp' },
@@ -237,7 +237,7 @@ export const portfolio = [
     category: 'Identidade Visual', 
     title: 'Doo&Dou', 
     images: [
-      'https://iili.io/KDvzsDX.png',
+      'https://iili.io/qXVDuEu.webp',
       'https://iili.io/KDvxbyP.png',
       'https://iili.io/KDvxpu1.png',
       'https://iili.io/KDvzcN9.png',
@@ -247,11 +247,12 @@ export const portfolio = [
     tools: ['Illustrator', 'Photoshop', 'Figma', 'Nano Banana'], 
     liveUrl: null,
     behanceUrl: 'https://www.behance.net/gallery/238148345/Doo-DouPetshop',
+    logo: 'https://iili.io/qXWuBIV.webp',
     role: 'Designer de Identidade Visual (Freelance)',
     timeline: 'out. de 2025',
     methodology: 'Design Centrado no Usuário',
     detailedContent: [
-      { image: 'https://iili.io/KDvzsDX.png', description: 'O conceito central "Paixão Profissional" guiou a criação do logotipo no Illustrator, resultando em uma marca que transmite cuidado, alegria e profissionalismo.' },
+      { image: 'https://iili.io/qXVDuEu.webp', description: 'O conceito central "Paixão Profissional" guiou a criação do logotipo no Illustrator, resultando em uma marca que transmite cuidado, alegria e profissionalismo.' },
       { image: 'https://iili.io/KDvxbyP.png', description: 'A paleta de cores e a tipografia foram definidas no Figma para criar um Style Guide coeso, garantindo consistência em todas as comunicações da marca.' },
       { image: 'https://iili.io/KDvxpu1.png', description: 'O processo incluiu a criação de mockups no Photoshop para visualizar a aplicação da identidade em materiais de papelaria, como cartões de visita.' },
       { image: 'https://iili.io/KDvzcN9.png', description: 'A versatilidade da marca foi testada em diversos produtos e embalagens, assegurando um visual impactante e alinhado com os valores do petshop.' },
