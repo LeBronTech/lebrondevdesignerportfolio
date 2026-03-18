@@ -36,6 +36,8 @@ const Tools: React.FC = () => {
                          <img 
                             src={tool.icon} 
                             alt={tool.name} 
+                            width="80"
+                            height="80"
                             className="w-full h-full object-contain filter drop-shadow-sm" 
                             loading="lazy" 
                             decoding="async" 

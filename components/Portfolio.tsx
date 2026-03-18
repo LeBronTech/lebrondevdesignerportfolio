@@ -119,6 +119,8 @@ const ProjectCard = ({
                         alt={project.title}
                         loading={index === 0 ? "eager" : "lazy"} 
                         decoding="async"
+                        width="800"
+                        height="450"
                         className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-[2000ms] ease-in-out will-change-[opacity,transform] ${isActive ? 'opacity-100 z-10' : 'opacity-0 z-0'} ${(isActive || isPrev) && isVisible ? animationClass : ''}`}
                     />
                 );
@@ -130,7 +132,7 @@ const ProjectCard = ({
                     <h3 className="text-lg font-bold text-white truncate drop-shadow-md">{project.title}</h3>
                     <div className="flex gap-2 mt-1">
                         {project.tools.slice(0, 4).map(tool => (
-                        <img key={tool} src={getToolIcon(tool)} alt={tool} loading="lazy" className="w-5 h-5 object-contain bg-white/10 rounded-sm p-0.5 backdrop-blur-sm"/>
+                        <img key={tool} src={getToolIcon(tool)} alt={tool} loading="lazy" width="20" height="20" className="w-5 h-5 object-contain bg-white/10 rounded-sm p-0.5 backdrop-blur-sm"/>
                         ))}
                     </div>
                  </div>
@@ -145,7 +147,7 @@ const ProjectCard = ({
                  <div className="flex gap-3 mb-4 flex-wrap justify-center">
                     {project.tools.map(tool => (
                       <div key={tool} className="bg-background/50 p-1.5 rounded-md" title={tool}>
-                        <img src={getToolIcon(tool)} alt={tool} className="w-6 h-6 object-contain"/>
+                        <img src={getToolIcon(tool)} alt={tool} width="24" height="24" className="w-6 h-6 object-contain"/>
                       </div>
                     ))}
                   </div>
@@ -175,6 +177,8 @@ const LogoCarousel = ({ project }: { project: Project }) => {
                 <img 
                     src={project.images[currentIndex]} 
                     alt={`${project.title} - view ${currentIndex + 1}`} 
+                    width="800"
+                    height="600"
                     className="w-full h-auto object-contain max-h-[50vh] transition-opacity duration-300"
                 />
             </div>
@@ -192,6 +196,8 @@ const LogoCarousel = ({ project }: { project: Project }) => {
                             <img 
                                 src={img} 
                                 alt={`Thumbnail ${index + 1}`} 
+                                width="64"
+                                height="64"
                                 className="w-full h-full object-cover"
                                 loading="lazy"
                             />
@@ -353,7 +359,7 @@ const Portfolio: React.FC = () => {
                   <div className="flex flex-wrap gap-3">
                     {selectedProject.tools.map(tool => (
                       <div key={tool} className="flex items-center gap-2 bg-background/50 border border-white/5 px-4 py-2 rounded-lg hover:border-primary/50 transition-colors">
-                         <img src={getToolIcon(tool)} alt={tool} loading="lazy" className="w-5 h-5 object-contain"/>
+                         <img src={getToolIcon(tool)} alt={tool} loading="lazy" width="20" height="20" className="w-5 h-5 object-contain"/>
                          <span className="text-sm font-medium text-gray-300">{tool}</span>
                       </div>
                     ))}

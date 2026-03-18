@@ -22,7 +22,14 @@ const Testimonials: React.FC = () => {
         <SectionTitle title="Depoimentos" subtitle="O que dizem" />
         <div className="relative max-w-3xl mx-auto bg-card p-8 rounded-lg shadow-lg" data-aos="fade-up">
           <div className="text-center">
-            <img src={image} alt={name} className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-primary"/>
+            <img 
+              src={image} 
+              alt={name} 
+              width="96"
+              height="96"
+              loading="lazy"
+              className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-primary"
+            />
             <div className="flex justify-center mb-4">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className={`w-5 h-5 ${i < rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-500'}`} />
@@ -32,7 +39,16 @@ const Testimonials: React.FC = () => {
             <h4 className="text-xl font-bold text-primary">{name}</h4>
             <p className="text-foreground/70 mb-4">{title}</p>
             <div className="flex justify-center items-center gap-3 mt-4 border-t border-primary/20 pt-4">
-              {projectLogo && <img src={projectLogo} alt={`${project} logo`} className="h-8 w-8 rounded-full object-contain"/>}
+              {projectLogo && (
+                <img 
+                  src={projectLogo} 
+                  alt={`${project} logo`} 
+                  width="32"
+                  height="32"
+                  loading="lazy"
+                  className="h-8 w-8 rounded-full object-contain"
+                />
+              )}
               <span className="text-foreground/80 font-semibold">{project}</span>
             </div>
           </div>

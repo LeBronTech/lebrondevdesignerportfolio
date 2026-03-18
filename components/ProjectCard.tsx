@@ -12,7 +12,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, descript
   return (
     <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden group">
       <div className="relative overflow-hidden">
-        <img src={image} alt={title} className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500 ease-in-out"/>
+        <img 
+          src={image} 
+          alt={title} 
+          loading="lazy"
+          decoding="async"
+          width="600"
+          height="256"
+          className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500 ease-in-out"
+        />
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
       <div className="p-6">

@@ -9,7 +9,7 @@ const About: React.FC = () => {
 
   const renderIcon = (IconComponent: React.ElementType | string, props: any) => {
     if (typeof IconComponent === 'string') {
-      return <img src={IconComponent} alt={props.alt} loading="lazy" decoding="async" className="w-8 h-8 object-contain" />;
+      return <img src={IconComponent} alt={props.alt} loading="lazy" decoding="async" width="32" height="32" className="w-8 h-8 object-contain" />;
     }
     return <IconComponent {...props} />;
   };
