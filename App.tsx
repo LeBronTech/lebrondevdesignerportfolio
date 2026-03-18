@@ -20,6 +20,7 @@ const App: React.FC = () => {
         once: true,
         offset: 100,
         easing: 'ease-out',
+        disable: 'mobile', // Desativa AOS em dispositivos móveis
       });
     });
   }, []);
