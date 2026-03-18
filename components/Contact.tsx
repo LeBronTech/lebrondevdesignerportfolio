@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-center items-center gap-6">
           <a 
             href="mailto:lebronempresas@gmail.com" 
-            className="flex items-center gap-2 bg-primary text-primary-foreground font-bold text-lg py-3 px-8 rounded-full hover:bg-secondary transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg w-full md:w-auto justify-center"
+            className="flex items-center gap-2 bg-primary text-primary-foreground font-bold text-lg py-2 px-6 rounded-full hover:bg-secondary transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg w-full md:w-64 h-14 justify-center"
           >
             <Mail size={24} />
             Enviar um Email
@@ -31,9 +31,9 @@ const Contact: React.FC = () => {
               href={whatsapp.url}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 bg-[#25D366] text-white font-bold text-lg py-3 px-8 rounded-full hover:bg-[#128C7E] transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg w-full md:w-auto justify-center"
+              className="flex items-center gap-2 bg-[#25D366] text-white font-bold text-lg py-2 px-6 rounded-full hover:bg-[#128C7E] transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg w-full md:w-64 h-14 justify-center"
             >
-              <img src="https://iili.io/qXcVzxV.webp" alt="WhatsApp" className="w-12 h-12 object-contain" />
+              <img src="https://iili.io/qXExoP4.webp" alt="WhatsApp" className="w-6 h-6 object-contain" />
               WhatsApp
             </a>
           )}

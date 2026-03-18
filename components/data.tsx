@@ -57,7 +57,7 @@ export const tools = {
     { name: 'Python', icon: 'https://i.postimg.cc/s2v1GJQN/pngaaa-com-619137.png' },
     { name: 'Flutter', icon: 'https://i.postimg.cc/brK94JXq/pngwing-com.png' },
     { name: 'Android Studio', icon: 'https://iili.io/qXAZo9p.webp' },
-    { name: 'Bootstrap', icon: '/boots.svg' },
+    { name: 'Bootstrap', icon: 'https://iili.io/qX1i1mG.webp' },
     { name: 'WordPress', icon: 'https://i.postimg.cc/GmQTdCvb/word500.png' },
     { name: 'VSCode', icon: 'https://i.postimg.cc/QdbKh31z/vscode500.png' },
   ],
