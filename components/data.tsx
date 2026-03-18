@@ -354,15 +354,6 @@ export const softSkills = [
 
 export const testimonials = [
   {
-    name: "Ana Silva",
-    title: "CEO, Café Aroma",
-    project: "Identidade Visual",
-    quote: "O trabalho foi excepcional! A nova identidade visual capturou perfeitamente a essência da nossa marca e tem recebido muitos elogios.",
-    image: "https://i.pravatar.cc/150?img=1",
-    rating: 5,
-    projectLogo: null,
-  },
-  {
     name: "Ione Lourenço",
     title: "CEO da Têca Lojas",
     project: "App Têca Estoque",
@@ -370,6 +361,15 @@ export const testimonials = [
     image: "https://iili.io/KbBMVXn.png",
     rating: 5,
     projectLogo: "https://i.postimg.cc/PvWWC5rM/Logos-lojas-Teca-2025-20251027-233927-0000.png",
+  },
+  {
+    name: "Ana Silva",
+    title: "CEO, Café Aroma",
+    project: "Identidade Visual",
+    quote: "O trabalho foi excepcional! A nova identidade visual capturou perfeitamente a essência da nossa marca e tem recebido muitos elogios.",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=256&h=256&auto=format&fit=crop",
+    rating: 5,
+    projectLogo: null,
   },
   {
     name: "Juliana Pereira",
