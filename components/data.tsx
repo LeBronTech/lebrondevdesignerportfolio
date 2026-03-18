@@ -209,7 +209,7 @@ export const portfolio = [
     category: 'Websites', 
     title: 'Restaurante Gusto', 
     images: [
-      'https://iili.io/KbqqjRt.png',
+      'https://iili.io/qXjdKZb.webp',
       'https://iili.io/KbqqkWG.png',
       'https://iili.io/KbqqwOX.png',
       'https://iili.io/Kbqqexs.png',
@@ -219,12 +219,12 @@ export const portfolio = [
     description: 'Atuei como o principal responsável pelo projeto de website institucional do restaurante. Minha responsabilidade começou na fase de Design UI/UX, onde desenhei os protótipos e a interface (usando Figma). Após a aprovação do design, desenvolvi o site completo usando HTML5, CSS3, JavaScript e o framework Bootstrap para garantir um design responsivo e moderno (mobile-first). O projeto foi gerido com práticas ágeis (Scrum) e incluiu a criação de um cardápio digital e um sistema de agendamento de reservas online.', 
     tools: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Figma', 'Illustrator'], 
     liveUrl: 'https://lebrontech.github.io/Restaurante-Gusto/index.html',
-    logo: 'https://iili.io/KbfPeoJ.png',
+    logo: 'https://iili.io/qXj5FNs.webp',
     role: 'Desenvolvedor Frontend & UI/UX Designer',
     timeline: 'Fev. de 2023 – mar. de 2023',
     methodology: 'Scrum (princípios ágeis)',
     detailedContent: [
-      { image: 'https://iili.io/KbqqjRt.png', description: 'Este projeto apresenta um design totalmente responsivo, garantindo uma experiência de usuário perfeita em desktops, tablets e smartphones.' },
+      { image: 'https://iili.io/qXjdKZb.webp', description: 'Este projeto apresenta um design totalmente responsivo, garantindo uma experiência de usuário perfeita em desktops, tablets e smartphones.' },
       { image: 'https://iili.io/KbqqkWG.png', description: 'A página inicial foi cuidadosamente projetada para ser convidativa, com uma navegação clara e acesso rápido às principais seções do restaurante.' },
       { image: 'https://iili.io/KbqqwOX.png', description: 'A seção \'Sobre Nós\' conta a história e a paixão por trás do Gusto, criando uma conexão mais profunda com os clientes.' },
       { image: 'https://iili.io/Kbqqexs.png', description: 'Uma área dedicada para apresentar os chefs, destacando sua experiência e filosofia culinária para agregar credibilidade e um toque pessoal.' },
@@ -238,10 +238,10 @@ export const portfolio = [
     title: 'Doo&Dou', 
     images: [
       'https://iili.io/qXVDuEu.webp',
-      'https://iili.io/KDvxbyP.png',
-      'https://iili.io/KDvxpu1.png',
-      'https://iili.io/KDvzcN9.png',
-      'https://iili.io/KDvIoJV.png'
+      'https://iili.io/qXhGZKJ.webp',
+      'https://iili.io/qXhSP6l.webp',
+      'https://iili.io/qXhLhn1.webp',
+      'https://iili.io/qXhDNxp.webp'
     ], 
     description: 'Projeto de identidade visual completo para o petshop Doo & Dou, com o conceito central de "Paixão Profissional", abrangendo desde o briefing e conceituação até a execução técnica e a entrega de um manual de marca detalhado.', 
     tools: ['Illustrator', 'Photoshop', 'Figma', 'Nano Banana'], 
