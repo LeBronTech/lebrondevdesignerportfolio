@@ -56,15 +56,26 @@ const About: React.FC = () => {
           <div className="w-full flex justify-center lg:justify-end" data-aos="fade-up">
             <div className="relative w-full max-w-sm mx-auto lg:mx-0">
                <div className="absolute inset-0 bg-primary/20 rounded-lg transform translate-x-3 translate-y-3 -z-10"></div>
-               <img 
-                src="https://iili.io/qXCrxtt.webp" 
-                alt="Leandro José" 
-                loading="lazy"
-                decoding="async"
-                width="400"
-                height="400"
-                className="rounded-lg shadow-2xl w-full h-auto object-cover border border-white/10"
-              />
+                {/* Desktop Image */}
+                <img 
+                  src="https://iili.io/qXCrxtt.webp" 
+                  alt="Leandro José" 
+                  loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="400"
+                  className="hidden md:block rounded-lg shadow-2xl w-full h-auto object-cover border border-white/10"
+                />
+                {/* Mobile Image */}
+                <img 
+                  src="https://iili.io/qX817sV.webp" 
+                  alt="Leandro José" 
+                  loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="400"
+                  className="md:hidden rounded-lg shadow-2xl w-full h-auto object-cover border border-white/10"
+                />
             </div>
           </div>
 
