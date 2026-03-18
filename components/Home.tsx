@@ -37,11 +37,22 @@ const Home: React.FC = () => {
   return (
     <section id="home" className="flex items-center justify-center text-center pt-32 pb-8">
       <div className="container mx-auto px-6" data-aos="fade-up">
-        <span className="text-lg font-secondary uppercase tracking-widest font-bold gradient-title-animation">Bem vindo ao</span>
+        <span className="text-lg font-secondary uppercase tracking-widest font-bold gradient-title-animation">Bem vindo A</span>
+        {/* Desktop Logo */}
         <img 
           src="https://iili.io/qXfYpql.webp" 
           alt="LeBron Dev-Designer Logo"
-          className="mx-auto my-4 w-full max-w-sm md:max-w-md lg:max-w-lg"
+          className="hidden md:block mx-auto my-4 w-full max-w-sm md:max-w-md lg:max-w-lg"
+          fetchPriority="high"
+          loading="eager"
+          width="512"
+          height="128"
+        />
+        {/* Mobile Logo */}
+        <img 
+          src="https://iili.io/qXvzEzu.webp" 
+          alt="LeBron Dev-Designer Logo"
+          className="md:hidden mx-auto my-4 w-full max-w-sm"
           fetchPriority="high"
           loading="eager"
           width="512"
