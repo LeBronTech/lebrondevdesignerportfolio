@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { Header } from './components/Header';
 import Home from './components/Home';
 import About from './components/About';
@@ -10,26 +12,22 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 
-declare global {
-  interface Window {
-    AOS: any;
-  }
-}
-
 const App: React.FC = () => {
   useEffect(() => {
-    // Refresh AOS logic to ensure accurate positions
-    setTimeout(() => {
-      window.AOS.refresh();
-    }, 500);
-
-    window.AOS.init({
+    AOS.init({
       duration: 1000,
       once: false, // Alterado para false: animação acontece toda vez que o elemento entra na tela
       mirror: true, // Adicionado: animação acontece também ao rolar para cima e sair/entrar
-      offset: 250, // Aumentado para 250px para garantir que o elemento esteja visível antes de animar
+      offset: 150, // Reduzido de 250 para 150 para melhorar a percepção de carregamento
       easing: 'ease-out-cubic',
     });
+
+    // Refresh AOS logic to ensure accurate positions
+    const timer = setTimeout(() => {
+      AOS.refresh();
+    }, 500);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
