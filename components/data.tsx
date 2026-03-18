@@ -69,26 +69,29 @@ export const portfolio = [
     category: 'Product',
     title: 'NovaCasa - Qualitex Spray',
     images: [
-      'https://iili.io/qVatoCX.png',
-      'https://iili.io/qVaPz4R.png',
-      'https://iili.io/qVa66Bf.png',
-      'https://iili.io/qVa6w1R.png',
-      'https://iili.io/qVa6UIn.png',
-      'https://iili.io/qVa68mX.png',
-      'https://iili.io/qVa6Q7S.png'
+      'https://iili.io/qX5IlhN.webp',
+      'https://iili.io/qX5IohB.webp',
+      'https://iili.io/qX5IBmQ.webp',
+      'https://iili.io/qX5InIV.webp',
+      'https://iili.io/qX5IxLP.webp',
+      'https://iili.io/qX5e9j4.webp',
+      'https://iili.io/qX5I0QI.webp',
+      'https://iili.io/qX5I5YJ.webp'
     ],
     description: 'Desenvolvimento de rótulo para tinta de uso geral em spray para a empresa NovaCasa (Qualitex). O projeto incluiu a criação do design do rótulo, post para redes sociais para divulgação e o catálogo completo de produtos, unindo estética industrial com clareza de informações técnicas.',
     tools: ['Illustrator', 'Photoshop', 'Nano Banana'],
+    logo: 'https://iili.io/qXYymrB.webp',
     role: 'Product Designer',
     timeline: '23 de fev. a 26 de fev. de 2026',
     detailedContent: [
-      { image: 'https://iili.io/qVatoCX.png', description: 'Mockup profissional do spray Qualitex em ambiente 3D, destacando o design final do produto.' },
-      { image: 'https://iili.io/qVaPz4R.png', description: 'Post para redes sociais desenvolvido para a divulgação estratégica do novo spray Qualitex.' },
-      { image: 'https://iili.io/qVa66Bf.png', description: 'Capa do catálogo de produtos NovaCasa, apresentando a identidade visual da linha Qualitex.' },
-      { image: 'https://iili.io/qVa6w1R.png', description: 'Contra capa do catálogo com informações institucionais e especificações técnicas.' },
-      { image: 'https://iili.io/qVa6UIn.png', description: 'Página interna do catálogo detalhando a linha de produtos e cores disponíveis.' },
-      { image: 'https://iili.io/qVa68mX.png', description: 'Apresentação técnica dos produtos, focada em clareza para o consumidor e revendedor.' },
-      { image: 'https://iili.io/qVa6Q7S.png', description: 'Página final do catálogo com contatos e encerramento da apresentação visual.' }
+      { image: 'https://iili.io/qX5IlhN.webp', description: 'Post para redes sociais desenvolvido para a divulgação estratégica do novo spray Qualitex.' },
+      { image: 'https://iili.io/qX5IohB.webp', description: 'Capa do catálogo de produtos NovaCasa, apresentando a identidade visual da linha Qualitex.' },
+      { image: 'https://iili.io/qX5IBmQ.webp', description: 'Contra capa do catálogo com informações institucionais e especificações técnicas.' },
+      { image: 'https://iili.io/qX5InIV.webp', description: 'Página interna do catálogo detalhando a linha de produtos e cores básicas disponíveis.' },
+      { image: 'https://iili.io/qX5IxLP.webp', description: 'Apresentação técnica dos produtos com acabamento metálico, focada em clareza para o consumidor.' },
+      { image: 'https://iili.io/qX5e9j4.webp', description: 'Mockup profissional apresentando os dois modelos de spray Qualitex com rótulos azul e branco.' },
+      { image: 'https://iili.io/qX5I0QI.webp', description: 'Design detalhado do rótulo da embalagem, destacando informações técnicas e visuais.' },
+      { image: 'https://iili.io/qX5I5YJ.webp', description: 'Página final do catálogo com contatos e encerramento da apresentação visual.' }
     ]
   },
   {
@@ -96,23 +99,24 @@ export const portfolio = [
     category: 'Websites',
     title: 'VitalTrimPro',
     images: [
-      'https://iili.io/frGuvn4.png',
-      'https://iili.io/frGPhAl.png',
-      'https://iili.io/frGuetf.png',
-      'https://iili.io/frGuWFI.png',
+      'https://iili.io/qX5D9C7.webp',
+      'https://iili.io/qX7WQls.webp',
+      'https://iili.io/qX7rDDF.webp',
+      'https://iili.io/qX7DiLN.webp',
       'https://iili.io/frGuNus.png'
     ],
     description: 'Landing page de alta conversão desenvolvida para promover o suplemento natural VitalTrimPro. O projeto apresenta um design moderno em tons de verde vibrante, focado em Direct Response Marketing. Inclui seções de prova social, garantia, composição do produto e um sistema bilíngue (Inglês/Português) com alternância fluida.',
-    tools: ['HTML', 'CSS', 'JavaScript', 'Claude AI', 'Figma'],
+    tools: ['HTML', 'CSS', 'JavaScript', 'Claude AI', 'Figma', 'Nano Banana'],
     liveUrl: 'https://vital-trim-pro.vercel.app/',
+    logo: 'https://iili.io/qXYlBSV.png',
     role: 'Desenvolvedor Front-end & UI Designer',
     timeline: 'Jan. de 2026',
     methodology: 'Direct Response Marketing',
     detailedContent: [
-      { image: 'https://iili.io/frGuvn4.png', description: 'Visão geral da Landing Page VitalTrimPro, destacando a promessa principal e o design vibrante.' },
-      { image: 'https://iili.io/frGPhAl.png', description: 'Hero Section otimizada com destaque para os três produtos (Shape Boost, Lean Protein, Night Guard) e CTA claro.' },
-      { image: 'https://iili.io/frGuetf.png', description: 'Interface responsiva exibindo o switch de idiomas (EN/PT) e a promessa de transformação em 30 dias.' },
-      { image: 'https://iili.io/frGuWFI.png', description: 'Experiência mobile-first impecável garantindo conversão em qualquer dispositivo (iPad e iPhone).' },
+      { image: 'https://iili.io/qX5D9C7.webp', description: 'Visão geral da Landing Page VitalTrimPro, destacando a promessa principal e o design vibrante.' },
+      { image: 'https://iili.io/qX7WQls.webp', description: 'Visualização responsiva do site VitalTrimPro em tablet, demonstrando a adaptação do layout para diferentes telas.' },
+      { image: 'https://iili.io/qX7rDDF.webp', description: 'Visualização desktop completa da Landing Page VitalTrimPro, exibindo a estrutura de alta conversão e design moderno.' },
+      { image: 'https://iili.io/qX7DiLN.webp', description: 'Visualização responsiva em dispositivos mobile, garantindo uma experiência de usuário impecável e alta taxa de conversão em smartphones.' },
       { image: 'https://iili.io/frGuNus.png', description: 'Sistema de notificações de "Compra Recente" (Social Proof) para gerar urgência e confiança no visitante.' }
     ]
   },
@@ -181,7 +185,7 @@ export const portfolio = [
     title: 'Têca Estoque', 
     images: ['https://i.postimg.cc/8cHTRVxf/1761768850618.jpg', 'https://i.postimg.cc/02kk8bJK/1761768459633.png', 'https://i.postimg.cc/vZcjkfR4/1762430295149.jpg', 'https://i.postimg.cc/MZbZ2yXR/1761769035345.jpg', 'https://i.postimg.cc/bYHYcQdq/1761769176769.jpg', 'https://i.postimg.cc/44b4kznV/1761769244222.jpg', 'https://i.postimg.cc/Mpv4NVkH/1762429896102.jpg', 'https://i.postimg.cc/htfw6TFf/1762430466573.jpg', 'https://i.postimg.cc/VL7pK4hY/1762430613369.jpg'], 
     description: 'Atuei como o principal responsável por arquitetar e desenvolver uma plataforma digital integrada para a loja de decorações Ionedecor. Minha responsabilidade foi unificar os canais de venda (E-commerce, Aplicativo Mobile e PDV Físico) para permitir uma gestão centralizada. O projeto incluiu o desenvolvimento do E-commerce (Next.js/React) otimizado para SEO, um aplicativo nativo (Flutter) para iOS e Android, e o sistema de Ponto de Venda (PDV) para a loja física. Criei também a API Backend (Node.js) para controlar o inventário, pedidos e dados de clientes de forma unificada em todas as frentes.', 
-    tools: ['Next.js', 'React', 'TypeScript', 'Flutter', 'Node.js', 'Figma', 'Illustrator'], 
+    tools: ['Next.js', 'React', 'TypeScript', 'Flutter', 'Node.js', 'Figma', 'Illustrator', 'Nano Banana'], 
     liveUrl: 'https://tecalojas.vercel.app/', 
     behanceUrl: null, 
     logo: 'https://i.postimg.cc/PvWWC5rM/Logos-lojas-Teca-2025-20251027-233927-0000.png',
@@ -240,7 +244,7 @@ export const portfolio = [
       'https://iili.io/KDvIoJV.png'
     ], 
     description: 'Projeto de identidade visual completo para o petshop Doo & Dou, com o conceito central de "Paixão Profissional", abrangendo desde o briefing e conceituação até a execução técnica e a entrega de um manual de marca detalhado.', 
-    tools: ['Illustrator', 'Photoshop', 'Figma'], 
+    tools: ['Illustrator', 'Photoshop', 'Figma', 'Nano Banana'], 
     liveUrl: null,
     behanceUrl: 'https://www.behance.net/gallery/238148345/Doo-DouPetshop',
     role: 'Designer de Identidade Visual (Freelance)',
@@ -265,7 +269,7 @@ export const portfolio = [
       'https://iili.io/KbAx1WJ.png'
     ], 
     description: 'Criação de logotipo para uma cafeteria e bistrô que une o aconchego do café com a sofisticação da boa conversa. O resultado é uma marca acolhedora, moderna e memorável, projetada para conectar e encantar clientes.', 
-    tools: ['Canva', 'Photoshop'], 
+    tools: ['Canva', 'Photoshop', 'Nano Banana'], 
     liveUrl: null 
   },
   { id: 9, category: 'Identidade Visual', title: 'Capilar Ela', images: ['https://i.postimg.cc/SRBN7ZCq/Capilar2.jpg'], description: 'Identidade para um salão de beleza especializado em terapia capilar.', tools: ['Illustrator', 'Canva'], liveUrl: null,

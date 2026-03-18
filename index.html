@@ -208,6 +208,28 @@
         animation: zoom-in 0.2s ease-out forwards;
       }
 
+      /* Ken Burns Animations */
+      @keyframes ken-burns-zoom-out {
+        from { transform: scale(1.15); }
+        to { transform: scale(1); }
+      }
+      @keyframes ken-burns-zoom-in {
+        from { transform: scale(1); }
+        to { transform: scale(1.15); }
+      }
+      .animate-zoom-out {
+        animation: ken-burns-zoom-out 6s linear forwards;
+        will-change: transform;
+      }
+      .animate-zoom-in {
+        animation: ken-burns-zoom-in 6s linear forwards;
+        will-change: transform;
+      }
+      .group:hover .animate-zoom-out,
+      .group:hover .animate-zoom-in {
+        animation-play-state: paused;
+      }
+
       /* Custom scrollbar */
       ::-webkit-scrollbar {
         width: 8px;

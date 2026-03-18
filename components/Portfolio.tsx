@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import SectionTitle from './SectionTitle';
 import { portfolio, tools } from './data';
 import { ArrowLeft, ArrowRight, X, LayoutGrid, Globe, Smartphone, Palette, PenTool, Briefcase, Calendar, ClipboardList } from 'lucide-react';
@@ -38,9 +38,27 @@ const ProjectCard = ({
     onTogglePreview: () => void
 }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [prevIndex, setPrevIndex] = useState(-1);
     const [isHovered, setIsHovered] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
+    const cardRef = useRef<HTMLDivElement>(null);
     // Optimization: Only load secondary images if user interacts
     const [hasInteracted, setHasInteracted] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsVisible(entry.isIntersecting);
+            },
+            { threshold: 0.1 }
+        );
+
+        if (cardRef.current) {
+            observer.observe(cardRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
 
     const getToolIcon = (toolName: string) => {
         const tool = allTools.find(t => t.name.toLowerCase() === toolName.toLowerCase());
@@ -53,15 +71,19 @@ const ProjectCard = ({
     };
 
     useEffect(() => {
-        if (project.images.length <= 1 || !isHovered || isPreview) {
+        if (project.images.length <= 1 || isPreview || !isVisible) {
             return;
         };
 
+        // If hovered, we don't start the timer, effectively pausing the slide progression
+        if (isHovered) return;
+
         const timer = setInterval(() => {
+            setPrevIndex(currentIndex);
             setCurrentIndex(prev => (prev + 1) % project.images.length);
-        }, 3000);
+        }, 6000);
         return () => clearInterval(timer);
-    }, [isHovered, isPreview, project.images.length]);
+    }, [isHovered, isPreview, project.images.length, currentIndex, isVisible]);
 
     const handleDetailsClick = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -70,7 +92,8 @@ const ProjectCard = ({
     
     return (
         <div
-            className="group relative rounded-lg overflow-hidden cursor-pointer shadow-lg h-72"
+            ref={cardRef}
+            className="group relative rounded-lg overflow-hidden cursor-pointer shadow-lg h-72 bg-muted"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={() => setIsHovered(false)}
             onClick={onTogglePreview}
@@ -80,19 +103,23 @@ const ProjectCard = ({
         >
             {/* Image Carousel with Fade Transition */}
             {project.images.map((image, index) => {
-                // PERFORMANCE OPTIMIZATION:
-                // Only render the first image initially. 
-                // Render others only if hovered/interacted to save bandwidth.
-                if (index !== 0 && !hasInteracted && !isPreview) return null;
+                // We render all images to ensure preloading, but use lazy loading for efficiency
+                // The browser will prioritize the visible one.
+                
+                const isActive = index === currentIndex;
+                const isPrev = index === prevIndex;
+                
+                // Alternate animation: even indices zoom out, odd indices zoom in
+                const animationClass = index % 2 === 0 ? 'animate-zoom-out' : 'animate-zoom-in';
 
                 return (
                     <img 
                         key={image}
                         src={image} 
                         alt={project.title}
-                        loading="lazy" 
+                        loading={index === 0 ? "eager" : "lazy"} 
                         decoding="async"
-                        className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-700 ease-in-out group-hover:scale-110 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
+                        className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-[2000ms] ease-in-out will-change-[opacity,transform] ${isActive ? 'opacity-100 z-10' : 'opacity-0 z-0'} ${(isActive || isPrev) && isVisible ? animationClass : ''}`}
                     />
                 );
             })}
