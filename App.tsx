@@ -14,20 +14,14 @@ import BackToTop from './components/BackToTop';
 
 const App: React.FC = () => {
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: false, // Alterado para false: animação acontece toda vez que o elemento entra na tela
-      mirror: true, // Adicionado: animação acontece também ao rolar para cima e sair/entrar
-      offset: 150, // Reduzido de 250 para 150 para melhorar a percepção de carregamento
-      easing: 'ease-out-cubic',
+    requestAnimationFrame(() => {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+        easing: 'ease-out',
+      });
     });
-
-    // Refresh AOS logic to ensure accurate positions
-    const timer = setTimeout(() => {
-      AOS.refresh();
-    }, 500);
-
-    return () => clearTimeout(timer);
   }, []);
 
   return (
