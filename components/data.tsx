@@ -125,7 +125,7 @@ export const portfolio = [
     category: 'Websites',
     title: 'Corações Sagrados',
     images: [
-      'https://iili.io/KbAVqJt.png',
+      'https://iili.io/qXwcoog.webp',
       'https://iili.io/KbAVCen.png',
       'https://iili.io/KbAVB5X.png',
       'https://iili.io/KbAVnbs.png',
@@ -165,7 +165,7 @@ export const portfolio = [
     category: 'Websites', 
     title: 'Capital Arte', 
     images: [
-      'https://iili.io/KbnLbR4.png',
+      'https://iili.io/qXjyfcP.webp',
       'https://iili.io/KbnLmOl.png',
       'https://iili.io/KbnLDJf.png'
     ], 
@@ -264,8 +264,8 @@ export const portfolio = [
     category: 'Logos', 
     title: 'Sabor & Prosa', 
     images: [
+      'https://iili.io/qXwzn49.webp',
       'https://iili.io/KbAx0xa.png',
-      'https://iili.io/KbAxMfR.png',
       'https://iili.io/KbAxEiv.png',
       'https://iili.io/KbAx1WJ.png'
     ], 
