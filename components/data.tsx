@@ -40,7 +40,7 @@ export const tools = {
     { name: 'Photoshop', icon: 'https://i.postimg.cc/hvdKj9w0/photoshop.png' },
     { name: 'Illustrator', icon: 'https://i.postimg.cc/HxjYGG9S/ilus.png' },
     { name: 'Capcut', icon: 'https://iili.io/qXTSwWN.webp' },
-    { name: 'Canva', icon: 'https://logo-teka.com/wp-content/uploads/2025/09/canva-icon-logo.png' },
+    { name: 'Canva', icon: 'https://iili.io/qXUbKQt.webp' },
     { name: 'Figma', icon: 'https://i.postimg.cc/t4H4sM9R/figma500.png' },
     { name: 'Nano Banana', icon: 'https://iili.io/qXAOXkv.webp' },
   ],
@@ -99,7 +99,7 @@ export const portfolio = [
     category: 'Websites',
     title: 'VitalTrimPro',
     images: [
-      'https://iili.io/qX5D9C7.webp',
+      'https://iili.io/qXgnf5B.webp',
       'https://iili.io/qX7WQls.webp',
       'https://iili.io/qX7rDDF.webp',
       'https://iili.io/qX7DiLN.webp',
@@ -113,7 +113,7 @@ export const portfolio = [
     timeline: 'Jan. de 2026',
     methodology: 'Direct Response Marketing',
     detailedContent: [
-      { image: 'https://iili.io/qX5D9C7.webp', description: 'Visão geral da Landing Page VitalTrimPro, destacando a promessa principal e o design vibrante.' },
+      { image: 'https://iili.io/qXgnf5B.webp', description: 'Visão geral da Landing Page VitalTrimPro, destacando a promessa principal e o design vibrante.' },
       { image: 'https://iili.io/qX7WQls.webp', description: 'Visualização responsiva do site VitalTrimPro em tablet, demonstrando a adaptação do layout para diferentes telas.' },
       { image: 'https://iili.io/qX7rDDF.webp', description: 'Visualização desktop completa da Landing Page VitalTrimPro, exibindo a estrutura de alta conversão e design moderno.' },
       { image: 'https://iili.io/qX7DiLN.webp', description: 'Visualização responsiva em dispositivos mobile, garantindo uma experiência de usuário impecável e alta taxa de conversão em smartphones.' },
