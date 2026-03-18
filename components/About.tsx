@@ -60,7 +60,7 @@ const About: React.FC = () => {
                 <img 
                   src="https://iili.io/qXCrxtt.webp" 
                   alt="Leandro José" 
-                  fetchpriority="high"
+                  fetchPriority="high"
                   decoding="async"
                   width="400"
                   height="400"
@@ -70,8 +70,7 @@ const About: React.FC = () => {
                 <img 
                   src="https://iili.io/qX817sV.webp" 
                   alt="Leandro José" 
-                  fetchpriority="high"
-                  decoding="async"
+                  fetchPriority="high"
                   width="400"
                   height="400"
                   className="md:hidden rounded-lg shadow-2xl w-full h-auto object-cover border border-white/10"
