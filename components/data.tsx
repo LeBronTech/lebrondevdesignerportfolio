@@ -264,7 +264,7 @@ export const portfolio = [
     category: 'Logos', 
     title: 'Sabor & Prosa', 
     images: [
-      'https://iili.io/qXwzn49.webp',
+      'https://i.postimg.cc/NMkpcr7b/q-Xwzn49.webp',
       'https://iili.io/KbAx0xa.png',
       'https://iili.io/KbAxEiv.png',
       'https://iili.io/KbAx1WJ.png'
