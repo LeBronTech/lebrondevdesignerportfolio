@@ -15,11 +15,13 @@ export default defineConfig(({ mode }) => {
         tailwindcss(),
       ],
       build: {
+        chunkSizeWarningLimit: 1000,
         rollupOptions: {
           output: {
             manualChunks: {
               'vendor-react': ['react', 'react-dom'],
               'vendor-lucide': ['lucide-react'],
+              'vendor-aos': ['aos'],
             }
           }
         }

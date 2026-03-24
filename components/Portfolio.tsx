@@ -103,14 +103,16 @@ const ProjectCard = ({
         >
             {/* Image Carousel with Fade Transition */}
             {project.images.map((image, index) => {
-                // We render all images to ensure preloading, but use lazy loading for efficiency
-                // The browser will prioritize the visible one.
-                
                 const isActive = index === currentIndex;
                 const isPrev = index === prevIndex;
+                const isNext = index === (currentIndex + 1) % project.images.length;
                 
+                // Only render if active, previous, next, or user has interacted
+                if (!isActive && !isPrev && !isNext && !hasInteracted) return null;
+
                 // Alternate animation: even indices zoom out, odd indices zoom in
                 const animationClass = index % 2 === 0 ? 'animate-zoom-out' : 'animate-zoom-in';
+                const willChangeClass = (isActive || isPrev) ? 'will-change-[opacity,transform]' : '';
 
                 return (
                     <img 
@@ -121,7 +123,7 @@ const ProjectCard = ({
                         decoding="async"
                         width="800"
                         height="450"
-                        className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-[2000ms] ease-in-out will-change-[opacity,transform] ${isActive ? 'opacity-100 z-10' : 'opacity-0 z-0'} ${(isActive || isPrev) && isVisible ? animationClass : ''}`}
+                        className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-[2000ms] ease-in-out ${willChangeClass} ${isActive ? 'opacity-100 z-10' : 'opacity-0 z-0'} ${(isActive || isPrev) && isVisible ? animationClass : ''}`}
                     />
                 );
             })}

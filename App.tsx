@@ -15,13 +15,15 @@ import BackToTop from './components/BackToTop';
 const App: React.FC = () => {
   useEffect(() => {
     requestAnimationFrame(() => {
-      AOS.init({
-        duration: 800,
-        once: true,
-        offset: 100,
-        easing: 'ease-out',
-        disable: 'mobile', // Desativa AOS em dispositivos móveis
-      });
+      setTimeout(() => {
+        AOS.init({
+          duration: 800,
+          once: true,
+          offset: 100,
+          easing: 'ease-out',
+          disable: 'mobile', // Desativa AOS em dispositivos móveis
+        });
+      }, 0);
     });
   }, []);
 

@@ -50,7 +50,7 @@ export const tools = {
     { name: 'CSS', icon: 'https://i.postimg.cc/sXvtdwHX/1024x1024-logo-2582747-960-720.png' },
     { name: 'JavaScript', icon: 'https://i.postimg.cc/g2rNbHcn/1761770699957.png' },
     { name: 'Claude AI', icon: 'https://iili.io/qXRYx7n.webp' },
-    { name: 'React', icon: 'https://i.postimg.cc/g00TPxwS/toppng-com-react-native-svg-transformer-allows-you-import-svg-aperture-science-innovators-logo-986x1.png' },
+    { name: 'React', icon: 'https://cdn.simpleicons.org/react/61DAFB' },
     { name: 'Next.js', icon: 'https://i.postimg.cc/v8p7YcKN/nextjs-icon.png' },
     { name: 'Angular', icon: 'https://iili.io/qXR9Dva.webp' },
     { name: 'Node.js', icon: 'https://i.postimg.cc/gkh37mNQ/1761417804462.png' },
