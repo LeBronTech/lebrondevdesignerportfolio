@@ -14,17 +14,24 @@ import BackToTop from './components/BackToTop';
 
 const App: React.FC = () => {
   useEffect(() => {
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        AOS.init({
-          duration: 800,
-          once: true,
-          offset: 100,
-          easing: 'ease-out',
-          disable: 'mobile', // Desativa AOS em dispositivos móveis
-        });
-      }, 0);
-    });
+    // Small delay to ensure DOM is fully ready
+    const initAOS = () => {
+      AOS.init({
+        duration: 800,
+        once: false, // Changed to false to allow re-animation when filtering
+        offset: 100,
+        easing: 'ease-out',
+        disable: false,
+        startEvent: 'DOMContentLoaded',
+      });
+    };
+
+    if (document.readyState === 'complete') {
+      initAOS();
+    } else {
+      window.addEventListener('load', initAOS);
+      return () => window.removeEventListener('load', initAOS);
+    }
   }, []);
 
   return (

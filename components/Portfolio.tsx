@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
+import AOS from 'aos';
 import SectionTitle from './SectionTitle';
 import { portfolio, tools } from './data';
 import { ArrowLeft, ArrowRight, X, LayoutGrid, Globe, Smartphone, Palette, PenTool, Briefcase, Calendar, ClipboardList } from 'lucide-react';
@@ -224,11 +225,26 @@ const Portfolio: React.FC = () => {
     'Apps': Smartphone,
     'Identidade Visual': Palette,
     'Logos': PenTool,
+    'Product': Briefcase,
   };
 
   const filteredPortfolio = useMemo(() => {
     if (activeFilter === 'Todos') return portfolio;
     return portfolio.filter(p => p.category === activeFilter);
+  }, [activeFilter]);
+
+  useEffect(() => {
+    // Small delay to ensure React has finished updating the DOM
+    const timer = setTimeout(() => {
+      AOS.init({
+        duration: 800,
+        once: false,
+        offset: 100,
+        easing: 'ease-out',
+      });
+      AOS.refresh();
+    }, 150);
+    return () => clearTimeout(timer);
   }, [activeFilter]);
 
   const openModal = (project: Project) => {
