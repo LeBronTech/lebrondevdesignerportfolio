@@ -28,6 +28,7 @@ const Testimonials: React.FC = () => {
               width="96"
               height="96"
               loading="lazy"
+              decoding="async"
               className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-primary"
             />
             <div className="flex justify-center mb-4">
@@ -46,6 +47,7 @@ const Testimonials: React.FC = () => {
                   width="32"
                   height="32"
                   loading="lazy"
+                  decoding="async"
                   className="h-8 w-8 rounded-full object-contain"
                 />
               )}

@@ -45,6 +45,7 @@ const Home: React.FC = () => {
           className="hidden md:block mx-auto my-4 w-full max-w-sm md:max-w-md lg:max-w-lg"
           fetchPriority="high"
           loading="eager"
+          decoding="async"
           width="512"
           height="205"
         />
@@ -55,6 +56,7 @@ const Home: React.FC = () => {
           className="md:hidden mx-auto my-4 w-full max-w-sm"
           fetchPriority="high"
           loading="eager"
+          decoding="async"
           width="512"
           height="205"
         />

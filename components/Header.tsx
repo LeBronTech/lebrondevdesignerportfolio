@@ -54,6 +54,7 @@ export const Header: React.FC = () => {
               className="h-10 w-auto" 
               fetchPriority="high"
               loading="eager"
+              decoding="async"
               width="120"
               height="40"
             />
