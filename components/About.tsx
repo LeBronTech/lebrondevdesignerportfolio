@@ -23,12 +23,12 @@ const About: React.FC = () => {
 
   const resumes = [
     { 
-      label: 'Engenheiro de Software', 
+      label: 'Desenvolvedor Front-End', 
       url: 'https://drive.google.com/file/d/1gH3kWCA_xbNP2UNmVojWr8aHQpIpYPdk/view?usp=sharing', 
       icon: Code 
     },
     { 
-      label: 'Social Media / Product Designer', 
+      label: 'Social Media', 
       url: 'https://drive.google.com/file/d/1Ej-3rq5z3bviiggwhYvQ5HgmSUmSsYbn/view?usp=sharing', 
       icon: Layout 
     },
@@ -87,11 +87,11 @@ const About: React.FC = () => {
           <div className="w-full text-center lg:text-left flex flex-col items-center lg:items-start" data-aos="fade-up" data-aos-delay="200">
             <h2 className="text-3xl lg:text-4xl font-bold font-secondary mb-2">Leandro José (LeBron)</h2>
             <p className="font-primary uppercase tracking-widest text-sm gradient-title-animation mb-6 inline-block">
-              <span className="font-bold">Designer UI/UX</span> e Programador Full-Stack
+              <span className="font-bold">Designer UI/UX</span> e Desenvolvedor Front-End
             </p>
             
             <p className="text-foreground/80 mb-6 leading-relaxed text-base lg:text-lg">
-              Olá! Sou <span className="font-bold text-foreground">Leandro José (LeBron)</span>, um profissional híbrido que une a precisão da Engenharia de Software à sensibilidade do Design UI/UX.
+              Olá! Sou <span className="font-bold text-foreground">Leandro José (LeBron)</span>, um profissional híbrido que une a precisão do Desenvolvimento Front-End à sensibilidade do Design UI/UX.
             </p>
             
             <p className="text-foreground/80 mb-6 leading-relaxed text-base lg:text-lg">
@@ -103,7 +103,7 @@ const About: React.FC = () => {
               <ul className="text-foreground/80 list-none space-y-4 bg-background/30 p-6 rounded-xl border border-white/5">
                 <li className="flex items-start gap-3">
                   <span className="text-xl">💻</span>
-                  <span><span className="text-secondary font-bold">Desenvolvimento Full-Stack & Mobile:</span> Especialista no ecossistema JavaScript (React, Next.js, Node.js) e Apps nativos com Flutter, com foco em escalabilidade e Scrum.</span>
+                  <span><span className="text-secondary font-bold">Desenvolvimento Front-End & Mobile:</span> Especialista no ecossistema JavaScript (React, Next.js) e Apps nativos com Flutter, com foco em performance e Scrum.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-xl">🎨</span>
@@ -138,7 +138,7 @@ const About: React.FC = () => {
                 </button>
 
                 {isResumeOpen && (
-                  <div className="absolute left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 mt-2 w-64 rounded-xl shadow-2xl bg-card border border-white/10 ring-1 ring-black ring-opacity-5 focus:outline-none overflow-hidden">
+                  <div className="absolute left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 mt-2 w-64 rounded-xl shadow-2xl bg-card border border-white/10 ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <div className="py-1">
                       {resumes.map((resume) => {
                         const Icon = resume.icon;
@@ -172,7 +172,7 @@ const About: React.FC = () => {
                     href={url} 
                     onClick={(e) => handleSocialClick(e, url)}
                     aria-label={name} 
-                    className="rn-btn w-12 h-12 rounded-lg bg-card flex items-center justify-center border border-white/5 hover:border-primary/50 cursor-pointer"
+                    className="rn-btn w-12 h-12 rounded-lg bg-card flex items-center justify-center cursor-pointer"
                   >
                     {renderIcon(icon, { alt: name, className: 'w-6 h-6 text-primary', size: 24 })}
                   </a>

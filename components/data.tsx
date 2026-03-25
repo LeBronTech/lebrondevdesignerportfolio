@@ -109,7 +109,7 @@ export const portfolio = [
     tools: ['HTML', 'CSS', 'JavaScript', 'Claude AI', 'Figma', 'Nano Banana'],
     liveUrl: 'https://vital-trim-pro.vercel.app/',
     logo: 'https://iili.io/qXYlBSV.png',
-    role: 'Desenvolvedor Front-end & UI Designer',
+    role: "Desenvolvedor Front-End & UI Designer",
     timeline: 'Jan. de 2026',
     methodology: 'Direct Response Marketing',
     detailedContent: [
@@ -134,7 +134,7 @@ export const portfolio = [
     tools: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Figma'],
     liveUrl: 'https://lebrontech.github.io/Novenascoracoessagrados/#apresentacao_ns',
     logo: 'https://iili.io/KbAVxzG.jpg',
-    role: 'Desenvolvedor Full Stack & UI/UX Designer',
+    role: 'Desenvolvedor Front-End & UI/UX Designer',
     timeline: 'jul. de 2025 – Atual',
     methodology: 'Scrum (princípios ágeis)',
     detailedContent: [
@@ -189,7 +189,7 @@ export const portfolio = [
     liveUrl: 'https://tecalojas.vercel.app/', 
     behanceUrl: null, 
     logo: 'https://i.postimg.cc/PvWWC5rM/Logos-lojas-Teca-2025-20251027-233927-0000.png',
-    role: 'Engenheiro de Software Full Stack',
+    role: 'Engenheiro de Software Front-End',
     timeline: 'jun. de 2025 – Atual',
     methodology: 'Scrum (princípios ágeis)',
     detailedContent: [
@@ -220,7 +220,7 @@ export const portfolio = [
     tools: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Figma', 'Illustrator'], 
     liveUrl: 'https://lebrontech.github.io/Restaurante-Gusto/index.html',
     logo: 'https://iili.io/qXj5FNs.webp',
-    role: 'Desenvolvedor Frontend & UI/UX Designer',
+    role: 'Desenvolvedor Front-End & UI/UX Designer',
     timeline: 'Fev. de 2023 – mar. de 2023',
     methodology: 'Scrum (princípios ágeis)',
     detailedContent: [
@@ -287,16 +287,16 @@ export const portfolio = [
 
 export const experience = [
   {
-    role: "Empreendedor | Desenvolvedor Full-Stack e Designer UI/UX",
+    role: "Empreendedor | Desenvolvedor Front-End e Designer UI/UX",
     company: "LeBronDev-Designer (Autônomo)",
     period: "mar. de 2022 – o momento",
     description: "Criador e microempreendedor de uma marca de programação e design gráfico, gerenciando projetos de ponta-a-ponta, desde o briefing com o cliente até a entrega final do software e design."
   },
   {
-    role: "Engenheiro de Software Full-Stack (Freelance)",
+    role: "Engenheiro de Software Front-End (Freelance)",
     company: "Projeto: Omni-channel (Ionedecor)",
     period: "jun. de 2025 – nov. de 2025 (6 meses)",
-    description: "Liderança no planejamento, arquitetura e desenvolvimento full-stack de plataforma digital integrada (Web, Mobile e Físico). Implementação de e-commerce com Next.js, React e TypeScript, app nativo com Flutter e API RESTful com Node.js."
+    description: "Liderança no planejamento, arquitetura e desenvolvimento front-end de plataforma digital integrada (Web, Mobile e Físico). Implementação de e-commerce com Next.js, React e TypeScript, app nativo com Flutter e integração com APIs."
   },
   {
     role: "Product Designer & Software Engineer",
