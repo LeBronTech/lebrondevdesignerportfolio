@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import SectionTitle from './SectionTitle';
 import { socials } from './data';
-import { Instagram, Github, Download, Code, Palette, Server, ChevronDown } from 'lucide-react';
+import { Instagram, Github, Download, Code, Palette, Server, ChevronDown, Layout } from 'lucide-react';
 
 const About: React.FC = () => {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
@@ -23,30 +23,35 @@ const About: React.FC = () => {
 
   const resumes = [
     { 
-      label: 'Desenvolvedor', 
+      label: 'Engenheiro de Software', 
       url: 'https://drive.google.com/file/d/1gH3kWCA_xbNP2UNmVojWr8aHQpIpYPdk/view?usp=sharing', 
       icon: Code 
     },
     { 
-      label: 'Designer UI/UX', 
+      label: 'Social Media / Product Designer', 
+      url: 'https://drive.google.com/file/d/1Ej-3rq5z3bviiggwhYvQ5HgmSUmSsYbn/view?usp=sharing', 
+      icon: Layout 
+    },
+    { 
+      label: 'Designer Gráfico', 
       url: 'https://drive.google.com/file/d/1Ej-3rq5z3bviiggwhYvQ5HgmSUmSsYbn/view?usp=sharing', 
       icon: Palette 
     },
     { 
-      label: 'Infraestrutura', 
+      label: 'Especialista em Infra', 
       url: 'https://drive.google.com/file/d/1COsS7IDryEoxg2Ng40pJS1AUeEV6FXN_/view?usp=sharing', 
       icon: Server 
     },
   ];
 
   return (
-    <section id="about" className="bg-about-bg relative overflow-hidden">
+    <section id="about" className="bg-about-bg relative">
       <div className="shape-divider-top">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 70" preserveAspectRatio="none">
             <path d="M0,0 L1200,0 L1200,30 C800,70 400,70 0,30 Z" className="shape-fill"></path>
         </svg>
       </div>
-      <div className="container mx-auto px-6 md:px-12 pb-20 pt-32">
+      <div className="container mx-auto px-6 md:px-12 pb-24 pt-32">
         <SectionTitle title="Sobre Mim" subtitle="Minha Jornada" />
         
         {/* Changed from Flex to Grid for better vertical alignment stability */}
@@ -133,7 +138,7 @@ const About: React.FC = () => {
                 </button>
 
                 {isResumeOpen && (
-                  <div className="absolute left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 mt-2 w-56 rounded-xl shadow-2xl bg-card border border-white/10 ring-1 ring-black ring-opacity-5 focus:outline-none overflow-hidden animate-zoom-in origin-top">
+                  <div className="absolute left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 mt-2 w-64 rounded-xl shadow-2xl bg-card border border-white/10 ring-1 ring-black ring-opacity-5 focus:outline-none overflow-hidden">
                     <div className="py-1">
                       {resumes.map((resume) => {
                         const Icon = resume.icon;

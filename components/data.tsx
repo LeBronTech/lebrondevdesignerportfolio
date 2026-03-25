@@ -293,28 +293,28 @@ export const experience = [
     description: "Criador e microempreendedor de uma marca de programação e design gráfico, gerenciando projetos de ponta-a-ponta, desde o briefing com o cliente até a entrega final do software e design."
   },
   {
-    role: "Engenheiro de Software (Freelance)",
-    company: "Projeto: lonedecor",
+    role: "Engenheiro de Software Full-Stack (Freelance)",
+    company: "Projeto: Omni-channel (Ionedecor)",
     period: "jun. de 2025 – nov. de 2025 (6 meses)",
-    description: "Plataforma de Vendas Omni-channel (E-commerce, App e PDV Físico). Criei uma plataforma digital integrada para uma loja de decorações, unificando os canais de venda online, mobile e físico para uma gestão centralizada. Inclui Web E-commerce (Next.js/React), App Mobile (Flutter), Sistema PDV e API Backend (Node.js)."
+    description: "Liderança no planejamento, arquitetura e desenvolvimento full-stack de plataforma digital integrada (Web, Mobile e Físico). Implementação de e-commerce com Next.js, React e TypeScript, app nativo com Flutter e API RESTful com Node.js."
   },
   {
-    role: "Designer de Identidade Visual (Freelance)",
-    company: "Projeto: Doo & Dou Petshop",
-    period: "out. de 2025 (1 mês)",
-    description: "Conceito Central: 'Paixão Profissional'. Conduzi o projeto desde o Briefing até a Conceituação e Execução Técnica. Entrega com Manual de Marca completo e Style Guide."
+    role: "Product Designer & Software Engineer",
+    company: "Ione Decor / Teca Decoração",
+    period: "jun. de 2025 – nov. de 2025",
+    description: "Arquitetura Omni-channel e UI/UX Design com foco em redução de fricção no checkout e controle unificado de inventário. Desenvolvimento de criativos de alta conversão para Google/Facebook Ads."
   },
   {
     role: "Especialista em Rede de Computadores",
     company: "7Tech",
     period: "out. de 2024 – out. de 2025 (1 ano e 1 mês)",
-    description: "Técnico de Infraestrutura e Redes (Projeto/Contrato). Atendimento a clientes como McDonald's e Postos Shell. Instalação e manutenção de infraestrutura de rede local, cabeamento estruturado (Cisco), CFTV (Intelbras) e suporte a servidores."
+    description: "Técnico de Infraestrutura e Redes. Atendimento a clientes como McDonald's e Shell. Configuração avançada de equipamentos Cisco (Switches e Roteadores), otimização de fluxo de dados e suporte a sistemas críticos."
   },
   {
     role: "Estagiário de TI",
-    company: "Única Kids",
-    period: "18 de mar. de 2024 – 18 de nov. de 2024 (6 meses)",
-    description: "Suporte técnico a usuários e hardware. Manutenção de sistemas e redes. Instalação e configuração de softwares."
+    company: "Única Kids (Clínica de Autismo)",
+    period: "mar. de 2024 – out. de 2024 (7 meses)",
+    description: "Suporte técnico Helpdesk N1, manutenção de sistemas e redes, registro de chamados e suporte a sistemas internos via REST API."
   }
 ];
 
@@ -333,9 +333,15 @@ export const technicalSkills = {
 export const education = [
   { 
     title: 'Análise e Desenvolvimento de Sistemas', 
+    institution: 'Cruzeiro do Sul UDF', 
+    year: 'Graduado (12/2025)',
+    skills: ['Foco: Interfaces Digitais e Front-End', 'Viabilidade técnica de interfaces', 'Desenvolvimento orientado a objetos']
+  },
+  { 
+    title: 'Pós Graduação em Sistemas para Internet', 
     institution: 'Cruzeiro do Sul Virtual', 
-    year: 'Cursando',
-    skills: ['Frontend: HTML, CSS, JS, React, Next.js', 'Backend: Node.js, PHP, Python', 'Mobile: Flutter, React Native', 'Metodologias Ágeis']
+    year: 'Cursando (Previsão 12/2028)',
+    skills: ['Foco: Marketing Digital, Design de Interação', 'Interface Humano-Computador', 'Tratamento de Imagem Digital']
   }
 ];
 
