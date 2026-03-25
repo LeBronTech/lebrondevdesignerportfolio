@@ -50,7 +50,7 @@ const About: React.FC = () => {
         <SectionTitle title="Sobre Mim" subtitle="Minha Jornada" />
         
         {/* Changed from Flex to Grid for better vertical alignment stability */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center lg:items-start">
           
           {/* Image Column */}
           <div className="w-full flex justify-center lg:justify-end" data-aos="fade-up">
@@ -86,19 +86,34 @@ const About: React.FC = () => {
             </p>
             
             <p className="text-foreground/80 mb-6 leading-relaxed text-base lg:text-lg">
-              Olá! Sou Leandro José, <span className="font-bold text-foreground">Designer UI/UX</span> e Programador Full-Stack com 2 anos na área, especializado no ecossistema <span className="font-bold text-foreground">JavaScript</span> e na metodologia <span className="font-bold text-foreground">Scrum</span>. Foco em transformar ideias em soluções digitais que geram credibilidade e vendas.
+              Olá! Sou <span className="font-bold text-foreground">Leandro José (LeBron)</span>, um profissional híbrido que une a precisão da Engenharia de Software à sensibilidade do Design UI/UX.
             </p>
             
-            <ul className="text-foreground/80 list-none space-y-4 mb-8 text-left inline-block bg-background/30 p-6 rounded-xl border border-white/5 w-full md:w-auto">
-              <li className="flex items-start gap-3">
-                <span className="text-xl">💻</span>
-                <span><span className="text-secondary font-bold">Web & Apps:</span> Websites Institucionais, Landing Pages, E-commerces e Apps Mobile com código limpo.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-xl">🖌️</span>
-                <span><span className="text-secondary font-bold">Branding:</span> Identidade Visual estratégica (Logotipo e Manual de Marca) para elevar sua presença digital.</span>
-              </li>
-            </ul>
+            <p className="text-foreground/80 mb-6 leading-relaxed text-base lg:text-lg">
+              Com 2 anos de experiência e formação em ADS, atualmente especializo-me em Sistemas para Internet para criar ecossistemas digitais de alta performance. Meu foco é transformar ideias complexas em interfaces intuitivas e códigos limpos que geram credibilidade e conversão.
+            </p>
+            
+            <div className="text-left w-full mb-8">
+              <h3 className="text-xl font-bold mb-4 text-primary">O que eu entrego:</h3>
+              <ul className="text-foreground/80 list-none space-y-4 bg-background/30 p-6 rounded-xl border border-white/5">
+                <li className="flex items-start gap-3">
+                  <span className="text-xl">💻</span>
+                  <span><span className="text-secondary font-bold">Desenvolvimento Full-Stack & Mobile:</span> Especialista no ecossistema JavaScript (React, Next.js, Node.js) e Apps nativos com Flutter, com foco em escalabilidade e Scrum.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-xl">🎨</span>
+                  <span><span className="text-secondary font-bold">Design Estratégico & UI/UX:</span> Criação de Identidades Visuais e prototipagem avançada no Figma, garantindo jornadas impecáveis.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-xl">📈</span>
+                  <span><span className="text-secondary font-bold">Social Media & Tráfego Pago:</span> Gestão de redes sociais e campanhas de Ads (Google/Meta) focadas em ROI e conversão.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-xl">🎬</span>
+                  <span><span className="text-secondary font-bold">Edição de Vídeo & SEO:</span> Produção audiovisual dinâmica e otimização para buscas, elevando o alcance da sua marca.</span>
+                </li>
+              </ul>
+            </div>
 
             <p className="text-foreground/80 mb-8 leading-relaxed font-medium">
               Vamos construir a presença digital que sua marca realmente merece?
