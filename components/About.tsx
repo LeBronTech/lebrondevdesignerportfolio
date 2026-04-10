@@ -23,22 +23,17 @@ const About: React.FC = () => {
 
   const resumes = [
     { 
-      label: 'Desenvolvedor Front-End', 
+      label: 'Engenheiro de Software & UI/UX', 
       url: 'https://drive.google.com/file/d/1gH3kWCA_xbNP2UNmVojWr8aHQpIpYPdk/view?usp=sharing', 
       icon: Code 
     },
     { 
-      label: 'Social Media', 
-      url: 'https://drive.google.com/file/d/1Ej-3rq5z3bviiggwhYvQ5HgmSUmSsYbn/view?usp=sharing', 
-      icon: Layout 
-    },
-    { 
-      label: 'Designer Gráfico', 
+      label: 'Designer Gráfico & Social Media', 
       url: 'https://drive.google.com/file/d/1Ej-3rq5z3bviiggwhYvQ5HgmSUmSsYbn/view?usp=sharing', 
       icon: Palette 
     },
     { 
-      label: 'Especialista em Infra', 
+      label: 'Especialista em Infra & Redes', 
       url: 'https://drive.google.com/file/d/1COsS7IDryEoxg2Ng40pJS1AUeEV6FXN_/view?usp=sharing', 
       icon: Server 
     },

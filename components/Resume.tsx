@@ -1,5 +1,6 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import AOS from 'aos';
 import SectionTitle from './SectionTitle';
 import { technicalSkills, education, experience, certifications, softSkills } from './data';
 import { Briefcase, GraduationCap, Award, User, Code, Calendar } from 'lucide-react';
@@ -7,11 +8,15 @@ import { Briefcase, GraduationCap, Award, User, Code, Calendar } from 'lucide-re
 const Resume: React.FC = () => {
   const [activeTab, setActiveTab] = useState('Experiência');
 
+  useEffect(() => {
+    // Refresh AOS whenever the tab changes to recalculate positions for elements below
+    AOS.refresh();
+  }, [activeTab]);
+
   const tabs = [
     { name: 'Experiência', icon: Briefcase },
     { name: 'Habilidades', icon: Code },
-    { name: 'Formação', icon: GraduationCap },
-    { name: 'Soft Skills', icon: User },
+    { name: 'Formação & Skills', icon: GraduationCap },
   ];
 
   return (
@@ -94,67 +99,71 @@ const Resume: React.FC = () => {
             </div>
           )}
 
-          {/* Formação & Certificações Tab */}
-          {activeTab === 'Formação' && (
-            <div className="grid lg:grid-cols-2 gap-10">
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-white flex items-center gap-3 mb-6">
-                  <GraduationCap className="text-secondary" /> Educação
-                </h3>
-                {education.map((item, index) => (
-                  <div key={index} className="bg-background/40 p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-colors">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="text-lg font-bold text-primary">{item.title}</h4>
-                      <span className="bg-primary/10 text-primary text-xs px-2 py-1 rounded font-bold whitespace-nowrap ml-2">{item.year}</span>
+          {/* Formação & Soft Skills Tab */}
+          {activeTab === 'Formação & Skills' && (
+            <div className="space-y-16">
+              <div className="grid lg:grid-cols-2 gap-10">
+                <div className="space-y-6">
+                  <h3 className="text-2xl font-bold text-white flex items-center gap-3 mb-6">
+                    <GraduationCap className="text-secondary" /> Educação
+                  </h3>
+                  {education.map((item, index) => (
+                    <div key={index} className="bg-background/40 p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-colors">
+                      <div className="flex justify-between items-start mb-2">
+                        <h4 className="text-lg font-bold text-primary">{item.title}</h4>
+                        <span className="bg-primary/10 text-primary text-xs px-2 py-1 rounded font-bold whitespace-nowrap ml-2">{item.year}</span>
+                      </div>
+                      <p className="text-white font-medium mb-3">{item.institution}</p>
+                      <div className="flex flex-col gap-2">
+                        {item.skills.map((skillLine, idx) => (
+                          <p key={idx} className="text-sm text-gray-400 border-l-2 border-primary/20 pl-2">
+                              {skillLine}
+                          </p>
+                        ))}
+                      </div>
                     </div>
-                    <p className="text-white font-medium mb-3">{item.institution}</p>
-                    <div className="flex flex-col gap-2">
-                      {item.skills.map((skillLine, idx) => (
-                        <p key={idx} className="text-sm text-gray-400 border-l-2 border-primary/20 pl-2">
-                            {skillLine}
-                        </p>
+                  ))}
+                </div>
+
+                <div className="space-y-6">
+                  <h3 className="text-2xl font-bold text-white flex items-center gap-3 mb-6">
+                    <Award className="text-secondary" /> Licenças & Certificações
+                  </h3>
+                  <div className="grid gap-4">
+                      {certifications.map((cert, index) => (
+                      <div key={index} className="flex items-center gap-4 bg-background/40 p-5 rounded-xl border border-white/5 hover:border-secondary/30 transition-colors">
+                          <div className="bg-secondary/10 p-3 rounded-full text-secondary flex-shrink-0">
+                          <Award size={24} />
+                          </div>
+                          <div>
+                          <h4 className="text-white font-bold">{cert.name}</h4>
+                          <p className="text-gray-400 text-sm">{cert.issuer}</p>
+                          </div>
+                      </div>
                       ))}
-                    </div>
                   </div>
-                ))}
+                </div>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <h3 className="text-2xl font-bold text-white flex items-center gap-3 mb-6">
-                  <Award className="text-secondary" /> Licenças & Certificações
+                  <User className="text-secondary" /> Soft Skills
                 </h3>
-                <div className="grid gap-4">
-                    {certifications.map((cert, index) => (
-                    <div key={index} className="flex items-center gap-4 bg-background/40 p-5 rounded-xl border border-white/5 hover:border-secondary/30 transition-colors">
-                        <div className="bg-secondary/10 p-3 rounded-full text-secondary flex-shrink-0">
-                        <Award size={24} />
-                        </div>
-                        <div>
-                        <h4 className="text-white font-bold">{cert.name}</h4>
-                        <p className="text-gray-400 text-sm">{cert.issuer}</p>
-                        </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {softSkills.map((skill, index) => (
+                    <div 
+                      key={index} 
+                      className="bg-gradient-to-br from-background/60 to-background/30 p-6 rounded-xl border border-white/5 hover:border-primary/40 group transition-all duration-300 h-full"
+                    >
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                        <User size={24} />
+                      </div>
+                      <h3 className="text-lg font-bold text-white mb-2">{skill.title}</h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">{skill.desc}</p>
                     </div>
-                    ))}
+                  ))}
                 </div>
               </div>
-            </div>
-          )}
-
-          {/* Soft Skills Tab */}
-          {activeTab === 'Soft Skills' && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {softSkills.map((skill, index) => (
-                <div 
-                  key={index} 
-                  className="bg-gradient-to-br from-background/60 to-background/30 p-6 rounded-xl border border-white/5 hover:border-primary/40 group transition-all duration-300 h-full"
-                >
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
-                    <User size={24} />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{skill.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{skill.desc}</p>
-                </div>
-              ))}
             </div>
           )}
 
