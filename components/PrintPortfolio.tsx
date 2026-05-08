@@ -188,14 +188,14 @@ const PrintPortfolio: React.FC = () => {
                 
                 <div className="grid grid-cols-1 gap-8">
                     {portfolio.map((project, idx) => (
-                        <div key={project.id} className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start page-break-inside-avoid border-b-2 border-gray-100 pb-6 last:border-0">
+                        <div key={project.id} className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-6 items-start page-break-inside-avoid border-b-2 border-gray-100 pb-6 last:border-0">
                             {/* Images Gallery Container */}
                             <div className="space-y-4">
                                 <div className="relative group">
                                     <img 
                                         src={project.images[0]} 
                                         alt={project.title} 
-                                        className="w-full h-auto rounded-xl shadow-lg border border-gray-100" 
+                                        className="w-full h-auto rounded-xl shadow-lg border border-gray-100 block print:block" 
                                     />
                                     <div className="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-sm">
                                         Imagem Principal
@@ -203,14 +203,14 @@ const PrintPortfolio: React.FC = () => {
                                 </div>
                                 <div className="grid grid-cols-3 gap-2">
                                     {project.images.slice(1, 4).map((img, i) => (
-                                        <img key={i} src={img} alt={`${project.title} ${i+2}`} className="w-full h-24 object-cover rounded-lg border border-gray-100 shadow-sm transition-transform hover:scale-105" />
+                                        <img key={i} src={img} alt={`${project.title} ${i+2}`} className="w-full h-24 object-cover rounded-lg border border-gray-100 shadow-sm transition-transform hover:scale-105 block print:block" />
                                     ))}
                                 </div>
                                 {project.detailedContent && project.detailedContent.length > 0 && (
                                     <div className="grid grid-cols-2 gap-2 mt-2">
                                         {project.detailedContent.slice(0, 2).map((item, id) => (
                                             <div key={id} className="relative">
-                                                <img src={item.image} alt="Process" className="w-full h-28 object-cover rounded-lg shadow-inner opacity-90" />
+                                                <img src={item.image} alt="Process" className="w-full h-28 object-cover rounded-lg shadow-inner opacity-90 block print:block" />
                                                 <div className="absolute inset-0 bg-black/10 rounded-lg"></div>
                                             </div>
                                         ))}
@@ -254,12 +254,12 @@ const PrintPortfolio: React.FC = () => {
                                                     href={project.behanceUrl} 
                                                     target="_blank" 
                                                     rel="noopener noreferrer"
-                                                    className="inline-flex items-center gap-2 text-blue-600 font-bold hover:underline group"
+                                                    className="inline-flex items-center gap-2 text-blue-600 font-bold hover:underline group print:text-blue-800 print:text-lg"
                                                 >
-                                                    <img src="https://iili.io/qXVjM0b.webp" alt="Behance" className="w-4 h-4" />
+                                                    <img src="https://iili.io/qXVjM0b.webp" alt="Behance" className="w-4 h-4 print:w-6 print:h-6" />
                                                     <span>Ver no Behance</span>
                                                 </a>
-                                                <span className="text-[10px] text-gray-400 font-mono break-all bg-gray-50 p-1.5 rounded border border-gray-100">
+                                                <span className="text-[10px] text-gray-400 font-mono break-all bg-gray-50 p-1.5 rounded border border-gray-100 print:break-normal">
                                                     {project.behanceUrl}
                                                 </span>
                                             </div>
