@@ -24,17 +24,17 @@ const About: React.FC = () => {
   const resumes = [
     { 
       label: 'Engenheiro de Software & UI/UX', 
-      url: 'https://drive.google.com/file/d/1gH3kWCA_xbNP2UNmVojWr8aHQpIpYPdk/view?usp=sharing', 
+      url: 'https://drive.google.com/file/d/10pNzzqjIGHbvKvNN7-lP6hjAAN4aWBVb/view', 
       icon: Code 
     },
     { 
       label: 'Designer Gráfico & Social Media', 
-      url: 'https://drive.google.com/file/d/1Ej-3rq5z3bviiggwhYvQ5HgmSUmSsYbn/view?usp=sharing', 
+      url: 'https://drive.google.com/file/d/1TEpg0dOj7_V4u47ELD5YNOBdlBdt_E34/view', 
       icon: Palette 
     },
     { 
       label: 'Especialista em Infra & Redes', 
-      url: 'https://drive.google.com/file/d/1COsS7IDryEoxg2Ng40pJS1AUeEV6FXN_/view?usp=sharing', 
+      url: 'https://drive.google.com/file/d/1qWalqIC9vv74FCRO6OjUZr5S_qXfobcU/view', 
       icon: Server 
     },
   ];

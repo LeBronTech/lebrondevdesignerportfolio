@@ -351,9 +351,9 @@ export const about = {
   url: "https://lebrondevdesignerportfolio.vercel.app/",
   image: "https://iili.io/qXCrxtt.webp",
   resumes: [
-    { title: 'Currículo Infraestrutura', url: 'https://drive.google.com/file/d/1qWalqIC9vv74FCRO6OjUZr5S_qXfobcU/view?usp=drive_link' },
-    { title: 'Currículo Social Media', url: 'https://drive.google.com/file/d/1TEpg0dOj7_V4u47ELD5YNOBdlBdt_E34/view?usp=drive_link' },
-    { title: 'Currículo UX/UI', url: 'https://drive.google.com/file/d/10pNzzqjIGHbvKvNN7-lP6hjAAN4aWBVb/view?usp=drive_link' }
+    { title: 'Currículo Infraestrutura', url: 'https://drive.google.com/file/d/1qWalqIC9vv74FCRO6OjUZr5S_qXfobcU/view' },
+    { title: 'Currículo Social Media', url: 'https://drive.google.com/file/d/1TEpg0dOj7_V4u47ELD5YNOBdlBdt_E34/view' },
+    { title: 'Currículo UX/UI', url: 'https://drive.google.com/file/d/10pNzzqjIGHbvKvNN7-lP6hjAAN4aWBVb/view' }
   ],
   summary: "Desenvolvedor e Designer com sólida experiência em Engenharia de Software, UI/UX e Infraestrutura de TI. Especialista em criar soluções digitais de alta conversão, unindo o desenvolvimento de sistemas robustos (React, Node.js, Flutter) com design estratégico e branding. Expertise em redes (Cisco), sistemas críticos e automação DevOps, garantindo performance e escalabilidade em todos os níveis do projeto."
 };
@@ -411,7 +411,7 @@ export const testimonials = [
     title: "CEO da Têca Lojas",
     project: "App Têca Estoque",
     quote: "O aplicativo Têca Estoque transformou a gestão da nossa loja. Ter o catálogo e o estoque na palma da mão otimizou todo o nosso processo. Um trabalho incrível e indispensável!",
-    image: "https://iili.io/KbBMVXn.png",
+    image: "https://iili.io/Btu31jI.jpg",
     rating: 5,
     projectLogo: "https://i.postimg.cc/PvWWC5rM/Logos-lojas-Teca-2025-20251027-233927-0000.png",
   },

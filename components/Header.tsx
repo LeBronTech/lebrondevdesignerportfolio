@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { navLinks } from './data';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, FileText } from 'lucide-react';
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -67,6 +68,14 @@ export const Header: React.FC = () => {
                 {name}
               </a>
             ))}
+            <Link 
+              to="/pdf-version" 
+              target="_blank" 
+              className="flex items-center gap-2 px-5 py-2 bg-primary text-primary-foreground text-xs font-bold rounded-full hover:bg-secondary transition-all"
+            >
+              <FileText size={16} />
+              PDF
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -97,6 +106,15 @@ export const Header: React.FC = () => {
               {name}
             </a>
           ))}
+          <Link 
+            to="/pdf-version" 
+            target="_blank" 
+            onClick={handleLinkClick}
+            className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-bold rounded-full hover:bg-secondary transition-all"
+          >
+            <FileText size={20} />
+            Versão PDF
+          </Link>
         </nav>
       </div>
     </>
