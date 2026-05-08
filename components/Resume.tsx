@@ -21,7 +21,7 @@ const Resume: React.FC = () => {
 
   return (
     <section id="resume" className="py-20 bg-card">
-      <div className="container mx-auto px-6 md:px-12">
+      <div className="container mx-auto px-8 md:px-12">
         <SectionTitle title="Currículo" subtitle="Minha Jornada" />
         
         {/* Navigation Tabs */}
@@ -127,9 +127,9 @@ const Resume: React.FC = () => {
                   </h3>
                   {education.map((item, index) => (
                     <div key={index} className="bg-background/40 p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-colors print:border-gray-200">
-                      <div className="flex justify-between items-start mb-2">
-                        <h4 className="text-lg font-bold text-primary print:text-black">{item.title}</h4>
-                        <span className="bg-primary/10 text-primary text-xs px-2 py-1 rounded font-bold whitespace-nowrap ml-2 print:border print:border-black">{item.year}</span>
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-3">
+                        <h4 className="text-lg font-bold text-primary print:text-black leading-tight">{item.title}</h4>
+                        <span className="bg-primary/10 text-primary text-[10px] px-2 py-1 rounded font-bold whitespace-nowrap w-fit print:border print:border-black shrink-0">{item.year}</span>
                       </div>
                       <p className="text-white font-medium mb-3 print:text-black">{item.institution}</p>
                       <div className="flex flex-col gap-2">

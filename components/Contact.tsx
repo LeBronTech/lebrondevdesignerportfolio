@@ -9,7 +9,7 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-20 text-center bg-card">
-       <div className="container mx-auto px-6 md:px-12" data-aos="fade-up">
+       <div className="container mx-auto px-8 md:px-12" data-aos="fade-up">
         <SectionTitle title="Fale Comigo" subtitle="Contato"/>
         <p className="text-xl text-foreground/80 max-w-2xl mx-auto mb-10 leading-relaxed">
           Vamos transformar sua ideia em uma <span className="text-secondary font-bold">solução digital de alto impacto</span>? <br/>

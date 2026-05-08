@@ -25,7 +25,7 @@ const MainSite: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-background text-foreground font-primary">
+    <div className="bg-background text-foreground font-primary overflow-x-hidden">
       <Header />
       <main>
         <Home />

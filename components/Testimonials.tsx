@@ -18,7 +18,7 @@ const Testimonials: React.FC = () => {
 
   return (
     <section id="testimonials" className="py-20">
-      <div className="container mx-auto px-6 md:px-12">
+      <div className="container mx-auto px-8 md:px-12">
         <SectionTitle title="Depoimentos" subtitle="O que dizem" />
         <div className="relative max-w-3xl mx-auto bg-card p-8 rounded-lg shadow-lg" data-aos="fade-up">
           <div className="text-center">

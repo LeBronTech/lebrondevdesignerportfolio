@@ -132,16 +132,16 @@ const ProjectCard = ({
                 })}
 
                 {/* Persistent Info Bar */}
-                <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-10 flex justify-between items-end">
-                    <div>
-                        <h3 className="text-lg font-bold text-white truncate drop-shadow-md">{project.title}</h3>
+                <div className="absolute bottom-0 left-0 w-full p-5 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none z-10 flex justify-between items-end">
+                    <div className="max-w-[70%]">
+                        <h3 className="text-xl font-bold text-white truncate drop-shadow-md">{project.title}</h3>
                         <div className="flex gap-2 mt-1">
                             {project.tools.slice(0, 4).map(tool => (
                             <img key={tool} src={getToolIcon(tool)} alt={tool} loading="lazy" width="20" height="20" className="w-5 h-5 object-contain bg-white/10 rounded-sm p-0.5 backdrop-blur-sm"/>
                             ))}
                         </div>
                     </div>
-                    <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground text-xs font-semibold py-1 px-2.5 rounded-full whitespace-nowrap shadow-sm">
+                    <span className="bg-primary text-primary-foreground text-[10px] font-black py-1.5 px-4 rounded-full whitespace-nowrap shadow-xl uppercase tracking-wider border border-white/20 translate-x-[-8px] mb-1">
                         {project.category}
                     </span>
                 </div>
@@ -302,7 +302,7 @@ const Portfolio: React.FC = () => {
   return (
     <>
       <section id="portfolio" className="pb-20 pt-10">
-        <div className="container mx-auto px-4 md:px-12">
+        <div className="container mx-auto px-8 md:px-12">
           <SectionTitle title="Meu Portfólio" subtitle="Projetos Recentes" />
           
           <div className="hidden print:block mb-8 text-center bg-gray-50 p-4 rounded-lg border border-gray-200">

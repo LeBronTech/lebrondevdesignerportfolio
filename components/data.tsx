@@ -371,22 +371,16 @@ export const technicalSkills = {
 
 export const education = [
   { 
-    title: 'Bacharelado em Sistema de Informação (Em andamento)', 
+    title: 'Bacharel em Sistemas de Informação', 
     institution: 'UniFatecie', 
-    year: '3° Período - Previsão de Conclusão: 12/2028',
+    year: '3° Período - Em andamento',
     skills: ['Foco: Infraestrutura ágil, serviços de rede, performance de sistemas web e marketing digital.']
   },
   { 
-    title: 'Análise e Desenvolvimento de Sistemas (Finalizado)', 
+    title: 'Análise e Desenvolvimento de Sistemas', 
     institution: 'Cruzeiro do Sul Virtual / UDF', 
-    year: 'Graduado (Conclusão: 12/2025)',
-    skills: ['Foco: Arquitetura de software, interfaces digitais, UI/UX e viabilidade técnica de interfaces.']
-  },
-  {
-    title: '2º Graduação em Designer Gráfico / Sistemas para Internet (Cursando)',
-    institution: 'UniFatecie EAD',
-    year: 'Cursando (Previsão: 12/2028)',
-    skills: ['Foco: Design Estratégico, Branding, Interface Humano-Computador e Criação de Layouts Responsivos.']
+    year: 'Graduação Finalizada',
+    skills: ['Interfaces digitais, UI/UX, Desenvolvimento Full-Stack e Metodologias Ágeis.']
   }
 ];
 

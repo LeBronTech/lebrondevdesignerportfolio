@@ -28,6 +28,12 @@ const PrintPortfolio: React.FC = () => {
                         -webkit-print-color-adjust: exact !important;
                         print-color-adjust: exact !important;
                     }
+                    img {
+                        max-width: 100% !important;
+                        height: auto !important;
+                        display: block !important;
+                        page-break-inside: avoid;
+                    }
                     .print-container {
                         width: 210mm !important;
                         margin: 0 auto !important;
@@ -46,13 +52,20 @@ const PrintPortfolio: React.FC = () => {
             ` }} />
             
             <div className="print-container">
-                {/* Link for Print Users - visible only on print */}
-                <div className="hidden print:block mb-8 p-4 bg-gray-50 rounded-lg text-center border-2 border-primary">
-                    <p className="text-gray-700 font-bold mb-1">Portfólio Interativo:</p>
-                    <a href={about.url} className="text-primary font-bold text-lg underline">
-                        {about.url?.replace('https://', '')}
-                    </a>
+                {/* Essential Link for Printed Paper - HIGHLIGHTED AT TOP */}
+                <div className="hidden print:flex mb-6 p-4 bg-gray-50 border-2 border-primary rounded-xl items-center justify-between">
+                    <div>
+                        <p className="text-gray-900 font-black uppercase text-sm tracking-tighter">Portfólio Interativo</p>
+                        <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Acesse a experiência completa online</p>
+                    </div>
+                    <div className="flex flex-col items-end">
+                        <a href={about.url} className="text-primary font-black text-xl underline tracking-tight">
+                            {about.url?.replace('https://', '')}
+                        </a>
+                        <span className="text-[9px] font-mono text-gray-400">Escaneie ou digite para ver animações e interações</span>
+                    </div>
                 </div>
+                
                 {/* Control Bar (Hidden in Print) */}
             <div className="mb-8 p-4 bg-gray-50 rounded-lg flex justify-between items-center print:hidden border border-gray-200">
                 <div>
@@ -144,9 +157,9 @@ const PrintPortfolio: React.FC = () => {
                                     <GraduationCap size={16} className="text-primary" />
                                     <h4 className="text-lg font-bold text-gray-900">{edu.title}</h4>
                                 </div>
-                                <div className="flex justify-between items-center text-sm text-primary font-semibold mb-2">
-                                    <span>{edu.institution}</span>
-                                    <span>{edu.year}</span>
+                                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 text-sm text-primary font-semibold mb-2">
+                                    <span className="leading-tight">{edu.institution}</span>
+                                    <span className="text-[10px] bg-gray-50 px-2 py-0.5 rounded border border-gray-100 whitespace-nowrap">{edu.year}</span>
                                 </div>
                                 <ul className="list-disc list-inside text-gray-600 text-xs space-y-1">
                                     {edu.skills.map((skill, sIdx) => (
@@ -188,9 +201,17 @@ const PrintPortfolio: React.FC = () => {
                 
                 <div className="grid grid-cols-1 gap-8">
                     {portfolio.map((project, idx) => (
-                        <div key={project.id} className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-6 items-start page-break-inside-avoid border-b-2 border-gray-100 pb-6 last:border-0">
-                            {/* Images Gallery Container */}
-                            <div className="space-y-4">
+                        <div key={project.id} className="flex flex-col gap-6 items-start page-break-inside-avoid border-b-2 border-gray-200 pb-12 mb-6 last:border-0">
+                            <div className="w-full">
+                                <span className="text-xs font-bold text-primary uppercase tracking-[0.3em] mb-2 block">
+                                    {project.category}
+                                </span>
+                                <h4 className="text-4xl font-black text-gray-900 mb-4 leading-none tracking-tighter">{project.title}</h4>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 w-full items-start">
+                                {/* Images Gallery Container */}
+                                <div className="space-y-4">
                                 <div className="relative group">
                                     <img 
                                         src={project.images[0]} 
@@ -254,12 +275,14 @@ const PrintPortfolio: React.FC = () => {
                                                     href={project.behanceUrl} 
                                                     target="_blank" 
                                                     rel="noopener noreferrer"
-                                                    className="inline-flex items-center gap-2 text-blue-600 font-bold hover:underline group print:text-blue-800 print:text-lg"
+                                                    className="inline-flex items-center gap-2 text-blue-600 font-bold hover:underline group print:text-blue-700 print:text-lg"
                                                 >
-                                                    <img src="https://iili.io/qXVjM0b.webp" alt="Behance" className="w-4 h-4 print:w-6 print:h-6" />
+                                                    <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center text-white p-1">
+                                                       <img src="https://iili.io/qXVjM0b.webp" alt="Behance" className="w-full h-full invert" />
+                                                    </div>
                                                     <span>Ver no Behance</span>
                                                 </a>
-                                                <span className="text-[10px] text-gray-400 font-mono break-all bg-gray-50 p-1.5 rounded border border-gray-100 print:break-normal">
+                                                <span className="text-[10px] text-blue-500/80 font-mono break-all bg-blue-50/50 p-1.5 rounded border border-blue-100/50 print:break-normal">
                                                     {project.behanceUrl}
                                                 </span>
                                             </div>
@@ -307,9 +330,10 @@ const PrintPortfolio: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                    ))}
-                </div>
-            </section>
+                    </div>
+                ))}
+            </div>
+        </section>
 
             {/* Footer Only for Print */}
             <footer className="hidden print:block mt-16 pt-10 border-t-2 border-gray-100 text-center">

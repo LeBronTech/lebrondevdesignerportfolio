@@ -46,7 +46,7 @@ const About: React.FC = () => {
             <path d="M0,0 L1200,0 L1200,30 C800,70 400,70 0,30 Z" className="shape-fill"></path>
         </svg>
       </div>
-      <div className="container mx-auto px-6 md:px-12 pb-24 pt-32">
+      <div className="container mx-auto px-8 md:px-12 pb-24 pt-32">
         <SectionTitle title="Sobre Mim" subtitle="Minha Jornada" />
         
         {/* Changed from Flex to Grid for better vertical alignment stability */}

@@ -16,7 +16,7 @@ const Tools: React.FC = () => {
             <path d="M0,0 L1200,0 L1200,30 C800,70 400,70 0,30 Z" className="shape-fill"></path>
         </svg>
       </div>
-      <div className="container mx-auto px-6 md:px-12 py-20">
+      <div className="container mx-auto px-8 md:px-12 py-20">
         <SectionTitle title="Ferramentas Usadas" subtitle="TECNOLOGIAS" />
         <p className="max-w-3xl mx-auto text-center text-foreground/70 mb-16" data-aos="fade-up">
           Utilizo uma gama diversificada de ferramentas líderes de mercado para garantir que cada projeto seja entregue com a máxima qualidade, performance excepcional e um design visualmente impactante.

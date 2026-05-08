@@ -47,7 +47,7 @@ export const Header: React.FC = () => {
           clipPath: isScrolled ? 'none' : 'ellipse(150% 100% at 50% 0%)'
         }}
       >
-        <div className="container mx-auto px-6 md:px-12 flex justify-between items-center h-20">
+        <div className="container mx-auto px-8 md:px-12 flex justify-between items-center h-20">
           <a href="#home" className="z-50">
             <img 
               src="https://iili.io/qXe4t9f.webp" 
