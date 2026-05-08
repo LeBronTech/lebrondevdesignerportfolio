@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { FileText } from 'lucide-react';
 
 const typingWords = ["Apps.", "Websites.", "Logos.", "Identidade Visual."];
 
-const Home: React.FC = () => {
+const TypingText: React.FC = () => {
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [reverse, setReverse] = useState(false);
@@ -26,6 +27,17 @@ const Home: React.FC = () => {
     return () => clearTimeout(timeout);
   }, [subIndex, index, reverse]);
 
+  return (
+    <h2 className="text-2xl md:text-3xl font-secondary text-foreground/80 h-10">
+      Criação de <span className="font-bold text-secondary gradient-title-animation">
+        {`${typingWords[index].substring(0, subIndex)}`}
+      </span>
+      <span className="animate-ping">|</span>
+    </h2>
+  );
+};
+
+const Home: React.FC = () => {
   const handleScrollToPortfolio = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const portfolioSection = document.getElementById('portfolio');
@@ -60,17 +72,29 @@ const Home: React.FC = () => {
           width="512"
           height="205"
         />
-        <h2 className="text-2xl md:text-3xl font-secondary text-foreground/80 h-10">
-          Criação de <span className="font-bold text-secondary gradient-title-animation">{`${typingWords[index].substring(0, subIndex)}`}</span>
-          <span className="animate-ping">|</span>
-        </h2>
-        <a 
-          href="#portfolio"
-          onClick={handleScrollToPortfolio}
-          className="inline-block bg-primary text-primary-foreground font-bold py-3 px-8 rounded-full hover:bg-secondary transition-all duration-300 ease-in-out transform hover:scale-105 mt-8"
-        >
-          Ver Projetos
-        </a>
+        
+        <TypingText />
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+          <a 
+            href="#portfolio"
+            onClick={handleScrollToPortfolio}
+            className="w-full sm:w-auto inline-block bg-primary text-primary-foreground font-bold py-3 px-8 rounded-full hover:bg-secondary transition-all duration-300 ease-in-out transform hover:scale-105"
+          >
+            Ver Projetos
+          </a>
+          <button 
+            type="button"
+            onClick={() => {
+              console.log('Triggering browser print dialog...');
+              window.print();
+            }}
+            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-card text-foreground font-bold py-3 px-8 rounded-full border border-white/10 hover:border-primary/50 transition-all duration-300 ease-in-out transform hover:scale-105 cursor-pointer relative z-10"
+          >
+            <FileText size={20} />
+            Versão PDF
+          </button>
+        </div>
       </div>
     </section>
   );
