@@ -141,7 +141,7 @@ const ProjectCard = ({
                             ))}
                         </div>
                     </div>
-                    <span className="bg-primary text-primary-foreground text-[10px] font-black py-1.5 px-4 rounded-full whitespace-nowrap shadow-xl uppercase tracking-wider border border-white/20 translate-x-[-8px] mb-1">
+                    <span className="bg-primary/80 text-primary-foreground text-[10px] font-bold py-0.5 px-2.5 rounded-full whitespace-nowrap shadow-xl border border-white/20 translate-x-[-8px] mb-1">
                         {project.category}
                     </span>
                 </div>
@@ -240,6 +240,13 @@ const Portfolio: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('Todos');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [previewedProjectId, setPreviewedProjectId] = useState<number | null>(null);
+  const sectionTitleRef = useRef<HTMLDivElement>(null);
+  
+  const getFilterLabel = (category: string) => category === 'Identidade Visual' ? 'Id Visual' : category;
+
+  const scrollIntoView = () => {
+    sectionTitleRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   const filters = ['Todos', ...Array.from(new Set(portfolio.map(p => p.category)))];
   
@@ -303,7 +310,9 @@ const Portfolio: React.FC = () => {
     <>
       <section id="portfolio" className="pb-20 pt-10">
         <div className="container mx-auto px-8 md:px-12">
-          <SectionTitle title="Meu Portfólio" subtitle="Projetos Recentes" />
+          <div ref={sectionTitleRef}>
+            <SectionTitle title="Meu Portfólio" subtitle="Projetos Recentes" />
+          </div>
           
           <div className="hidden print:block mb-8 text-center bg-gray-50 p-4 rounded-lg border border-gray-200">
             <p className="text-sm font-medium text-gray-600">Este PDF contém uma seleção dos meus principais projetos. Para ver o portfólio interativo completo, visite o site.</p>
@@ -315,11 +324,11 @@ const Portfolio: React.FC = () => {
               return (
                 <button
                   key={filter}
-                  onClick={() => setActiveFilter(filter)}
+                  onClick={() => { setActiveFilter(filter); scrollIntoView(); }}
                   className={`flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 shadow-sm ${activeFilter === filter ? 'bg-primary text-primary-foreground transform scale-105' : 'bg-card text-foreground hover:bg-card/80 border border-white/5'}`}
                 >
                   {Icon && <Icon size={16} />}
-                  <span>{filter}</span>
+                  <span>{getFilterLabel(filter)}</span>
                 </button>
               )
             })}

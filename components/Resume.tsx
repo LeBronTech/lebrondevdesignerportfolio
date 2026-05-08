@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import AOS from 'aos';
 import SectionTitle from './SectionTitle';
 import { technicalSkills, education, experience, certifications, softSkills, about } from './data';
@@ -7,6 +7,11 @@ import { Briefcase, GraduationCap, Award, User, Code, Calendar, FileText } from 
 
 const Resume: React.FC = () => {
   const [activeTab, setActiveTab] = useState('Experiência');
+  const sectionTitleRef = useRef<HTMLDivElement>(null);
+
+  const scrollIntoView = () => {
+    sectionTitleRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   useEffect(() => {
     // Refresh AOS whenever the tab changes to recalculate positions for elements below
@@ -22,7 +27,9 @@ const Resume: React.FC = () => {
   return (
     <section id="resume" className="py-20 bg-card">
       <div className="container mx-auto px-8 md:px-12">
-        <SectionTitle title="Currículo" subtitle="Minha Jornada" />
+        <div ref={sectionTitleRef}>
+            <SectionTitle title="Currículo" subtitle="Minha Jornada" />
+        </div>
         
         {/* Navigation Tabs */}
         <div className="flex justify-center mb-12" data-aos="fade-up">
@@ -32,7 +39,7 @@ const Resume: React.FC = () => {
                return (
                 <button
                   key={tab.name}
-                  onClick={() => setActiveTab(tab.name)}
+                  onClick={() => { setActiveTab(tab.name); scrollIntoView(); }}
                   className={`flex items-center gap-2 px-3 md:px-6 py-3 rounded-lg transition-all duration-300 text-sm md:text-base font-bold flex-1 md:flex-none justify-center whitespace-nowrap ${activeTab === tab.name ? 'bg-primary text-primary-foreground shadow-md' : 'text-foreground/70 hover:bg-white/5 hover:text-primary'}`}
                 >
                   <Icon size={16} className="md:w-[18px] md:h-[18px]" />
