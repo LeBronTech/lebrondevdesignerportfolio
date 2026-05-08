@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
 import SectionTitle from './SectionTitle';
-import { technicalSkills, education, experience, certifications, softSkills } from './data';
-import { Briefcase, GraduationCap, Award, User, Code, Calendar } from 'lucide-react';
+import { technicalSkills, education, experience, certifications, softSkills, about } from './data';
+import { Briefcase, GraduationCap, Award, User, Code, Calendar, FileText } from 'lucide-react';
 
 const Resume: React.FC = () => {
   const [activeTab, setActiveTab] = useState('Experiência');
@@ -41,6 +41,22 @@ const Resume: React.FC = () => {
                );
             })}
           </div>
+        </div>
+
+        {/* Resume Downloads */}
+        <div className="flex justify-center mb-12 gap-4 flex-wrap" data-aos="fade-up">
+            {about.resumes.map((resume) => (
+                <a
+                    key={resume.title}
+                    href={resume.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-all text-sm font-bold border border-primary/20"
+                >
+                    <FileText size={16} />
+                    {resume.title}
+                </a>
+            ))}
         </div>
 
         {/* Content Area - Key prop forces re-render animation on tab change */}

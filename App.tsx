@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Header } from './components/Header';
@@ -11,27 +12,16 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
+import PrintPortfolio from './components/PrintPortfolio';
 
-const App: React.FC = () => {
+const MainSite: React.FC = () => {
   useEffect(() => {
-    // Small delay to ensure DOM is fully ready
-    const initAOS = () => {
-      AOS.init({
-        duration: 800,
-        once: false, // Changed to false to allow re-animation when filtering
-        offset: 100,
-        easing: 'ease-out',
-        disable: false,
-        startEvent: 'DOMContentLoaded',
-      });
-    };
-
-    if (document.readyState === 'complete') {
-      initAOS();
-    } else {
-      window.addEventListener('load', initAOS);
-      return () => window.removeEventListener('load', initAOS);
-    }
+    AOS.init({
+      duration: 800,
+      once: false,
+      offset: 100,
+      easing: 'ease-out',
+    });
   }, []);
 
   return (
@@ -49,6 +39,15 @@ const App: React.FC = () => {
       <Footer />
       <BackToTop />
     </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<MainSite />} />
+      <Route path="/pdf-version" element={<PrintPortfolio />} />
+    </Routes>
   );
 };
 

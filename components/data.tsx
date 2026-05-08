@@ -14,7 +14,7 @@ export const socials = [
   { name: 'GitHub', url: 'https://github.com/LeBronTech', icon: 'https://iili.io/qXznvV4.webp' },
   { name: 'Instagram', url: 'https://www.instagram.com/lebrondesign?igsh=bjJpNDV0cDRoeTh5', icon: 'https://iili.io/qXznUf2.webp' },
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/leandro-josé-455389398/', icon: 'https://iili.io/qXznODG.webp' },
-  { name: 'WhatsApp', url: 'https://wa.me/5561984836034?text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20saber%20mais%20sobre%20seus%20servi%C3%A7os', icon: 'https://iili.io/qXznglS.webp' },
+  { name: 'WhatsApp', url: 'https://wa.me/5561984866034?text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20saber%20mais%20sobre%20seus%20servi%C3%A7os', icon: 'https://iili.io/qXznglS.webp' },
 ];
 
 export const services = [
@@ -80,6 +80,7 @@ export const portfolio = [
     ],
     description: 'Desenvolvimento de rótulo para tinta de uso geral em spray para a empresa NovaCasa (Qualitex). O projeto incluiu a criação do design do rótulo, post para redes sociais para divulgação e o catálogo completo de produtos, unindo estética industrial com clareza de informações técnicas.',
     tools: ['Illustrator', 'Photoshop', 'Nano Banana'],
+    behanceUrl: 'https://www.behance.net/lebrondesigner1',
     logo: 'https://iili.io/qXYymrB.webp',
     role: 'Product Designer',
     timeline: '23 de fev. a 26 de fev. de 2026',
@@ -129,10 +130,12 @@ export const portfolio = [
       'https://iili.io/KbAVCen.png',
       'https://iili.io/KbAVB5X.png',
       'https://iili.io/KbAVnbs.png',
+      'https://iili.io/frGuNus.png',
+      'https://iili.io/Kbx9CB4.png'
     ],
     description: 'Atuei como responsável pelo desenvolvimento do website para a comunidade Corações Sagrados. O projeto iniciou com o design da interface (UI/UX) no Figma, buscando um visual sereno e inspirador. Em seguida, desenvolvi o site focado na Igreja Católica, implementando seções dedicadas a novenas e à história dos santos, com o objetivo de fortalecer a conexão entre os membros.',
     tools: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Figma'],
-    liveUrl: 'https://lebrontech.github.io/Novenascoracoessagrados/#apresentacao_ns',
+    liveUrl: 'https://coracoessagradosbsb.vercel.app/',
     logo: 'https://iili.io/KbAVxzG.jpg',
     role: 'Desenvolvedor Front-End & UI/UX Designer',
     timeline: 'jul. de 2025 – Atual',
@@ -159,6 +162,7 @@ export const portfolio = [
     description: 'Logomarca para uma marca de moda surfwear, incorporando elementos dinâmicos e vibrantes que remetem ao movimento do mar e ao estilo de vida praiano.', 
     tools: ['Illustrator', 'Photoshop'], 
     liveUrl: null,
+    behanceUrl: 'https://www.behance.net/lebrondesigner1',
   },
   { 
     id: 3, 
@@ -167,11 +171,13 @@ export const portfolio = [
     images: [
       'https://iili.io/qXjyfcP.webp',
       'https://iili.io/KbnLmOl.png',
-      'https://iili.io/KbnLDJf.png'
+      'https://iili.io/KbnLDJf.png',
+      'https://iili.io/KbnLbR4.png',
+      'https://iili.io/qX5IlhN.webp'
     ], 
     description: 'Loja online de souvenirs e lembranças de Brasília, com um design que celebra a cultura e arquitetura da capital.', 
     tools: ['HTML', 'CSS', 'JavaScript', 'WordPress'], 
-    liveUrl: '#',
+    liveUrl: 'https://leandrolebron2203.wixsite.com/capital-arte',
     logo: 'https://iili.io/KbnLLfn.png',
     detailedContent: [
       { image: 'https://iili.io/KbnLbR4.png', description: 'Página principal da loja, apresentando uma seleção de souvenirs que capturam a essência de Brasília, convidando o visitante a explorar os produtos.' },
@@ -271,7 +277,8 @@ export const portfolio = [
     ], 
     description: 'Criação de logotipo para uma cafeteria e bistrô que une o aconchego do café com a sofisticação da boa conversa. O resultado é uma marca acolhedora, moderna e memorável, projetada para conectar e encantar clientes.', 
     tools: ['Canva', 'Photoshop', 'Nano Banana'], 
-    liveUrl: null 
+    liveUrl: null,
+    behanceUrl: 'https://www.behance.net/lebrondesigner1'
   },
   { id: 9, category: 'Identidade Visual', title: 'Capilar Ela', images: ['https://i.postimg.cc/SRBN7ZCq/Capilar2.jpg'], description: 'Identidade para um salão de beleza especializado em terapia capilar.', tools: ['Illustrator', 'Canva'], liveUrl: null,
     detailedContent: [
@@ -287,67 +294,107 @@ export const portfolio = [
 
 export const experience = [
   {
-    role: "Empreendedor | Desenvolvedor Front-End e Designer UI/UX",
-    company: "LeBronDev-Designer (Autônomo)",
-    period: "mar. de 2022 – o momento",
-    description: "Criador e microempreendedor de uma marca de programação e design gráfico, gerenciando projetos de ponta-a-ponta, desde o briefing com o cliente até a entrega final do software e design."
+    role: "Consultoria em TI, Infra, e Desenvolvimento de Software (Autônomo/PJ)",
+    company: "Leandro José Consultoria",
+    period: "out. de 2025 – o momento",
+    description: "Consultoria técnica desde a infraestrutura de redes (Cisco/Linux) até o desenvolvimento de ferramentas internas para automação. Diagnóstico e resolução de problemas de hardware e software. Desenvolvimento de landing pages e sistemas de gestão web sob demanda."
   },
   {
-    role: "Engenheiro de Software Front-End (Freelance)",
-    company: "Projeto: Omni-channel (Ionedecor)",
-    period: "jun. de 2025 – nov. de 2025 (6 meses)",
-    description: "Liderança no planejamento, arquitetura e desenvolvimento front-end de plataforma digital integrada (Web, Mobile e Físico). Implementação de e-commerce com Next.js, React e TypeScript, app nativo com Flutter e integração com APIs."
+    role: "Engenheiro de Software & UI/UX Designer",
+    company: "Ione Decor",
+    period: "jun. de 2025 – jan. de 2026",
+    description: "Planejamento da arquitetura e design de interface (UI) no Figma. Criação de Design System completo. Desenvolvimento front-end de e-commerce utilizando Next.js, React e TypeScript. Implementação de app nativo em Flutter com estratégia mobile-first e integração com APIs RESTful em Node.js."
   },
   {
-    role: "Product Designer & Software Engineer",
-    company: "Ione Decor / Teca Decoração",
-    period: "jun. de 2025 – nov. de 2025",
-    description: "Arquitetura Omni-channel e UI/UX Design com foco em redução de fricção no checkout e controle unificado de inventário. Desenvolvimento de criativos de alta conversão para Google/Facebook Ads."
+    role: "Social Media & Designer Gráfico Gestor de tráfego",
+    company: "Teca Decorações",
+    period: "fev. de 2025 – fev. de 2026",
+    description: "Responsável pelo Rebranding Digital da marca. Criação de posts estáticos e vídeos promocionais (Reels/Stories). Desenvolvimento de criativos de alta conversão para tráfego pago (Google/Facebook Ads) com foco em engajamento."
   },
   {
-    role: "Especialista em Rede de Computadores",
+    role: "Especialista em Rede de Computadores (Técnico de Infraestrutura e Redes)",
     company: "7Tech",
     period: "out. de 2024 – out. de 2025 (1 ano e 1 mês)",
-    description: "Técnico de Infraestrutura e Redes. Atendimento a clientes como McDonald's e Shell. Configuração avançada de equipamentos Cisco (Switches e Roteadores), otimização de fluxo de dados e suporte a sistemas críticos."
+    description: "Responsável por infraestrutura de rede local (LAN), cabeamento estruturado e certificação de data centers (TCP/IP, DNS, DHCP). Configuração avançada de equipamentos Cisco (VLANs). Suporte a sistemas críticos e manutenção de hardware para grandes clientes como McDonald's e Shell."
+  },
+  {
+    role: "Desenvolvedor Web & UI Designer",
+    company: "Paroquial Católico",
+    period: "jun. de 2025 – momento",
+    description: "Projeto de interface completa no Figma e implementação técnica utilizando React, Next.js e TypeScript. Gestão de ciclo de desenvolvimento através de Scrum, realizando testes de QA e estruturando comunicação front/back-end."
   },
   {
     role: "Estagiário de TI",
     company: "Única Kids (Clínica de Autismo)",
     period: "mar. de 2024 – out. de 2024 (7 meses)",
-    description: "Suporte técnico Helpdesk N1, manutenção de sistemas e redes, registro de chamados e suporte a sistemas internos via REST API."
+    description: "Suporte técnico Helpdesk N1 remoto/presencial. Manutenção de sistemas e redes, rollout entre unidades e integração com APIs REST (Odapp, iGUT). Gestão de chamados via Service Desk (fluxo TOPdesk)."
+  },
+  {
+    role: "Desenvolvedor Web & UI Designer",
+    company: "Gusto Restaurante",
+    period: "fev. de 2023 – mar. de 2023",
+    description: "Liderança do projeto de design de interface no Figma, pesquisa de usuário e mapeamento de jornada. Desenvolvimento de website institucional responsivo com HTML5, CSS3, JavaScript e Bootstrap."
+  },
+  {
+    role: "Freelancer | Designer Gráfico",
+    company: "LeBronDev-Designer",
+    period: "mar. de 2022 – abr. de 2026",
+    description: "Gestão completa de projetos de design e programação. Identidade visual (Briefing, Manual da Marca, Logo em Vetor). Criação de banners promocionais e ativos visuais para Google/Facebook Ads."
   }
 ];
 
+export const about = {
+  name: "Leandro José",
+  role: "Engenheiro de Software, UI/UX Designer & Especialista em Infraestrutura",
+  email: "lebronempresas@gmail.com",
+  phone: "+55 (61) 98486-6034",
+  url: "https://lebrondevdesignerportfolio.vercel.app/",
+  image: "https://iili.io/qXCrxtt.webp",
+  resumes: [
+    { title: 'Currículo Infraestrutura', url: 'https://drive.google.com/file/d/1qWalqIC9vv74FCRO6OjUZr5S_qXfobcU/view?usp=drive_link' },
+    { title: 'Currículo Social Media', url: 'https://drive.google.com/file/d/1TEpg0dOj7_V4u47ELD5YNOBdlBdt_E34/view?usp=drive_link' },
+    { title: 'Currículo UX/UI', url: 'https://drive.google.com/file/d/10pNzzqjIGHbvKvNN7-lP6hjAAN4aWBVb/view?usp=drive_link' }
+  ],
+  summary: "Desenvolvedor e Designer com sólida experiência em Engenharia de Software, UI/UX e Infraestrutura de TI. Especialista em criar soluções digitais de alta conversão, unindo o desenvolvimento de sistemas robustos (React, Node.js, Flutter) com design estratégico e branding. Expertise em redes (Cisco), sistemas críticos e automação DevOps, garantindo performance e escalabilidade em todos os níveis do projeto."
+};
+
 export const technicalSkills = {
-  "Frontend": ["React.js", "Next.js", "Angular", "HTML5", "CSS3", "JavaScript (ES6+)", "Python"],
-  "Backend": ["Node.js", "Firebase"],
+  "Frontend": ["React.js", "Next.js", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap", "Python"],
+  "Backend & Data": ["Node.js", "Firebase", "REST APIs", "JSON", "Webhooks"],
   "Mobile": ["Flutter", "React Native"],
-  "Metodologias": ["Scrum", "Kanban", "Metodologias Ágeis"],
-  "Design & UI/UX": ["Figma", "Adobe Illustrator", "Adobe Photoshop", "Nano Banana", "Canva", "UI/UX Design", "Identidade Visual", "Product"],
-  "DevOps": ["Git", "GitHub", "Docker", "Linux", "Apache"],
-  "Infraestrutura & Redes": ["Protocolo Cisco", "Roteadores/Switches", "Suporte a Servidores", "Cabeamento", "CFTV (Intelbras)"],
-  "Cloud & IA": ["Microsoft Azure (Fundamentals, Security)", "Conceitos de IA"],
-  "CMS & Frameworks": ["WordPress", "Vue.js", "Bootstrap"]
+  "Design & UI/UX": ["Figma", "Adobe Photoshop", "Adobe Illustrator", "Canva Pro", "Design System", "Branding Digital", "Design Thinking", "Teoria das Cores", "Tipografia"],
+  "Infraestrutura & Redes": ["Protocolo Cisco (VLANs, Subnetting)", "TCP/IP", "DNS/DHCP", "Firewall", "VPN", "Suporte a Servidores (N2 e N3)", "Cabeamento Estruturado", "CFTV (Intelbras)"],
+  "DevOps & Automação": ["Git", "GitHub", "Docker", "Linux (Ubuntu Server, LVM, SSH Security)", "Bash Scripting", "Shell Script", "Cronjobs", "Apache"],
+  "Marketing & Gestão": ["Google Ads", "Facebook Ads", "Social Media Ágil", "Scrum", "Kanban", "Gestão de Projetos Ágeis"],
+  "Suporte & Sistemas": ["Helpdesk (N1 e N2)", "Troubleshooting", "Service Desk (TOPdesk)", "Registro de Chamados", "Cloud & Segurança (Microsoft Azure)"]
 };
 
 export const education = [
   { 
-    title: 'Análise e Desenvolvimento de Sistemas', 
-    institution: 'Cruzeiro do Sul UDF', 
-    year: 'Graduado (12/2025)',
-    skills: ['Foco: Interfaces Digitais e Front-End', 'Viabilidade técnica de interfaces', 'Desenvolvimento orientado a objetos']
+    title: 'Bacharelado em Sistema de Informação (Em andamento)', 
+    institution: 'UniFatecie', 
+    year: '3° Período - Previsão de Conclusão: 12/2028',
+    skills: ['Foco: Infraestrutura ágil, serviços de rede, performance de sistemas web e marketing digital.']
   },
   { 
-    title: 'Pós Graduação em Sistemas para Internet', 
-    institution: 'Cruzeiro do Sul Virtual', 
-    year: 'Cursando (Previsão 12/2028)',
-    skills: ['Foco: Marketing Digital, Design de Interação', 'Interface Humano-Computador', 'Tratamento de Imagem Digital']
+    title: 'Análise e Desenvolvimento de Sistemas (Finalizado)', 
+    institution: 'Cruzeiro do Sul Virtual / UDF', 
+    year: 'Graduado (Conclusão: 12/2025)',
+    skills: ['Foco: Arquitetura de software, interfaces digitais, UI/UX e viabilidade técnica de interfaces.']
+  },
+  {
+    title: '2º Graduação em Designer Gráfico / Sistemas para Internet (Cursando)',
+    institution: 'UniFatecie EAD',
+    year: 'Cursando (Previsão: 12/2028)',
+    skills: ['Foco: Design Estratégico, Branding, Interface Humano-Computador e Criação de Layouts Responsivos.']
   }
 ];
 
 export const certifications = [
   { name: "Microsoft Certified: Azure Fundamentals", issuer: "Microsoft" },
-  { name: "Cisco Certified Network Associate (CCNA)", issuer: "Cisco" }
+  { name: "Microsoft Certified: Competências em Desenvolvimento de software", issuer: "Microsoft" },
+  { name: "Cisco Certified Network Associate (CCNA)", issuer: "Cisco" },
+  { name: "Fundamentos ITIL 4 (Práticas de Gestão de Serviços)", issuer: "AXELOS" }
 ];
 
 export const softSkills = [

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { FileText } from 'lucide-react';
 
 const typingWords = ["Apps.", "Websites.", "Logos.", "Identidade Visual."];
@@ -89,17 +90,14 @@ const Home: React.FC = () => {
           >
             Ver Projetos
           </a>
-          <button 
-            type="button"
-            onClick={() => {
-              console.log('Triggering browser print dialog...');
-              window.print();
-            }}
+          <Link 
+            to="/pdf-version"
+            target="_blank"
             className="w-full sm:w-auto flex items-center justify-center gap-2 bg-card text-foreground font-bold py-3 px-8 rounded-full border border-white/10 hover:border-primary/50 transition-all duration-300 ease-in-out transform hover:scale-105 cursor-pointer relative z-10"
           >
             <FileText size={20} />
             Versão PDF
-          </button>
+          </Link>
         </div>
       </div>
     </section>

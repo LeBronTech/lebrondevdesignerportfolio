@@ -227,113 +227,41 @@
   }
 }
 
-/* Print Styles */
+/* Print Styles - High Fidelity */
 @media print {
   @page {
-    margin: 1cm;
     size: A4;
+    margin: 0;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
   }
 
   body {
     background: white !important;
     color: black !important;
-    font-size: 11pt !important;
+    padding: 0 !important;
   }
-  
+
+  .print-hidden,
   header, 
   #back-to-top, 
-  .rn-btn::before,
   button,
   .shape-divider-top,
   .shape-divider-bottom,
   footer,
   #contact,
   #testimonials,
-  #tools,
-  .flex.justify-center.mb-12 {
+  #tools {
     display: none !important;
-  }
-
-  section {
-    padding: 10px 0 !important;
-    margin: 0 !important;
-    background: transparent !important;
-    page-break-after: auto;
-  }
-
-  #about img {
-    max-width: 200px !important;
-    margin: 0 auto !important;
-  }
-
-  #about .lg\:grid-cols-2 {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-
-  #about .container {
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
-  }
-
-  #home {
-    height: auto !important;
-    min-height: auto !important;
-    padding: 0 !important;
-    margin-bottom: 20px !important;
   }
 
   .container {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  .bg-card, 
-  .bg-background,
-  .bg-about-bg {
-    background: transparent !important;
-    border: none !important;
-  }
-
-  h1 { font-size: 24pt !important; margin-bottom: 10pt !important; }
-  h2 { font-size: 18pt !important; margin-bottom: 8pt !important; }
-  h3 { font-size: 14pt !important; margin-bottom: 5pt !important; }
-
-  h1, h2, h3, h4 {
-    color: black !important;
-    text-shadow: none !important;
-  }
-
-  p, span, li {
-    color: #333 !important;
-  }
-
-  img {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  /* Portfolio Print Specifics */
-  #portfolio .grid {
-    display: block !important;
-  }
-
-  #portfolio .grid > div {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 30px !important;
-    border: 1px solid #eee !important;
-    padding: 15px !important;
-    border-radius: 8px !important;
-  }
-
-  /* Force Resume tabs display */
-  #resume .container > div:last-child > div {
-    display: block !important;
-    page-break-inside: auto !important;
   }
 
   .animate-fade-in, 
