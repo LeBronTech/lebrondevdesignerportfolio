@@ -46,6 +46,13 @@ const PrintPortfolio: React.FC = () => {
             ` }} />
             
             <div className="print-container">
+                {/* Link for Print Users - visible only on print */}
+                <div className="hidden print:block mb-8 p-4 bg-gray-50 rounded-lg text-center border-2 border-primary">
+                    <p className="text-gray-700 font-bold mb-1">Portfólio Interativo:</p>
+                    <a href={about.url} className="text-primary font-bold text-lg underline">
+                        {about.url?.replace('https://', '')}
+                    </a>
+                </div>
                 {/* Control Bar (Hidden in Print) */}
             <div className="mb-8 p-4 bg-gray-50 rounded-lg flex justify-between items-center print:hidden border border-gray-200">
                 <div>
