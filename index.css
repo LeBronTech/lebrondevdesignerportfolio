@@ -229,9 +229,15 @@
 
 /* Print Styles */
 @media print {
+  @page {
+    margin: 1cm;
+    size: A4;
+  }
+
   body {
     background: white !important;
     color: black !important;
+    font-size: 11pt !important;
   }
   
   header, 
@@ -240,35 +246,61 @@
   button,
   .shape-divider-top,
   .shape-divider-bottom,
-  footer {
+  footer,
+  #contact,
+  #testimonials,
+  #tools,
+  .flex.justify-center.mb-12 {
     display: none !important;
   }
 
   section {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    padding: 20px 0 !important;
+    padding: 10px 0 !important;
     margin: 0 !important;
+    background: transparent !important;
+    page-break-after: auto;
+  }
+
+  #about img {
+    max-width: 200px !important;
+    margin: 0 auto !important;
+  }
+
+  #about .lg\:grid-cols-2 {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  #about .container {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
   }
 
   #home {
     height: auto !important;
     min-height: auto !important;
-    padding-top: 40px !important;
+    padding: 0 !important;
+    margin-bottom: 20px !important;
   }
 
   .container {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 20px !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   .bg-card, 
   .bg-background,
   .bg-about-bg {
     background: transparent !important;
-    border: 1px solid #eee !important;
+    border: none !important;
   }
+
+  h1 { font-size: 24pt !important; margin-bottom: 10pt !important; }
+  h2 { font-size: 18pt !important; margin-bottom: 8pt !important; }
+  h3 { font-size: 14pt !important; margin-bottom: 5pt !important; }
 
   h1, h2, h3, h4 {
     color: black !important;
@@ -281,23 +313,27 @@
 
   img {
     max-width: 100% !important;
-    page-break-inside: avoid;
+    height: auto !important;
   }
 
-  .grid {
+  /* Portfolio Print Specifics */
+  #portfolio .grid {
     display: block !important;
   }
 
-  .grid > div {
-    margin-bottom: 20px !important;
+  #portfolio .grid > div {
     page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 30px !important;
+    border: 1px solid #eee !important;
+    padding: 15px !important;
+    border-radius: 8px !important;
   }
 
-  /* Portfolio items in print */
-  #portfolio .grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 15px !important;
+  /* Force Resume tabs display */
+  #resume .container > div:last-child > div {
+    display: block !important;
+    page-break-inside: auto !important;
   }
 
   .animate-fade-in, 

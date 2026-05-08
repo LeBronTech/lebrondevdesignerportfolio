@@ -49,6 +49,12 @@ const Home: React.FC = () => {
   return (
     <section id="home" className="flex items-center justify-center text-center pt-32 pb-8">
       <div className="container mx-auto px-6" data-aos="fade-up">
+        {/* Print Tip */}
+        <div className="hidden print:block mb-8 text-center border-2 border-primary p-4 rounded-lg">
+          <h2 className="text-xl font-bold mb-2">Versão PDF de Portfólio</h2>
+          <p>Para baixar, selecione "Salvar como PDF" no destino da impressão.</p>
+        </div>
+
         <span className="text-lg font-secondary uppercase tracking-widest font-bold gradient-title-animation">Bem vindo A</span>
         {/* Desktop Logo */}
         <img 

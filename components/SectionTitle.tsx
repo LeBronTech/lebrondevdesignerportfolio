@@ -7,7 +7,7 @@ interface SectionTitleProps {
 
 const SectionTitle: React.FC<SectionTitleProps> = ({ title, subtitle }) => {
   return (
-    <div className="text-center mb-12" data-aos="fade-up">
+    <div className="text-center mb-12 print:mb-4" data-aos="fade-up">
       <span className="subtitle font-primary uppercase tracking-widest text-sm gradient-title-animation">
         {subtitle}
       </span>

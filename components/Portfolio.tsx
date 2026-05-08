@@ -94,7 +94,7 @@ const ProjectCard = ({
     return (
         <div
             ref={cardRef}
-            className="group relative rounded-lg overflow-hidden cursor-pointer shadow-lg h-72 bg-muted"
+            className="group relative rounded-lg overflow-hidden cursor-pointer shadow-lg h-72 bg-muted print:h-auto print:shadow-none print:bg-white print:overflow-visible"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={() => setIsHovered(false)}
             onClick={onTogglePreview}
@@ -102,64 +102,88 @@ const ProjectCard = ({
             tabIndex={0}
             aria-label={`View details for ${project.title}`}
         >
-            {/* Image Carousel with Fade Transition */}
-            {project.images.map((image, index) => {
-                const isActive = index === currentIndex;
-                const isPrev = index === prevIndex;
-                const isNext = index === (currentIndex + 1) % project.images.length;
-                
-                // Only render if active, previous, next, or user has interacted
-                if (!isActive && !isPrev && !isNext && !hasInteracted) return null;
+            {/* Screen Version */}
+            <div className="h-full relative print:hidden">
+                {/* Image Carousel with Fade Transition */}
+                {project.images.map((image, index) => {
+                    const isActive = index === currentIndex;
+                    const isPrev = index === prevIndex;
+                    const isNext = index === (currentIndex + 1) % project.images.length;
+                    
+                    // Only render if active, previous, next, or user has interacted
+                    if (!isActive && !isPrev && !isNext && !hasInteracted) return null;
 
-                // Alternate animation: even indices zoom out, odd indices zoom in
-                const animationClass = index % 2 === 0 ? 'animate-zoom-out' : 'animate-zoom-in';
-                const willChangeClass = (isActive || isPrev) ? 'will-change-[opacity,transform]' : '';
+                    // Alternate animation: even indices zoom out, odd indices zoom in
+                    const animationClass = index % 2 === 0 ? 'animate-zoom-out' : 'animate-zoom-in';
+                    const willChangeClass = (isActive || isPrev) ? 'will-change-[opacity,transform]' : '';
 
-                return (
-                    <img 
-                        key={image}
-                        src={image} 
-                        alt={project.title}
-                        loading={index === 0 ? "eager" : "lazy"} 
-                        decoding="async"
-                        width="800"
-                        height="450"
-                        className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-[2000ms] ease-in-out ${willChangeClass} ${isActive ? 'opacity-100 z-10' : 'opacity-0 z-0'} ${(isActive || isPrev) && isVisible ? animationClass : ''}`}
-                    />
-                );
-            })}
+                    return (
+                        <img 
+                            key={image}
+                            src={image} 
+                            alt={project.title}
+                            loading={index === 0 ? "eager" : "lazy"} 
+                            decoding="async"
+                            width="800"
+                            height="450"
+                            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-[2000ms] ease-in-out ${willChangeClass} ${isActive ? 'opacity-100 z-10' : 'opacity-0 z-0'} ${(isActive || isPrev) && isVisible ? animationClass : ''}`}
+                        />
+                    );
+                })}
 
-            {/* Persistent Info Bar */}
-            <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-10 flex justify-between items-end">
-                 <div>
-                    <h3 className="text-lg font-bold text-white truncate drop-shadow-md">{project.title}</h3>
-                    <div className="flex gap-2 mt-1">
-                        {project.tools.slice(0, 4).map(tool => (
-                        <img key={tool} src={getToolIcon(tool)} alt={tool} loading="lazy" width="20" height="20" className="w-5 h-5 object-contain bg-white/10 rounded-sm p-0.5 backdrop-blur-sm"/>
+                {/* Persistent Info Bar */}
+                <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-10 flex justify-between items-end">
+                    <div>
+                        <h3 className="text-lg font-bold text-white truncate drop-shadow-md">{project.title}</h3>
+                        <div className="flex gap-2 mt-1">
+                            {project.tools.slice(0, 4).map(tool => (
+                            <img key={tool} src={getToolIcon(tool)} alt={tool} loading="lazy" width="20" height="20" className="w-5 h-5 object-contain bg-white/10 rounded-sm p-0.5 backdrop-blur-sm"/>
+                            ))}
+                        </div>
+                    </div>
+                    <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground text-xs font-semibold py-1 px-2.5 rounded-full whitespace-nowrap shadow-sm">
+                        {project.category}
+                    </span>
+                </div>
+
+                {/* Preview Overlay (controlled by parent) */}
+                <div className={`absolute inset-0 bg-card/95 p-4 flex flex-col justify-center items-center text-center transition-opacity duration-300 z-20 print:hidden ${isPreview ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                    <h3 className="text-xl font-bold text-primary mb-2">{project.title}</h3>
+                    <div className="flex gap-3 mb-4 flex-wrap justify-center">
+                        {project.tools.map(tool => (
+                        <div key={tool} className="bg-background/50 p-1.5 rounded-md" title={tool}>
+                            <img src={getToolIcon(tool)} alt={tool} width="24" height="24" className="w-6 h-6 object-contain"/>
+                        </div>
                         ))}
                     </div>
-                 </div>
-                 <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground text-xs font-semibold py-1 px-2.5 rounded-full whitespace-nowrap shadow-sm">
-                    {project.category}
-                 </span>
+                    <button
+                        onClick={handleDetailsClick}
+                        className="mt-2 text-sm font-semibold py-2.5 px-6 bg-primary text-primary-foreground rounded-full hover:bg-secondary transition-all transform hover:scale-105 shadow-lg"
+                    >
+                        Ver detalhes completos
+                    </button>
+                </div>
             </div>
 
-            {/* Preview Overlay (controlled by parent) */}
-            <div className={`absolute inset-0 bg-card/95 p-4 flex flex-col justify-center items-center text-center transition-opacity duration-300 z-20 ${isPreview ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                <h3 className="text-xl font-bold text-primary mb-2">{project.title}</h3>
-                 <div className="flex gap-3 mb-4 flex-wrap justify-center">
-                    {project.tools.map(tool => (
-                      <div key={tool} className="bg-background/50 p-1.5 rounded-md" title={tool}>
-                        <img src={getToolIcon(tool)} alt={tool} width="24" height="24" className="w-6 h-6 object-contain"/>
-                      </div>
-                    ))}
-                  </div>
-                <button
-                    onClick={handleDetailsClick}
-                    className="mt-2 text-sm font-semibold py-2.5 px-6 bg-primary text-primary-foreground rounded-full hover:bg-secondary transition-all transform hover:scale-105 shadow-lg"
-                >
-                    Ver detalhes completos
-                </button>
+            {/* Print Version (visible only in PDF/Print) */}
+            <div className="hidden print:block">
+                <div className="flex flex-col gap-4">
+                    <img src={project.images[0]} alt={project.title} className="w-full h-64 object-cover rounded-lg shadow-sm" />
+                    <div className="px-2">
+                        <div className="flex justify-between items-start mb-2">
+                            <h3 className="text-2xl font-bold text-black">{project.title}</h3>
+                            <span className="text-xs font-bold border border-black px-2 py-1 rounded">{project.category}</span>
+                        </div>
+                        <p className="text-base text-gray-800 leading-relaxed mb-4">{project.description}</p>
+                        <div className="flex flex-wrap gap-2">
+                            {project.tools.map(tool => (
+                                <span key={tool} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded border border-gray-200">
+                                    {tool}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
@@ -281,7 +305,11 @@ const Portfolio: React.FC = () => {
         <div className="container mx-auto px-4 md:px-12">
           <SectionTitle title="Meu Portfólio" subtitle="Projetos Recentes" />
           
-          <div className="flex justify-center flex-wrap gap-3 mb-12" data-aos="fade-up">
+          <div className="hidden print:block mb-8 text-center bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <p className="text-sm font-medium text-gray-600">Este PDF contém uma seleção dos meus principais projetos. Para ver o portfólio interativo completo, visite o site.</p>
+          </div>
+          
+          <div className="flex justify-center flex-wrap gap-3 mb-12 print:hidden" data-aos="fade-up">
             {filters.map(filter => {
               const Icon = filterIcons[filter];
               return (

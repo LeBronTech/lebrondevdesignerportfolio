@@ -44,7 +44,7 @@ const Resume: React.FC = () => {
         </div>
 
         {/* Content Area - Key prop forces re-render animation on tab change */}
-        <div key={activeTab} className="min-h-[400px] animate-fade-in">
+        <div key={activeTab} className="min-h-[400px] print:min-h-0 animate-fade-in">
           
           {/* Experiência Tab */}
           {(activeTab === 'Experiência' || true) && (
