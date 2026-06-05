@@ -13,7 +13,7 @@ export const socials = [
   { name: 'Behance', url: 'https://www.behance.net/lebrondesigner1', icon: 'https://iili.io/qXVjM0b.webp' },
   { name: 'GitHub', url: 'https://github.com/LeBronTech', icon: 'https://iili.io/qXznvV4.webp' },
   { name: 'Instagram', url: 'https://www.instagram.com/lebrondesign?igsh=bjJpNDV0cDRoeTh5', icon: 'https://iili.io/qXznUf2.webp' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/leandro-josé-455389398/', icon: 'https://iili.io/qXznODG.webp' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/Leandrojosedev', icon: 'https://iili.io/qXznODG.webp' },
   { name: 'WhatsApp', url: 'https://wa.me/5561984866034?text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20saber%20mais%20sobre%20seus%20servi%C3%A7os', icon: 'https://iili.io/qXznglS.webp' },
 ];
 
