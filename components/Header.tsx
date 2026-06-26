@@ -63,11 +63,22 @@ export const Header: React.FC = () => {
           
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {navLinks.map(({ path, name }) => (
-              <a key={path} href={path} className="uppercase text-sm font-medium tracking-wider text-foreground hover:text-primary transition-colors duration-300">
-                {name}
-              </a>
-            ))}
+            {navLinks.map(({ path, name }) => {
+              const isSocialMedia = path === '#social-media';
+              return (
+                <a 
+                  key={path} 
+                  href={path} 
+                  className={`uppercase text-sm font-semibold tracking-wider transition-all duration-300 ${
+                    isSocialMedia 
+                      ? 'bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 bg-clip-text text-transparent hover:opacity-80' 
+                      : 'text-foreground hover:text-primary'
+                  }`}
+                >
+                  {name}
+                </a>
+              );
+            })}
             <Link 
               to="/pdf-version" 
               target="_blank" 
@@ -101,11 +112,23 @@ export const Header: React.FC = () => {
             </button>
         </div>
         <nav className="flex flex-col items-center justify-center flex-1 space-y-8 pb-20">
-          {navLinks.map(({ path, name }) => (
-            <a key={path} href={path} onClick={handleLinkClick} className="uppercase text-xl font-light tracking-widest text-foreground hover:text-primary transition-colors duration-300">
-              {name}
-            </a>
-          ))}
+          {navLinks.map(({ path, name }) => {
+            const isSocialMedia = path === '#social-media';
+            return (
+              <a 
+                key={path} 
+                href={path} 
+                onClick={handleLinkClick} 
+                className={`uppercase text-xl font-medium tracking-widest transition-all duration-300 ${
+                  isSocialMedia 
+                    ? 'bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 bg-clip-text text-transparent hover:opacity-80' 
+                    : 'text-foreground hover:text-primary'
+                }`}
+              >
+                {name}
+              </a>
+            );
+          })}
           <Link 
             to="/pdf-version" 
             target="_blank" 

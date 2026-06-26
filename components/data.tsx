@@ -3,6 +3,7 @@
 export const navLinks = [
   { name: 'Home', path: '#home' },
   { name: 'Sobre', path: '#about' },
+  { name: 'Gerenciamento de redes sociais', path: '#social-media' },
   { name: 'Portfólio', path: '#portfolio' },
   { name: 'Currículo', path: '#resume' },
   { name: 'Depoimentos', path: '#testimonials' },
@@ -15,6 +16,268 @@ export const socials = [
   { name: 'Instagram', url: 'https://www.instagram.com/lebrondesign?igsh=bjJpNDV0cDRoeTh5', icon: 'https://iili.io/qXznUf2.webp' },
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/Leandrojosedev', icon: 'https://iili.io/qXznODG.webp' },
   { name: 'WhatsApp', url: 'https://wa.me/5561984866034?text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20saber%20mais%20sobre%20seus%20servi%C3%A7os', icon: 'https://iili.io/qXznglS.webp' },
+];
+
+export interface SocialMediaPost {
+  id: number;
+  postUrl: string;
+  embedUrl: string;
+  isImage?: boolean;
+  isLongImage?: boolean;
+}
+
+export interface SocialMediaBrand {
+  id: number;
+  companyName: string;
+  logo: string;
+  category: string;
+  servicesList?: string[];
+  posts: SocialMediaPost[];
+}
+
+export const socialMediaBrands: SocialMediaBrand[] = [
+  {
+    id: 11,
+    companyName: 'Pizzaria',
+    logo: 'https://iili.io/CAU0m4R.jpg',
+    category: 'Pizzaria',
+    servicesList: [
+      'Criação de post'
+    ],
+    posts: [
+      {
+        id: 1101,
+        postUrl: 'https://iili.io/CAUaELx.jpg',
+        embedUrl: 'https://iili.io/CAUaELx.jpg',
+        isImage: true,
+        isLongImage: true
+      }
+    ]
+  },
+  {
+    id: 12,
+    companyName: 'Hamburgueria',
+    logo: 'https://iili.io/CAUEoiJ.jpg',
+    category: 'Hamburgueria',
+    servicesList: [
+      'Criação de post'
+    ],
+    posts: [
+      {
+        id: 1201,
+        postUrl: 'https://iili.io/CAUa1Xj.jpg',
+        embedUrl: 'https://iili.io/CAUa1Xj.jpg',
+        isImage: true,
+        isLongImage: true
+      }
+    ]
+  },
+  {
+    id: 1,
+    companyName: 'Recovery',
+    logo: 'https://iili.io/CAF4esa.jpg',
+    category: 'Fisioterapia Esportiva',
+    servicesList: ['Identidade Visual de Feed', 'Posicionamento Estratégico', 'Planejamento de Conteúdo', 'Design Gráfico'],
+    posts: [
+      {
+        id: 101,
+        postUrl: 'https://www.instagram.com/p/DXPXzcGCVRi/?igsh=dHhmaG1pMGdwOHh1',
+        embedUrl: 'https://www.instagram.com/p/DXPXzcGCVRi/embed/'
+      }
+    ]
+  },
+  {
+    id: 2,
+    companyName: 'Têca Decorações',
+    logo: 'https://i.postimg.cc/PvWWC5rM/Logos-lojas-Teca-2025-20251027-233927-0000.png',
+    category: 'Decorando seu lar',
+    servicesList: ['Estratégia de Reels de Alto Alcance', 'Produção de Conteúdo para Stories', 'Identidade Estética de Feed', 'Fotografia de Ambientes', 'Tráfego Pago'],
+    posts: [
+      {
+        id: 201,
+        postUrl: 'https://www.instagram.com/reel/DC4mC-Ayn7F/?igsh=dmY3ZDNzMmJwMXRq',
+        embedUrl: 'https://www.instagram.com/reel/DC4mC-Ayn7F/embed/'
+      }
+    ]
+  },
+  {
+    id: 3,
+    companyName: 'Ione Lourenço',
+    logo: 'https://iili.io/CANviiu.jpg',
+    category: 'Decorações',
+    servicesList: ['Fotografia de Interiores', 'Estratégia Visual de Feed', 'Edição de Vídeo', 'Criação de Identidade Visual', 'Desenvolvimento de Logotipo'],
+    posts: [
+      {
+        id: 301,
+        postUrl: 'https://www.instagram.com/p/C-Xtw5csJ5B/?igsh=MTdsc3lyN3ZnZWc0Nw==',
+        embedUrl: 'https://www.instagram.com/p/C-Xtw5csJ5B/embed/'
+      }
+    ]
+  },
+  {
+    id: 4,
+    companyName: 'Lavalle',
+    logo: 'https://iili.io/CAOKBxp.jpg',
+    category: 'Salão Feminino',
+    servicesList: ['Branding Visual de Elite', 'Cronograma de Stories Interativos', 'Divulgação Premium de Procedimentos', 'Anúncios Patrocinados (Tráfego)'],
+    posts: [
+      {
+        id: 401,
+        postUrl: 'https://www.instagram.com/p/DXHXhuGk1SX/?igsh=MTFjMmo1ZzJ3M2x2bg==',
+        embedUrl: 'https://www.instagram.com/p/DXHXhuGk1SX/embed/'
+      }
+    ]
+  },
+  {
+    id: 5,
+    companyName: 'Garden',
+    logo: 'https://iili.io/CAexxxs.jpg',
+    category: 'Beach Tennis',
+    servicesList: [
+      'Captação de Leads',
+      'Gerenciamento do Instagram',
+      'Criação de posts e stories',
+      'Edição e tratamento de imagem'
+    ],
+    posts: [
+      {
+        id: 501,
+        postUrl: 'https://iili.io/CAezlYN.png',
+        embedUrl: 'https://iili.io/CAezlYN.png',
+        isImage: true
+      },
+      {
+        id: 502,
+        postUrl: 'https://iili.io/CAezuhg.png',
+        embedUrl: 'https://iili.io/CAezuhg.png',
+        isImage: true
+      },
+      {
+        id: 503,
+        postUrl: 'https://iili.io/CAezxkP.png',
+        embedUrl: 'https://iili.io/CAezxkP.png',
+        isImage: true
+      },
+      {
+        id: 504,
+        postUrl: 'https://iili.io/CAezBrQ.png',
+        embedUrl: 'https://iili.io/CAezBrQ.png',
+        isImage: true
+      },
+      {
+        id: 505,
+        postUrl: 'https://iili.io/CAezhGf.png',
+        embedUrl: 'https://iili.io/CAezhGf.png',
+        isImage: true
+      }
+    ]
+  },
+  {
+    id: 6,
+    companyName: 'Shalom',
+    logo: 'https://iili.io/B51WMLF.jpg',
+    category: 'Comunidade Católica',
+    servicesList: [
+      'Gerenciamento de postagem',
+      'Resposta de comentários',
+      'Edição de vídeo'
+    ],
+    posts: [
+      {
+        id: 601,
+        postUrl: 'https://www.instagram.com/reel/DYDNLgiuuB_/?igsh=aThocXgyNGE2dDhn',
+        embedUrl: 'https://www.instagram.com/reel/DYDNLgiuuB_/embed/'
+      }
+    ]
+  },
+  {
+    id: 7,
+    companyName: 'Gonçalves Engenharia',
+    logo: 'https://iili.io/CAktP7p.jpg',
+    category: 'Construtora',
+    servicesList: [
+      'Edição de vídeo',
+      'Criação de post'
+    ],
+    posts: [
+      {
+        id: 701,
+        postUrl: 'https://www.instagram.com/p/DaD5SUnkQDl/?igsh=MTZoNzNyMG55Y2VyNw==',
+        embedUrl: 'https://www.instagram.com/p/DaD5SUnkQDl/embed/'
+      },
+      {
+        id: 702,
+        postUrl: 'https://www.instagram.com/reel/DaD5s_-xaW-/?igsh=MWVrY2lwYXY0NnJwcA==',
+        embedUrl: 'https://www.instagram.com/reel/DaD5s_-xaW-/embed/'
+      }
+    ]
+  },
+  {
+    id: 8,
+    companyName: 'Agência Aurora',
+    logo: 'https://iili.io/CAkVrUN.jpg',
+    category: 'Marketing',
+    servicesList: [
+      'Criação de arte camiseta',
+      'Calendário editorial',
+      'Gerenciamento de marcas',
+      'Captação de leads'
+    ],
+    posts: [
+      {
+        id: 801,
+        postUrl: 'https://www.instagram.com/p/DaD6lOJxc54/?igsh=MWg1enF4bW5kazc4NA==',
+        embedUrl: 'https://www.instagram.com/p/DaD6lOJxc54/embed/'
+      }
+    ]
+  },
+  {
+    id: 9,
+    companyName: 'Corações Sagrados',
+    logo: 'https://iili.io/CAvC2lp.jpg',
+    category: 'Católica',
+    servicesList: [
+      'Gerenciamento de Perfil',
+      'Estratégia de Conteúdo Católico',
+      'Identidade Estética de Feed'
+    ],
+    posts: [
+      {
+        id: 901,
+        postUrl: 'https://www.instagram.com/p/DXyzs4YDkn8/?igsh=MWcwdWhqcmd3aHUxNQ==',
+        embedUrl: 'https://www.instagram.com/p/DXyzs4YDkn8/embed/'
+      }
+    ]
+  },
+  {
+    id: 10,
+    companyName: 'Têca Útil',
+    logo: 'https://iili.io/CAv7WDQ.jpg',
+    category: 'Utilidades',
+    servicesList: [
+      'Criação de logo',
+      'Identidade visual',
+      'TikTok e Instagram',
+      'Edição de vídeo'
+    ],
+    posts: [
+      {
+        id: 1001,
+        postUrl: 'https://www.instagram.com/reel/DLZt2c0R9Fu/?igsh=cTFjbXh6amFmYWZ6',
+        embedUrl: 'https://www.instagram.com/reel/DLZt2c0R9Fu/embed/'
+      },
+      {
+        id: 1002,
+        postUrl: 'https://www.instagram.com/reel/DLcE3aihH7p/?igsh=eGExbm13ZjJlNmJv',
+        embedUrl: 'https://www.instagram.com/reel/DLcE3aihH7p/embed/'
+      },
+      {
+        id: 1003,
+        postUrl: 'https://www.instagram.com/p/DK-w9JsJtOo/?igsh=ZTc5NXd6aGd3OHdo',
+        embedUrl: 'https://www.instagram.com/p/DK-w9JsJtOo/embed/'
+      }
+    ]
+  }
 ];
 
 export const services = [

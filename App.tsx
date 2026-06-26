@@ -6,6 +6,7 @@ import { Header } from './components/Header';
 import Home from './components/Home';
 import About from './components/About';
 import Tools from './components/Tools';
+import SocialMedia from './components/SocialMedia';
 import Portfolio from './components/Portfolio';
 import Resume from './components/Resume';
 import Testimonials from './components/Testimonials';
@@ -31,6 +32,7 @@ const MainSite: React.FC = () => {
         <Home />
         <About />
         <Tools />
+        <SocialMedia />
         <Portfolio />
         <Resume />
         <Testimonials />
