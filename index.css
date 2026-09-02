@@ -160,6 +160,28 @@
     animation: zoom-in 0.2s ease-out forwards;
   }
 
+  @keyframes story-border-blink-2x {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    45% {
+      opacity: 0.1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.25;
+    }
+  }
+
+  .animate-border-flash {
+    animation: story-border-blink-2x 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
   .animate-zoom-out {
     animation: ken-burns-zoom-out 6s linear forwards;
     will-change: transform;

@@ -56,7 +56,12 @@ const SocialMedia: React.FC = () => {
   const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const [expandedLongImages, setExpandedLongImages] = useState<{ [key: number]: boolean }>({});
   const [hasClickedStory, setHasClickedStory] = useState(false);
+  const [isFlashing, setIsFlashing] = useState(false);
+  const [flashKey, setFlashKey] = useState(0);
+  const flashTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const storiesTrayRef = useRef<HTMLDivElement>(null);
+  const showcaseRef = useRef<HTMLDivElement>(null);
 
   const toggleLongImage = (postId: number) => {
     setExpandedLongImages(prev => ({
@@ -112,9 +117,23 @@ const SocialMedia: React.FC = () => {
     setExpandedLongImages({});
     setHasClickedStory(true);
     
-    // Smooth scroll up to the social-media section/title
-    if (sectionRef.current) {
-      sectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Trigger flashing border effect (2 pulses with the story gradient)
+    setFlashKey(prev => prev + 1);
+    setIsFlashing(true);
+    if (flashTimeoutRef.current) clearTimeout(flashTimeoutRef.current);
+    flashTimeoutRef.current = setTimeout(() => {
+      setIsFlashing(false);
+    }, 1500);
+    
+    // Smooth scroll positioning so the stories carousel stays right at the top and fully visible
+    if (storiesTrayRef.current) {
+      const headerOffset = 85; // Fixed header height + margin
+      const elementPosition = storiesTrayRef.current.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -140,7 +159,9 @@ const SocialMedia: React.FC = () => {
 
         {/* Stories Horizontal Tray */}
         <div 
-          className="flex flex-col items-center justify-center mb-16 relative"
+          ref={storiesTrayRef}
+          id="stories-tray"
+          className="flex flex-col items-center justify-center mb-16 relative scroll-mt-24"
           data-aos="fade-up"
           onMouseEnter={() => !hasClickedStory && setIsPaused(true)}
           onMouseLeave={() => !hasClickedStory && setIsPaused(false)}
@@ -173,25 +194,25 @@ const SocialMedia: React.FC = () => {
                   <div className="relative">
                     {/* Ring background: colored gradient for active or unselected */}
                     <div 
-                      className={`absolute inset-[-4px] rounded-full transition-all duration-500 ${
+                      className={`absolute inset-[-2.5px] rounded-full transition-all duration-300 ${
                         isSelected 
-                          ? 'bg-gradient-to-tr from-pink-500 via-purple-600 to-orange-400 rotate-180 scale-105 shadow-lg shadow-pink-500/20' 
-                          : 'bg-white/10 group-hover:bg-gradient-to-tr group-hover:from-pink-500/50 group-hover:via-purple-600/50 group-hover:to-orange-400/50 group-hover:scale-102'
+                          ? 'bg-gradient-to-tr from-pink-500 via-purple-600 to-orange-400 rotate-180' 
+                          : 'bg-white/15 group-hover:bg-gradient-to-tr group-hover:from-pink-500/40 group-hover:via-purple-600/40 group-hover:to-orange-400/40'
                       }`}
                     />
 
                     {/* Circular Progress Overlay for the Selected Story (Using Fluid ViewBox) */}
                     {isSelected && !isPaused && (
-                      <svg viewBox="0 0 100 100" className="absolute inset-[-4px] w-[calc(100%+8px)] h-[calc(100%+8px)] -rotate-90 pointer-events-none z-10">
+                      <svg viewBox="0 0 100 100" className="absolute inset-[-2.5px] w-[calc(100%+5px)] h-[calc(100%+5px)] -rotate-90 pointer-events-none z-10">
                         <circle
                           cx="50"
                           cy="50"
-                          r="46"
+                          r="48"
                           stroke="url(#story-gradient)"
-                          strokeWidth="3"
+                          strokeWidth="2"
                           fill="transparent"
-                          strokeDasharray="289"
-                          strokeDashoffset={289 - (289 * progress) / 100}
+                          strokeDasharray="301.6"
+                          strokeDashoffset={301.6 - (301.6 * progress) / 100}
                           className="transition-all duration-75 ease-linear"
                         />
                         <defs>
@@ -205,7 +226,7 @@ const SocialMedia: React.FC = () => {
                     )}
                     
                     {/* Inner Content Area - Reduced sizes */}
-                    <div className="relative w-16 h-16 md:w-18 md:h-18 rounded-full bg-background p-1 overflow-hidden z-0">
+                    <div className="relative w-16 h-16 md:w-18 md:h-18 rounded-full bg-background p-[2px] overflow-hidden z-0">
                       <div className="w-full h-full rounded-full overflow-hidden bg-card border border-white/5 relative group-hover:scale-105 transition-transform duration-300">
                         <img
                           src={brand.logo}
@@ -243,11 +264,26 @@ const SocialMedia: React.FC = () => {
 
         {/* Selected Brand Gallery Area */}
         <div 
-          className="bg-card/40 border border-white/5 rounded-3xl p-6 md:p-10 backdrop-blur-md relative"
+          ref={showcaseRef}
+          id="brand-showcase"
+          className="scroll-mt-24 bg-card/40 border border-white/10 rounded-3xl p-6 md:p-10 backdrop-blur-md relative transition-all duration-300"
           data-aos="fade-up"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
+          {/* Subtle thin gradient contour with 2-pulse flash animation on select */}
+          <div 
+            key={`flash-${flashKey}`}
+            className={`absolute inset-0 rounded-3xl p-[1px] pointer-events-none transition-opacity duration-300 ${
+              isFlashing ? 'animate-border-flash z-30 opacity-100' : 'opacity-20 hover:opacity-40'
+            }`}
+            style={{
+              background: 'linear-gradient(135deg, #ec4899, #8b5cf6, #f97316)',
+              WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+              WebkitMaskComposite: 'xor',
+              maskComposite: 'exclude',
+            }}
+          />
           {/* Header of selected brand */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-white/5 mb-10">
             <div className="flex items-center gap-4">

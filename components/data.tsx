@@ -3,7 +3,7 @@
 export const navLinks = [
   { name: 'Home', path: '#home' },
   { name: 'Sobre', path: '#about' },
-  { name: 'Gerenciamento de redes sociais', path: '#social-media' },
+  { name: 'Social Media', path: '#social-media' },
   { name: 'Portfólio', path: '#portfolio' },
   { name: 'Currículo', path: '#resume' },
   { name: 'Depoimentos', path: '#testimonials' },
