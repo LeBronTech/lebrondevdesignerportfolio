@@ -61,13 +61,82 @@ const SocialMedia: React.FC = () => {
   const flashTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const storiesTrayRef = useRef<HTMLDivElement>(null);
+  const storiesCarouselRef = useRef<HTMLDivElement>(null);
+  const storyButtonsRef = useRef<{ [key: number]: HTMLButtonElement | null }>({});
   const showcaseRef = useRef<HTMLDivElement>(null);
+  const expandButtonContainerRef = useRef<HTMLDivElement>(null);
 
-  const toggleLongImage = (postId: number) => {
-    setExpandedLongImages(prev => ({
-      ...prev,
-      [postId]: !prev[postId]
-    }));
+  // Centraliza o story selecionado horizontalmente no carrossel de stories
+  const centerStoryHorizontally = (brandId: number) => {
+    const container = storiesCarouselRef.current;
+    const button = storyButtonsRef.current[brandId];
+    if (container && button) {
+      const buttonLeft = button.offsetLeft;
+      const buttonWidth = button.offsetWidth;
+      const containerWidth = container.clientWidth;
+      const targetLeft = buttonLeft - (containerWidth / 2) + (buttonWidth / 2);
+      container.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  useEffect(() => {
+    centerStoryHorizontally(selectedBrandId);
+  }, [selectedBrandId]);
+
+  const toggleLongImage = (postId: number, event?: React.MouseEvent) => {
+    const isCurrentlyExpanded = !!expandedLongImages[postId];
+    if (!isCurrentlyExpanded) {
+      // Ao clicar em "Ver mais": apenas expande a imagem, sem rolagem de tela
+      setExpandedLongImages(prev => ({
+        ...prev,
+        [postId]: true
+      }));
+    } else {
+      // Ao clicar em "Ver menos": contrai a imagem e rola suavemente para centralizar o post
+      setExpandedLongImages(prev => ({
+        ...prev,
+        [postId]: false
+      }));
+      
+      const button = event?.currentTarget as HTMLElement | undefined;
+      const card = button?.closest('.post-card-container') as HTMLElement | null;
+      setTimeout(() => {
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 50);
+    }
+  };
+
+  const handleToggleExpand = () => {
+    if (!isExpanded) {
+      // Ao clicar em "Ver mais": apenas expande o grid, SEM animação de rolagem
+      setIsExpanded(true);
+    } else {
+      // Ao clicar em "Ver menos": contrai E rola suavemente para a posição inicial do botão,
+      // deixando o botão "Ver mais" visível na parte inferior da tela
+      setIsExpanded(false);
+      setTimeout(() => {
+        if (showcaseRef.current) {
+          const rect = showcaseRef.current.getBoundingClientRect();
+          const currentScrollY = window.pageYOffset || window.scrollY;
+          const showcaseTop = currentScrollY + rect.top;
+          const viewportHeight = window.innerHeight;
+          
+          // Altura estimada do bloco colapsado (cabeçalho + grid contraído com vignette)
+          const collapsedBlockHeight = 850;
+          const targetScroll = Math.max(0, showcaseTop + collapsedBlockHeight - viewportHeight + 40);
+          
+          window.scrollTo({
+            top: targetScroll,
+            behavior: 'smooth'
+          });
+        }
+      }, 80);
+    }
   };
 
   const selectedBrand = socialMediaBrands.find(b => b.id === selectedBrandId) || socialMediaBrands[0];
@@ -123,17 +192,22 @@ const SocialMedia: React.FC = () => {
     if (flashTimeoutRef.current) clearTimeout(flashTimeoutRef.current);
     flashTimeoutRef.current = setTimeout(() => {
       setIsFlashing(false);
-    }, 1500);
+    }, 1300);
     
     // Smooth scroll positioning so the stories carousel stays right at the top and fully visible
     if (storiesTrayRef.current) {
-      const headerOffset = 85; // Fixed header height + margin
-      const elementPosition = storiesTrayRef.current.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      const headerOffset = 80;
+      const elementRect = storiesTrayRef.current.getBoundingClientRect();
+      const currentScrollY = window.pageYOffset || window.scrollY;
+      const targetScroll = currentScrollY + elementRect.top - headerOffset;
+      
+      // Apenas rola se o carrossel de stories não estiver já próximo do topo
+      if (Math.abs(elementRect.top - headerOffset) > 25) {
+        window.scrollTo({
+          top: Math.max(0, targetScroll),
+          behavior: 'smooth'
+        });
+      }
     }
   };
 
@@ -181,12 +255,16 @@ const SocialMedia: React.FC = () => {
             )}
           </div>
 
-          <div className="flex items-center justify-start md:justify-center gap-5 md:gap-8 overflow-x-auto py-3 w-full no-scrollbar px-6 scroll-smooth">
+          <div 
+            ref={storiesCarouselRef}
+            className="flex items-center justify-start md:justify-center gap-5 md:gap-8 overflow-x-auto py-3 w-full no-scrollbar px-6 scroll-smooth"
+          >
             {socialMediaBrands.map((brand) => {
               const isSelected = brand.id === selectedBrandId;
               return (
                 <button
                   key={brand.id}
+                  ref={(el) => { storyButtonsRef.current[brand.id] = el; }}
                   onClick={() => handleBrandSelect(brand.id)}
                   className="flex flex-col items-center gap-2 group cursor-pointer focus:outline-none flex-shrink-0"
                 >
@@ -284,204 +362,207 @@ const SocialMedia: React.FC = () => {
               maskComposite: 'exclude',
             }}
           />
-          {/* Header of selected brand */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-white/5 mb-10">
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-full overflow-hidden border border-white/10 flex-shrink-0">
-                <img
-                  src={selectedBrand.logo}
-                  alt={`${selectedBrand.companyName} Logo`}
-                  className="w-full h-full object-cover"
-                />
+          {/* Selected Brand Content with unified smooth transition for all brands */}
+          <div key={`brand-content-${selectedBrand.id}`} className="animate-brand-fade">
+            {/* Header of selected brand */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-white/5 mb-10">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-full overflow-hidden border border-white/10 flex-shrink-0">
+                  <img
+                    src={selectedBrand.logo}
+                    alt={`${selectedBrand.companyName} Logo`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+                    {selectedBrand.companyName}
+                  </h3>
+                  <span className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/20 text-primary uppercase tracking-wider w-fit">
+                    {selectedBrand.category}
+                  </span>
+                  <p className="text-sm text-foreground/60 mt-0.5">
+                    Trabalhos criativos e estratégicos de Social Media
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-col gap-1.5">
-                <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
-                  {selectedBrand.companyName}
-                </h3>
-                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/20 text-primary uppercase tracking-wider w-fit">
-                  {selectedBrand.category}
-                </span>
-                <p className="text-sm text-foreground/60 mt-0.5">
-                  Trabalhos criativos e estratégicos de Social Media
-                </p>
-              </div>
+
+              {/* Services provided list */}
+              {selectedBrand.servicesList && selectedBrand.servicesList.length > 0 && (
+                <div className="flex flex-wrap items-center gap-2 max-w-2xl md:justify-end">
+                  {selectedBrand.servicesList.map((service, sIdx) => (
+                    <span 
+                      key={sIdx} 
+                      className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:border-primary/40 hover:text-primary transition-all duration-300 flex items-center gap-1.5"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      {service}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
 
-            {/* Services provided list */}
-            {selectedBrand.servicesList && selectedBrand.servicesList.length > 0 && (
-              <div className="flex flex-wrap items-center gap-2 max-w-2xl md:justify-end">
-                {selectedBrand.servicesList.map((service, sIdx) => (
-                  <span 
-                    key={sIdx} 
-                    className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:border-primary/40 hover:text-primary transition-all duration-300 flex items-center gap-1.5"
+            {/* Collapsible Wrapper for Grid Layout */}
+            <div 
+              className={`relative transition-all duration-500 ease-in-out overflow-hidden ${
+                isExpanded || selectedBrand.posts.length <= 1
+                  ? 'max-h-[5000px] pb-24' 
+                  : 'max-h-[820px] pb-32'
+              }`}
+            >
+              {/* Grid Layout of the posts of the selected brand */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 justify-center">
+                {selectedBrand.posts.map((post) => (
+                  <div
+                    key={post.id}
+                    className="post-card-container w-full max-w-[400px] bg-background/50 rounded-2xl border border-white/5 shadow-2xl overflow-hidden hover:border-primary/45 hover:shadow-primary/5 transition-all duration-300 flex flex-col group mx-auto"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    {service}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Collapsible Wrapper for Grid Layout */}
-          <div 
-            className={`relative transition-all duration-1000 ease-in-out overflow-hidden ${
-              isExpanded || selectedBrand.posts.length <= 1
-                ? 'max-h-[5000px] pb-24' 
-                : 'max-h-[820px] pb-32'
-            }`}
-          >
-            {/* Grid Layout of the posts of the selected brand */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 justify-center">
-              {selectedBrand.posts.map((post) => (
-                <div
-                  key={post.id}
-                  className="w-full max-w-[400px] bg-background/50 rounded-2xl border border-white/5 shadow-2xl overflow-hidden hover:border-primary/45 hover:shadow-primary/5 transition-all duration-300 flex flex-col group mx-auto"
-                >
-                  {/* Header of Card */}
-                  <div className="p-4 flex items-center justify-between border-b border-white/5 bg-black/10">
-                    <div className="flex items-center gap-3">
-                      <div className="relative w-8 h-8 rounded-full overflow-hidden border border-white/15 flex-shrink-0">
-                        <img
-                          src={selectedBrand.logo}
-                          alt={`${selectedBrand.companyName} Logo`}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div>
-                        <h4 className="text-xs font-semibold text-white tracking-wide">
-                          {selectedBrand.companyName}
-                        </h4>
-                        <span className="text-[9px] text-gray-400 font-medium">
-                          Publicado no Instagram
-                        </span>
-                      </div>
-                    </div>
-                    
-                    <a
-                      href={post.postUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-1.5 rounded-full bg-black/30 hover:bg-primary/20 text-gray-400 hover:text-primary transition-all duration-300"
-                      title="Ver no Instagram"
-                    >
-                      <Instagram size={14} />
-                    </a>
-                  </div>
-
-                  {/* Instagram Live Embed Preview container */}
-                  {post.isImage ? (
-                    post.isLongImage ? (
-                      <div 
-                        className="relative w-full bg-black/25 flex-grow overflow-hidden flex flex-col items-center transition-all duration-500 ease-in-out"
-                        style={{ maxHeight: expandedLongImages[post.id] ? '2000px' : '350px' }}
-                      >
-                        <img
-                          src={post.embedUrl}
-                          alt={`Publicação de ${selectedBrand.companyName}`}
-                          className="w-full h-auto object-top group-hover:scale-[1.01] transition-transform duration-500 select-none pointer-events-none"
-                        />
-                        
-                        {!expandedLongImages[post.id] ? (
-                          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent flex items-end justify-center pb-8 z-10">
-                            <button
-                              onClick={(e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                toggleLongImage(post.id);
-                              }}
-                              className="text-xs font-bold text-white bg-primary hover:bg-primary/90 px-4 py-2.5 rounded-full flex items-center gap-1.5 shadow-lg shadow-primary/20 hover:scale-105 transition-all duration-300 pointer-events-auto"
-                            >
-                              <ChevronDown size={14} />
-                              Ver mais da imagem
-                            </button>
-                          </div>
-                        ) : (
-                          <div className="absolute bottom-4 left-0 right-0 flex justify-center z-10">
-                            <button
-                              onClick={(e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                toggleLongImage(post.id);
-                              }}
-                              className="text-xs font-bold text-white bg-black/80 hover:bg-black border border-white/10 px-4 py-2 rounded-full flex items-center gap-1.5 shadow-lg hover:scale-105 transition-all duration-300 pointer-events-auto"
-                            >
-                              <ChevronUp size={14} />
-                              Ver menos
-                            </button>
-                          </div>
-                        )}
-                      </div>
-                    ) : (
-                      <div className="relative w-full aspect-[4/5] bg-black/25 flex-grow overflow-hidden flex items-center justify-center">
-                        <img
-                          src={post.embedUrl}
-                          alt={`Publicação de ${selectedBrand.companyName}`}
-                          className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 select-none pointer-events-none"
-                        />
-                        {/* Elegant hover badge indicating interactive preview */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-                          <span className="text-[11px] font-bold text-white bg-primary/95 px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg">
-                            <Instagram size={12} />
-                            Ver Imagem Completa
+                    {/* Header of Card */}
+                    <div className="p-4 flex items-center justify-between border-b border-white/5 bg-black/10">
+                      <div className="flex items-center gap-3">
+                        <div className="relative w-8 h-8 rounded-full overflow-hidden border border-white/15 flex-shrink-0">
+                          <img
+                            src={selectedBrand.logo}
+                            alt={`${selectedBrand.companyName} Logo`}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div>
+                          <h4 className="text-xs font-semibold text-white tracking-wide">
+                            {selectedBrand.companyName}
+                          </h4>
+                          <span className="text-[9px] text-gray-400 font-medium">
+                            Publicado no Instagram
                           </span>
                         </div>
                       </div>
-                    )
-                  ) : (
-                    <div className="relative w-full aspect-[4/5] bg-black/40 min-h-[440px] flex-grow flex flex-col">
-                      {!loadedIframes[post.id] && (
-                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-card/95 backdrop-blur-sm z-10 transition-opacity duration-300">
-                          <Loader2 className="w-8 h-8 text-primary animate-spin mb-2" />
-                          <span className="text-xs text-gray-400 font-medium">Sincronizando com Instagram...</span>
-                        </div>
-                      )}
                       
-                      <iframe
-                        src={post.embedUrl}
-                        onLoad={() => handleIframeLoad(post.id)}
-                        className="w-full h-full border-0 absolute inset-0 z-0 bg-transparent"
-                        allowtransparency="true"
-                        allow="encrypted-media"
-                        scrolling="no"
-                        title={`Instagram post from ${selectedBrand.companyName}`}
-                      ></iframe>
+                      <a
+                        href={post.postUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 rounded-full bg-black/30 hover:bg-primary/20 text-gray-400 hover:text-primary transition-all duration-300"
+                        title="Ver no Instagram"
+                      >
+                        <Instagram size={14} />
+                      </a>
                     </div>
-                  )}
 
-                  {/* Card Footer */}
-                  <div className="p-4 bg-black/10 border-t border-white/5 flex justify-center">
-                    <a
-                      href={post.postUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-xs font-bold text-gray-400 group-hover:text-secondary transition-colors duration-300"
-                    >
-                      <span>{post.isImage ? 'Abrir imagem em alta definição' : 'Abrir publicação original'}</span>
-                      <ExternalLink size={12} className="opacity-70" />
-                    </a>
+                    {/* Instagram Live Embed Preview container */}
+                    {post.isImage ? (
+                      post.isLongImage ? (
+                        <div 
+                          className="relative w-full bg-black/25 flex-grow overflow-hidden flex flex-col items-center transition-all duration-500 ease-in-out"
+                          style={{ maxHeight: expandedLongImages[post.id] ? '2000px' : '350px' }}
+                        >
+                          <img
+                            src={post.embedUrl}
+                            alt={`Publicação de ${selectedBrand.companyName}`}
+                            className="w-full h-auto object-top group-hover:scale-[1.01] transition-transform duration-500 select-none pointer-events-none"
+                          />
+                          
+                          {!expandedLongImages[post.id] ? (
+                            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent flex items-end justify-center pb-8 z-10">
+                              <button
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  toggleLongImage(post.id, e);
+                                }}
+                                className="text-xs font-bold text-white bg-primary hover:bg-primary/90 px-4 py-2.5 rounded-full flex items-center gap-1.5 shadow-lg shadow-primary/20 hover:scale-105 transition-all duration-300 pointer-events-auto cursor-pointer"
+                              >
+                                <ChevronDown size={14} />
+                                Ver mais da imagem
+                              </button>
+                            </div>
+                          ) : (
+                            <div className="absolute bottom-4 left-0 right-0 flex justify-center z-10">
+                              <button
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  toggleLongImage(post.id, e);
+                                }}
+                                className="text-xs font-bold text-white bg-black/80 hover:bg-black border border-white/10 px-4 py-2 rounded-full flex items-center gap-1.5 shadow-lg hover:scale-105 transition-all duration-300 pointer-events-auto cursor-pointer"
+                              >
+                                <ChevronUp size={14} />
+                                Ver menos
+                              </button>
+                            </div>
+                          )}
+                        </div>
+                      ) : (
+                        <div className="relative w-full aspect-[4/5] bg-black/25 flex-grow overflow-hidden flex items-center justify-center">
+                          <img
+                            src={post.embedUrl}
+                            alt={`Publicação de ${selectedBrand.companyName}`}
+                            className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 select-none pointer-events-none"
+                          />
+                          {/* Elegant hover badge indicating interactive preview */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <span className="text-[11px] font-bold text-white bg-primary/95 px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg">
+                              <Instagram size={12} />
+                              Ver Imagem Completa
+                            </span>
+                          </div>
+                        </div>
+                      )
+                    ) : (
+                      <div className="relative w-full aspect-[4/5] bg-black/40 min-h-[440px] flex-grow flex flex-col">
+                        {!loadedIframes[post.id] && (
+                          <div className="absolute inset-0 flex flex-col items-center justify-center bg-card/95 backdrop-blur-sm z-10 transition-opacity duration-300">
+                            <Loader2 className="w-8 h-8 text-primary animate-spin mb-2" />
+                            <span className="text-xs text-gray-400 font-medium">Sincronizando com Instagram...</span>
+                          </div>
+                        )}
+                        
+                        <iframe
+                          src={post.embedUrl}
+                          onLoad={() => handleIframeLoad(post.id)}
+                          className="w-full h-full border-0 absolute inset-0 z-0 bg-transparent"
+                          allowtransparency="true"
+                          allow="encrypted-media"
+                          scrolling="no"
+                          title={`Instagram post from ${selectedBrand.companyName}`}
+                        ></iframe>
+                      </div>
+                    )}
+
+                    {/* Card Footer */}
+                    <div className="p-4 bg-black/10 border-t border-white/5 flex justify-center">
+                      <a
+                        href={post.postUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-xs font-bold text-gray-400 group-hover:text-secondary transition-colors duration-300"
+                      >
+                        <span>{post.isImage ? 'Abrir imagem em alta definição' : 'Abrir publicação original'}</span>
+                        <ExternalLink size={12} className="opacity-70" />
+                      </a>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Purple vignette behind collapsed view */}
-            {!isExpanded && selectedBrand.posts.length > 1 && (
-              <div className="absolute bottom-0 left-0 right-0 h-72 bg-gradient-to-t from-background via-purple-950/60 to-transparent pointer-events-none z-20" />
-            )}
-
-            {/* "Ver mais" / "Ver menos" Button */}
-            {selectedBrand.posts.length > 1 && (
-              <div className="absolute bottom-6 left-0 right-0 flex justify-center z-30">
-                <button
-                  onClick={() => setIsExpanded(!isExpanded)}
-                  className="px-6 py-3 rounded-full bg-gradient-to-r from-primary to-purple-600 hover:from-primary/95 hover:to-purple-600/95 text-white font-bold text-sm tracking-wide shadow-xl shadow-primary/30 hover:shadow-primary/45 active:scale-95 transition-all duration-300 flex items-center gap-2 border border-white/10"
-                >
-                  <span>{isExpanded ? 'Ver menos' : 'Ver mais'}</span>
-                  {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                </button>
+                ))}
               </div>
-            )}
+
+              {/* Purple vignette behind collapsed view */}
+              {!isExpanded && selectedBrand.posts.length > 1 && (
+                <div className="absolute bottom-0 left-0 right-0 h-72 bg-gradient-to-t from-background via-purple-950/60 to-transparent pointer-events-none z-20" />
+              )}
+
+              {/* "Ver mais" / "Ver menos" Button */}
+              {selectedBrand.posts.length > 1 && (
+                <div className="absolute bottom-6 left-0 right-0 flex justify-center z-30">
+                  <button
+                    onClick={handleToggleExpand}
+                    className="px-6 py-3 rounded-full bg-gradient-to-r from-primary to-purple-600 hover:from-primary/95 hover:to-purple-600/95 text-white font-bold text-sm tracking-wide shadow-xl shadow-primary/30 hover:shadow-primary/45 active:scale-95 transition-all duration-300 flex items-center gap-2 border border-white/10 cursor-pointer"
+                  >
+                    <span>{isExpanded ? 'Ver menos' : 'Ver mais'}</span>
+                    {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
