@@ -156,12 +156,26 @@ const ProjectCard = ({
                         </div>
                         ))}
                     </div>
-                    <button
-                        onClick={handleDetailsClick}
-                        className="mt-2 text-sm font-semibold py-2.5 px-6 bg-primary text-primary-foreground rounded-full hover:bg-secondary transition-all transform hover:scale-105 shadow-lg"
-                    >
-                        Ver detalhes completos
-                    </button>
+                    <div className="mt-2 flex flex-col gap-2 w-full max-w-[210px]">
+                        <button
+                            onClick={handleDetailsClick}
+                            className="text-xs sm:text-sm font-semibold py-2 px-5 bg-primary text-primary-foreground rounded-full hover:bg-secondary transition-all transform hover:scale-105 shadow-lg"
+                        >
+                            Ver detalhes completos
+                        </button>
+                        {project.liveUrl && (
+                            <a
+                                href={project.liveUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="text-xs font-semibold py-1.5 px-4 bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/20 transition-all flex items-center justify-center gap-1.5 backdrop-blur-sm hover:border-primary/50"
+                            >
+                                <Globe size={14} />
+                                Ver projeto ao vivo
+                            </a>
+                        )}
+                    </div>
                 </div>
             </div>
 

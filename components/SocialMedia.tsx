@@ -47,7 +47,7 @@ const SocialMediaTypingText: React.FC = () => {
 };
 
 const SocialMedia: React.FC = () => {
-  const [selectedBrandId, setSelectedBrandId] = useState<number>(socialMediaBrands[0]?.id || 1);
+  const [selectedBrandId, setSelectedBrandId] = useState<number>(socialMediaBrands[0]?.id || 11);
   const [loadedIframes, setLoadedIframes] = useState<{ [key: number]: boolean }>({});
   const [isPaused, setIsPaused] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -55,7 +55,6 @@ const SocialMedia: React.FC = () => {
   const [progress, setProgress] = useState(0); // For story transition progress bar
   const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const [expandedLongImages, setExpandedLongImages] = useState<{ [key: number]: boolean }>({});
-  const [hasClickedStory, setHasClickedStory] = useState(false);
   const [isFlashing, setIsFlashing] = useState(false);
   const [flashKey, setFlashKey] = useState(0);
   const flashTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -77,6 +76,16 @@ const SocialMedia: React.FC = () => {
       const targetLeft = buttonLeft - (containerWidth / 2) + (buttonWidth / 2);
       container.scrollTo({
         left: Math.max(0, targetLeft),
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const scrollStories = (direction: 'left' | 'right') => {
+    if (storiesCarouselRef.current) {
+      const scrollAmount = 280;
+      storiesCarouselRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
       });
     }
@@ -141,27 +150,27 @@ const SocialMedia: React.FC = () => {
 
   const selectedBrand = socialMediaBrands.find(b => b.id === selectedBrandId) || socialMediaBrands[0];
 
-  // Auto-advance logic
+  // Auto-advance logic configurado para 3 segundos por story
   useEffect(() => {
     // Clear existing timers
     if (autoplayTimerRef.current) clearInterval(autoplayTimerRef.current);
     if (progressIntervalRef.current) clearInterval(progressIntervalRef.current);
 
-    if (isPaused || hasClickedStory) {
+    if (isPaused) {
       return;
     }
 
     // Reset progress when brand changes
     setProgress(0);
 
-    const duration = 6000; // 6 seconds per brand
-    const updateInterval = 60; // Update progress bar every 60ms
+    const duration = 3000; // 3 segundos exatos por marca
+    const updateInterval = 30; // Atualiza a barra de progresso a cada 30ms para animação fluida
     const step = (updateInterval / duration) * 100;
 
     progressIntervalRef.current = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
-          // Time to go to next brand
+          // Passagem automática para o próximo story
           const currentIndex = socialMediaBrands.findIndex(b => b.id === selectedBrandId);
           const nextIndex = (currentIndex + 1) % socialMediaBrands.length;
           setSelectedBrandId(socialMediaBrands[nextIndex].id);
@@ -177,14 +186,13 @@ const SocialMedia: React.FC = () => {
       if (autoplayTimerRef.current) clearInterval(autoplayTimerRef.current);
       if (progressIntervalRef.current) clearInterval(progressIntervalRef.current);
     };
-  }, [selectedBrandId, isPaused, hasClickedStory]);
+  }, [selectedBrandId, isPaused]);
 
   const handleBrandSelect = (brandId: number) => {
     setSelectedBrandId(brandId);
     setProgress(0);
     setIsExpanded(false);
     setExpandedLongImages({});
-    setHasClickedStory(true);
     
     // Trigger flashing border effect (2 pulses with the story gradient)
     setFlashKey(prev => prev + 1);
@@ -235,14 +243,18 @@ const SocialMedia: React.FC = () => {
         <div 
           ref={storiesTrayRef}
           id="stories-tray"
-          className="flex flex-col items-center justify-center mb-16 relative scroll-mt-24"
+          className="flex flex-col items-center justify-center mb-16 relative scroll-mt-24 w-full"
           data-aos="fade-up"
-          onMouseEnter={() => !hasClickedStory && setIsPaused(true)}
-          onMouseLeave={() => !hasClickedStory && setIsPaused(false)}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Pause / Play Indicator Badge */}
-          <div className="absolute -top-6 right-4 flex items-center gap-2 text-xs text-foreground/40 bg-card/40 border border-white/5 px-2.5 py-1 rounded-full backdrop-blur-sm">
-            {isPaused || hasClickedStory ? (
+          {/* Pause / Play Indicator Badge - Clicável para pausar ou retomar */}
+          <button
+            onClick={() => setIsPaused(prev => !prev)}
+            className="absolute -top-6 right-4 flex items-center gap-2 text-xs text-foreground/60 hover:text-foreground bg-card/60 hover:bg-card border border-white/10 px-2.5 py-1 rounded-full backdrop-blur-sm transition-colors cursor-pointer"
+            title={isPaused ? "Retomar rotação automática" : "Pausar rotação automática"}
+          >
+            {isPaused ? (
               <>
                 <Pause size={10} className="text-amber-500 animate-pulse" />
                 <span>Rotação pausada</span>
@@ -250,14 +262,31 @@ const SocialMedia: React.FC = () => {
             ) : (
               <>
                 <Play size={10} className="text-primary animate-pulse" />
-                <span>Auto-avançando</span>
+                <span>Auto-avançando (3s)</span>
               </>
             )}
-          </div>
+          </button>
+
+          {/* Botões de seta para rolagem horizontal suave no desktop */}
+          <button
+            onClick={() => scrollStories('left')}
+            className="hidden md:flex absolute -left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-background/90 hover:bg-background border border-white/15 items-center justify-center text-foreground/80 hover:text-white shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+            aria-label="Rolar stories para a esquerda"
+          >
+            <ChevronLeft size={18} />
+          </button>
+
+          <button
+            onClick={() => scrollStories('right')}
+            className="hidden md:flex absolute -right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-background/90 hover:bg-background border border-white/15 items-center justify-center text-foreground/80 hover:text-white shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+            aria-label="Rolar stories para a direita"
+          >
+            <ChevronRight size={18} />
+          </button>
 
           <div 
             ref={storiesCarouselRef}
-            className="flex items-center justify-start md:justify-center gap-5 md:gap-8 overflow-x-auto py-3 w-full no-scrollbar px-6 scroll-smooth"
+            className="flex items-center justify-start gap-4 sm:gap-6 md:gap-7 overflow-x-auto py-3 w-full no-scrollbar px-4 sm:px-6 md:px-8 scroll-smooth"
           >
             {socialMediaBrands.map((brand) => {
               const isSelected = brand.id === selectedBrandId;
@@ -291,7 +320,7 @@ const SocialMedia: React.FC = () => {
                           fill="transparent"
                           strokeDasharray="301.6"
                           strokeDashoffset={301.6 - (301.6 * progress) / 100}
-                          className="transition-all duration-75 ease-linear"
+                          className="transition-all duration-30 ease-linear"
                         />
                         <defs>
                           <linearGradient id="story-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -303,17 +332,19 @@ const SocialMedia: React.FC = () => {
                       </svg>
                     )}
                     
-                    {/* Inner Content Area - Reduced sizes */}
-                    <div className="relative w-16 h-16 md:w-18 md:h-18 rounded-full bg-background p-[2px] overflow-hidden z-0">
-                      <div className="w-full h-full rounded-full overflow-hidden bg-card border border-white/5 relative group-hover:scale-105 transition-transform duration-300">
+                    {/* Inner Content Area */}
+                    <div className="relative w-16 h-16 md:w-[72px] md:h-[72px] rounded-full bg-background p-[2px] overflow-hidden z-0">
+                      <div className="w-full h-full rounded-full overflow-hidden bg-card border border-white/5 relative group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
                         <img
                           src={brand.logo}
                           alt={`${brand.companyName} Logo`}
                           className="w-full h-full object-cover select-none"
+                          referrerPolicy="no-referrer"
+                          loading="eager"
                         />
                         {/* Overlay shadow on inactive */}
                         {!isSelected && (
-                          <div className="absolute inset-0 bg-black/35 group-hover:bg-black/0 transition-colors duration-300" />
+                          <div className="absolute inset-0 bg-black/35 group-hover:bg-black/0 transition-colors duration-300 pointer-events-none" />
                         )}
                       </div>
                     </div>
@@ -372,6 +403,7 @@ const SocialMedia: React.FC = () => {
                     src={selectedBrand.logo}
                     alt={`${selectedBrand.companyName} Logo`}
                     className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
@@ -426,6 +458,7 @@ const SocialMedia: React.FC = () => {
                             src={selectedBrand.logo}
                             alt={`${selectedBrand.companyName} Logo`}
                             className="w-full h-full object-cover"
+                            referrerPolicy="no-referrer"
                           />
                         </div>
                         <div>

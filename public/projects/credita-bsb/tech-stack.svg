@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="stackBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1120" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <filter id="boxShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#stackBg)" />
+
+  <!-- Title Header -->
+  <g transform="translate(100, 60)">
+    <text font-family="'Outfit', sans-serif" font-weight="900" font-size="32" fill="#FFFFFF">
+      Stack Tecnológica &amp; <tspan fill="#DC2626">Arquitetura de Alta Performance</tspan>
+    </text>
+    <text y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" fill="#94A3B8">
+      Construído segundo os padrões mais rigorosos do ecossistema moderno de desenvolvimento Web.
+    </text>
+  </g>
+
+  <!-- 4 Architecture Pillar Cards -->
+  <g transform="translate(100, 140)">
+    <!-- Pillar 1: Core & Framework -->
+    <g transform="translate(0, 0)" filter="url(#boxShadow)">
+      <rect width="480" height="210" rx="16" fill="#1E293B" stroke="#334155" stroke-width="1" />
+      
+      <g transform="translate(30, 30)">
+        <rect width="36" height="36" rx="8" fill="#3B82F6" opacity="0.2" />
+        <circle cx="18" cy="18" r="8" fill="#60A5FA" />
+        <text x="50" y="24" font-family="'Outfit', sans-serif" font-weight="800" font-size="20" fill="#FFFFFF">1. Core &amp; Framework</text>
+        
+        <g transform="translate(0, 50)" font-family="'Plus Jakarta Sans', sans-serif" font-size="13">
+          <text y="0" font-weight="700" fill="#60A5FA">• React 19:</text>
+          <text x="80" y="0" fill="#CBD5E1">Renderização otimizada com novos hooks de ação.</text>
+          
+          <text y="32" font-weight="700" fill="#60A5FA">• TypeScript 5.8:</text>
+          <text x="110" y="32" fill="#CBD5E1">Tipagem estática rigorosa e zero runtime errors.</text>
+          
+          <text y="64" font-weight="700" fill="#60A5FA">• Vite 6:</text>
+          <text x="55" y="64" fill="#CBD5E1">Tooling de última geração com bundling ultrarrápido.</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Pillar 2: Estilização & Design System -->
+    <g transform="translate(520, 0)" filter="url(#boxShadow)">
+      <rect width="480" height="210" rx="16" fill="#1E293B" stroke="#334155" stroke-width="1" />
+      
+      <g transform="translate(30, 30)">
+        <rect width="36" height="36" rx="8" fill="#06B6D4" opacity="0.2" />
+        <circle cx="18" cy="18" r="8" fill="#22D3EE" />
+        <text x="50" y="24" font-family="'Outfit', sans-serif" font-weight="800" font-size="20" fill="#FFFFFF">2. Design System &amp; CSS</text>
+        
+        <g transform="translate(0, 50)" font-family="'Plus Jakarta Sans', sans-serif" font-size="13">
+          <text y="0" font-weight="700" fill="#22D3EE">• Tailwind CSS v4:</text>
+          <text x="135" y="0" fill="#CBD5E1">Plugin Vite nativo, zero CSS não utilizado.</text>
+          
+          <text y="32" font-weight="700" fill="#22D3EE">• Tipografia:</text>
+          <text x="95" y="32" fill="#CBD5E1">Outfit (títulos) + Plus Jakarta Sans (corpo e dados).</text>
+          
+          <text y="64" font-weight="700" fill="#22D3EE">• SVG Nativo:</text>
+          <text x="95" y="64" fill="#CBD5E1">Identidade vetorial de precisão matemática.</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Pillar 3: Interatividade & Animações -->
+    <g transform="translate(0, 240)" filter="url(#boxShadow)">
+      <rect width="480" height="210" rx="16" fill="#1E293B" stroke="#334155" stroke-width="1" />
+      
+      <g transform="translate(30, 30)">
+        <rect width="36" height="36" rx="8" fill="#A855F7" opacity="0.2" />
+        <circle cx="18" cy="18" r="8" fill="#C084FC" />
+        <text x="50" y="24" font-family="'Outfit', sans-serif" font-weight="800" font-size="20" fill="#FFFFFF">3. Interatividade &amp; Motion</text>
+        
+        <g transform="translate(0, 50)" font-family="'Plus Jakarta Sans', sans-serif" font-size="13">
+          <text y="0" font-weight="700" fill="#C084FC">• Framer Motion v12:</text>
+          <text x="145" y="0" fill="#CBD5E1">Transições suaves entre modalidades do simulador.</text>
+          
+          <text y="32" font-weight="700" fill="#C084FC">• Dynamic Alerts:</text>
+          <text x="125" y="32" fill="#CBD5E1">Alertas dinâmicos em tempo real com fade-in fluído.</text>
+          
+          <text y="64" font-weight="700" fill="#C084FC">• Lucide React:</text>
+          <text x="105" y="64" fill="#CBD5E1">Conjunto de ícones vetoriais leves e consistentes.</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Pillar 4: Lógica de Negócio & Conversão -->
+    <g transform="translate(520, 240)" filter="url(#boxShadow)">
+      <rect width="480" height="210" rx="16" fill="#1E293B" stroke="#334155" stroke-width="1" />
+      
+      <g transform="translate(30, 30)">
+        <rect width="36" height="36" rx="8" fill="#22C55E" opacity="0.2" />
+        <circle cx="18" cy="18" r="8" fill="#4ADE80" />
+        <text x="50" y="24" font-family="'Outfit', sans-serif" font-weight="800" font-size="20" fill="#FFFFFF">4. Business Logic &amp; Conversão</text>
+        
+        <g transform="translate(0, 50)" font-family="'Plus Jakarta Sans', sans-serif" font-size="13">
+          <text y="0" font-weight="700" fill="#4ADE80">• Algoritmo Financeiro:</text>
+          <text x="155" y="0" fill="#CBD5E1">Cálculo de parcelas, margem e taxas para INSS/SIAPE.</text>
+          
+          <text y="32" font-weight="700" fill="#4ADE80">• Social Proof Engine:</text>
+          <text x="155" y="32" fill="#CBD5E1">Atividade recente simulada para gerar alta conversão.</text>
+          
+          <text y="64" font-weight="700" fill="#4ADE80">• WhatsApp Direto:</text>
+          <text x="135" y="64" fill="#CBD5E1">Geração dinâmica de propostas pré-formatadas.</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

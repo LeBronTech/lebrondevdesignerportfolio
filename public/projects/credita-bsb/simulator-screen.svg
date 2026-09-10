@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="simBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="50%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#090D16" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </linearGradient>
+    <linearGradient id="redAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DC2626" />
+      <stop offset="100%" stop-color="#EF4444" />
+    </linearGradient>
+    <linearGradient id="greenAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#16A34A" />
+      <stop offset="100%" stop-color="#22C55E" />
+    </linearGradient>
+    <filter id="glowEffect" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#DC2626" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#simBg)" />
+  
+  <!-- Subtle decorative grid -->
+  <g stroke="#334155" stroke-width="0.5" opacity="0.3">
+    <line x1="0" y1="100" x2="1200" y2="100" />
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="0" y1="400" x2="1200" y2="400" />
+    <line x1="0" y1="500" x2="1200" y2="500" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+  </g>
+
+  <!-- Top Navigation Bar in Modal -->
+  <g transform="translate(80, 40)">
+    <circle cx="20" cy="20" r="16" fill="#DC2626" />
+    <path d="M 12,20 L 28,20 M 20,12 L 20,28" stroke="#FFFFFF" stroke-width="3" />
+    <text x="48" y="27" font-family="'Outfit', sans-serif" font-weight="900" font-size="22" fill="#DC2626">CREDITA <tspan fill="#FFFFFF">BSB</tspan></text>
+    
+    <!-- Real-time Live Badge -->
+    <rect x="250" y="8" width="160" height="26" rx="13" fill="#1E293B" stroke="#334155" stroke-width="1" />
+    <circle cx="266" cy="21" r="5" fill="#22C55E">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <text x="280" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#E2E8F0">SIMULADOR ATIVO</text>
+  </g>
+
+  <!-- Simulator Main Container -->
+  <g transform="translate(80, 100)" filter="url(#glowEffect)">
+    <!-- Main Card Body -->
+    <rect width="1040" height="520" rx="20" fill="url(#cardGrad)" stroke="#E2E8F0" stroke-width="1" />
+
+    <!-- Left Column: Input Controls -->
+    <g transform="translate(50, 40)">
+      <text font-family="'Outfit', sans-serif" font-weight="800" font-size="26" fill="#0F172A">Simule seu Empréstimo em Segundos</text>
+      <text y="24" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" fill="#64748B">Taxas atualizadas conforme diretrizes oficiais vigentes do Banco Central e INSS.</text>
+
+      <!-- Category Tabs (INSS, Servidor, Cartão) -->
+      <g transform="translate(0, 50)">
+        <text font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#334155">1. ESCOLHA SUA MODALIDADE</text>
+        
+        <g transform="translate(0, 16)">
+          <!-- Active Tab (INSS) -->
+          <rect width="150" height="42" rx="8" fill="url(#redAccent)" />
+          <text x="75" y="26" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="700" font-size="13" fill="#FFFFFF">INSS / Aposentado</text>
+
+          <!-- Tab 2 (Servidor Público) -->
+          <rect x="160" y="0" width="150" height="42" rx="8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1" />
+          <text x="235" y="26" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="600" font-size="13" fill="#475569">Servidor SIAPE</text>
+
+          <!-- Tab 3 (Cartão Benefício) -->
+          <rect x="320" y="0" width="150" height="42" rx="8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1" />
+          <text x="395" y="26" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="600" font-size="13" fill="#475569">Cartão Consignado</text>
+        </g>
+      </g>
+
+      <!-- Slider 1: Loan Value -->
+      <g transform="translate(0, 145)">
+        <div style="display:flex;">
+          <text font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#334155">2. QUANTO VOCÊ PRECISA?</text>
+          <text x="470" y="0" text-anchor="end" font-family="'Outfit', sans-serif" font-weight="900" font-size="22" fill="#DC2626">R$ 25.000,00</text>
+        </div>
+        
+        <!-- Track & Thumb -->
+        <g transform="translate(0, 18)">
+          <rect width="470" height="8" rx="4" fill="#E2E8F0" />
+          <rect width="280" height="8" rx="4" fill="url(#redAccent)" />
+          <circle cx="280" cy="4" r="14" fill="#FFFFFF" stroke="#DC2626" stroke-width="4" filter="url(#glowEffect)" />
+        </g>
+        <text y="42" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94A3B8">Mínimo: R$ 1.500</text>
+        <text x="470" y="42" text-anchor="end" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94A3B8">Máximo: R$ 150.000</text>
+      </g>
+
+      <!-- Slider 2: Installments (Prazo) -->
+      <g transform="translate(0, 230)">
+        <text font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#334155">3. EM QUANTAS PARCELAS?</text>
+        <text x="470" y="0" text-anchor="end" font-family="'Outfit', sans-serif" font-weight="900" font-size="22" fill="#0F172A">84 vezes</text>
+
+        <!-- Track & Thumb -->
+        <g transform="translate(0, 18)">
+          <rect width="470" height="8" rx="4" fill="#E2E8F0" />
+          <rect width="410" height="8" rx="4" fill="#0F172A" />
+          <circle cx="410" cy="4" r="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="4" />
+        </g>
+        <text y="42" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94A3B8">12x</text>
+        <text x="470" y="42" text-anchor="end" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94A3B8">84x (Prazo Máximo)</text>
+      </g>
+
+      <!-- Security guarantee -->
+      <g transform="translate(0, 320)">
+        <rect width="470" height="48" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+        <circle cx="24" cy="24" r="10" fill="#22C55E" opacity="0.15" />
+        <path d="M 19,24 L 22,27 L 29,20" stroke="#16A34A" stroke-width="2" fill="none" />
+        <text x="44" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#0F172A">Sem consulta prévia ao SPC/Serasa para consignado</text>
+        <text x="44" y="36" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#64748B">Aprovação imediata e crédito direto na sua conta bancária.</text>
+      </g>
+    </g>
+
+    <!-- Right Column: Result Summary Card (Dark Themed Card) -->
+    <g transform="translate(580, 40)">
+      <rect width="410" height="440" rx="16" fill="#0F172A" />
+      
+      <g transform="translate(30, 35)">
+        <text font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#94A3B8" letter-spacing="1">RESULTADO DA SUA SIMULAÇÃO</text>
+        
+        <!-- Large Installment Display -->
+        <g transform="translate(0, 35)">
+          <text font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#CBD5E1">Valor estimado da parcela:</text>
+          <text y="40" font-family="'Outfit', sans-serif" font-weight="900" font-size="44" fill="#22C55E">R$ 573,90<tspan font-size="18" fill="#94A3B8">/mês</tspan></text>
+          <text y="62" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#94A3B8">em 84 parcelas fixas no contracheque</text>
+        </g>
+
+        <!-- Divider line -->
+        <line x1="0" y1="125" x2="350" y2="125" stroke="#334155" stroke-width="1" />
+
+        <!-- Metrics Grid -->
+        <g transform="translate(0, 145)">
+          <g>
+            <text font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94A3B8">Taxa de Juros Efetiva:</text>
+            <text y="20" font-family="'Outfit', sans-serif" font-weight="700" font-size="16" fill="#FFFFFF">1,66% a.m.</text>
+          </g>
+          <g transform="translate(180, 0)">
+            <text font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94A3B8">Economia Comparada:</text>
+            <text y="20" font-family="'Outfit', sans-serif" font-weight="700" font-size="16" fill="#22C55E">Até 64% vs. Pessoal</text>
+          </g>
+          <g transform="translate(0, 50)">
+            <text font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94A3B8">Liberação do Valor:</text>
+            <text y="20" font-family="'Outfit', sans-serif" font-weight="700" font-size="16" fill="#FFFFFF">Em até 24 horas</text>
+          </g>
+          <g transform="translate(180, 50)">
+            <text font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94A3B8">Atendimento BSB:</text>
+            <text y="20" font-family="'Outfit', sans-serif" font-weight="700" font-size="16" fill="#FFFFFF">Especialistas Dedicados</text>
+          </g>
+        </g>
+
+        <!-- CTA: Direct WhatsApp Integration Button -->
+        <g transform="translate(0, 270)">
+          <rect width="350" height="52" rx="12" fill="url(#greenAccent)" />
+          <!-- WhatsApp Icon -->
+          <circle cx="36" cy="26" r="14" fill="#FFFFFF" opacity="0.2" />
+          <path d="M 30,22 C 30,28 35,32 41,32 L 43,33 L 42,30 C 43,28 43,26 43,25 C 43,20 37,17 31,19" fill="none" stroke="#FFFFFF" stroke-width="2" />
+          <text x="185" y="32" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="16" fill="#FFFFFF">SOLICITAR PROPOSTA VIA WHATSAPP</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

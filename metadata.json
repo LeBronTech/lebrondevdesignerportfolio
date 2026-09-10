@@ -1,5 +1,6 @@
 {
   "name": "Portfólio Leandro José",
   "description": "Um site de portfólio para Leandro José (LeBron Design), mostrando suas habilidades como programador e designer gráfico.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

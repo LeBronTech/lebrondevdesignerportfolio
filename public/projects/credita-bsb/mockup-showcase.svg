@@ -1,0 +1,338 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="deskGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E2D7C7" />
+      <stop offset="40%" stop-color="#CBBCA8" />
+      <stop offset="100%" stop-color="#B8A48D" />
+    </linearGradient>
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF7F2" />
+      <stop offset="60%" stop-color="#ECE5DA" />
+      <stop offset="100%" stop-color="#E2D7C7" />
+    </linearGradient>
+    <linearGradient id="matGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9C8974" />
+      <stop offset="100%" stop-color="#7B6854" />
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DC2626" />
+      <stop offset="100%" stop-color="#991B1B" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#16A34A" />
+      <stop offset="100%" stop-color="#15803D" />
+    </linearGradient>
+    <linearGradient id="metalBezel" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D1D5DB" />
+      <stop offset="50%" stop-color="#F3F4F6" />
+      <stop offset="100%" stop-color="#9CA3AF" />
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="deskShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#3D3226" flood-opacity="0.28" />
+    </filter>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <!-- Background / Room Ambiance -->
+  <rect width="1200" height="420" fill="url(#wallGrad)" />
+  
+  <!-- Warm Bokeh Bookshelf Elements in background -->
+  <g opacity="0.45">
+    <rect x="50" y="30" width="140" height="280" rx="6" fill="#D5C5B3" />
+    <rect x="65" y="45" width="20" height="90" rx="3" fill="#B39E88" />
+    <rect x="90" y="55" width="25" height="80" rx="3" fill="#9C8974" />
+    <rect x="120" y="40" width="18" height="95" rx="3" fill="#C5B5A2" />
+    <rect x="65" y="160" width="110" height="15" rx="2" fill="#A89480" />
+    <!-- Ambient sunlight blur -->
+    <circle cx="200" cy="120" r="140" fill="#FFF7ED" opacity="0.5" filter="blur(40px)" />
+    <circle cx="1050" cy="90" r="180" fill="#FFFBEB" opacity="0.6" filter="blur(50px)" />
+  </g>
+
+  <!-- Wooden Desk Surface with Perspective -->
+  <path d="M 0,390 L 1200,390 L 1200,675 L 0,675 Z" fill="url(#deskGrad)" />
+  <line x1="0" y1="390" x2="1200" y2="390" stroke="#C4B39F" stroke-width="2" />
+  
+  <!-- Leather Desk Mat -->
+  <rect x="80" y="460" width="1040" height="195" rx="16" fill="url(#matGrad)" filter="url(#cardShadow)" />
+  <rect x="80" y="460" width="1040" height="195" rx="16" fill="none" stroke="#685644" stroke-width="1.5" />
+
+  <!-- Wireless Keyboard & Mouse on Mat -->
+  <g transform="translate(390, 485)" filter="url(#cardShadow)">
+    <rect width="280" height="95" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1" />
+    <!-- Key rows -->
+    <g fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.5">
+      <rect x="8" y="8" width="264" height="12" rx="2" />
+      <rect x="8" y="24" width="264" height="12" rx="2" />
+      <rect x="8" y="40" width="264" height="12" rx="2" />
+      <rect x="8" y="56" width="264" height="12" rx="2" />
+      <rect x="8" y="72" width="264" height="14" rx="2" />
+    </g>
+  </g>
+  <!-- Mouse -->
+  <rect x="710" y="505" width="45" height="70" rx="22" fill="#F9FAFB" stroke="#D1D5DB" stroke-width="1" filter="url(#cardShadow)" />
+  <!-- Coffee Cup on right -->
+  <g transform="translate(1030, 480)" filter="url(#cardShadow)">
+    <ellipse cx="35" cy="35" rx="32" ry="32" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5" />
+    <ellipse cx="35" cy="35" rx="24" ry="24" fill="#6B4423" />
+    <path d="M 64,25 C 76,25 76,45 64,45" fill="none" stroke="#E2E8F0" stroke-width="5" />
+  </g>
+
+  <!-- ==================================================== -->
+  <!-- 1. MAIN DESKTOP MONITOR (CENTER)                     -->
+  <!-- ==================================================== -->
+  <!-- Monitor Stand -->
+  <g filter="url(#deskShadow)">
+    <!-- Base -->
+    <path d="M 520,445 L 680,445 L 670,410 L 530,410 Z" fill="url(#metalBezel)" stroke="#CBD5E1" stroke-width="1" />
+    <!-- Neck -->
+    <rect x="585" y="310" width="30" height="110" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1" />
+  </g>
+
+  <!-- Monitor Screen Frame -->
+  <g transform="translate(260, 50)" filter="url(#deskShadow)">
+    <!-- Outer bezel (thin minimalist dark/silver frame) -->
+    <rect width="680" height="375" rx="10" fill="#1E293B" />
+    <rect x="2" y="2" width="676" height="371" rx="8" fill="#0F172A" />
+    <!-- Screen Viewport -->
+    <rect x="8" y="8" width="664" height="355" rx="4" fill="url(#screenGrad)" />
+
+    <!-- WEBPAGE CONTENT INSIDE MONITOR -->
+    <!-- Top Nav Header -->
+    <rect x="8" y="8" width="664" height="36" fill="#FFFFFF" />
+    <line x1="8" y1="44" x2="672" y2="44" stroke="#E2E8F0" stroke-width="1" />
+    
+    <!-- Mini Logo -->
+    <g transform="translate(24, 16)">
+      <circle cx="10" cy="10" r="9" fill="#DC2626" />
+      <path d="M 6,10 L 14,10 M 10,6 L 10,14" stroke="#FFFFFF" stroke-width="2" />
+      <text x="24" y="11" font-family="'Outfit', sans-serif" font-weight="900" font-size="10" fill="#DC2626">CREDITA</text>
+      <text x="68" y="11" font-family="'Outfit', sans-serif" font-weight="900" font-size="10" fill="#1E293B">BSB</text>
+    </g>
+
+    <!-- Nav Links -->
+    <g font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="7.5" fill="#475569" transform="translate(180, 27)">
+      <text x="0" y="0">COMO FUNCIONA</text>
+      <text x="80" y="0">COMPARATIVO</text>
+      <!-- Tag Novo -->
+      <rect x="145" y="-9" width="24" height="10" rx="3" fill="#DC2626" />
+      <text x="149" y="-1.5" fill="#FFFFFF" font-size="6">NOVO</text>
+      <text x="180" y="0">CONTATO</text>
+      <text x="235" y="0">DEPOIMENTOS</text>
+      <text x="310" y="0">SIMULADOR</text>
+      <text x="375" y="0">DÚVIDAS</text>
+    </g>
+
+    <!-- Header Actions -->
+    <rect x="580" y="16" width="38" height="20" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.8" />
+    <text x="586" y="29" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="7" fill="#334155">SIMULAR</text>
+    <rect x="622" y="16" width="42" height="20" rx="4" fill="url(#greenGrad)" />
+    <text x="627" y="29" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="7" fill="#FFFFFF">WhatsApp</text>
+
+    <!-- Hero Card Center -->
+    <rect x="100" y="56" width="480" height="295" rx="12" fill="#FFFFFF" stroke="#F1F5F9" stroke-width="1.5" />
+    
+    <!-- Experience Badge -->
+    <g transform="translate(235, 70)">
+      <rect x="0" y="0" width="210" height="16" rx="8" fill="#FEF2F2" stroke="#FEE2E2" stroke-width="1" />
+      <circle cx="12" cy="8" r="3" fill="#DC2626" />
+      <text x="22" y="11" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="7" fill="#DC2626" letter-spacing="0.5">• + DE 11 ANOS DE EXPERIÊNCIA NO MERCADO</text>
+    </g>
+
+    <!-- Centered Logo on Screen -->
+    <g transform="translate(340, 105)">
+      <circle cx="0" cy="0" r="15" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5" />
+      <circle cx="0" cy="0" r="8" fill="#DC2626" />
+      <circle cx="0" cy="0" r="4" fill="#FFFFFF" />
+      <text x="0" y="22" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="900" font-size="14" fill="#DC2626">CREDITA</text>
+      <text x="0" y="34" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="900" font-size="14" fill="#1E293B">BSB</text>
+      <text x="0" y="44" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="6" fill="#64748B" letter-spacing="1.5">SEU AGENTE DE CRÉDITO</text>
+    </g>
+
+    <!-- Main Headline -->
+    <g transform="translate(340, 175)" text-anchor="middle">
+      <text font-family="'Outfit', sans-serif" font-weight="800" font-size="16" fill="#0F172A">
+        A sua escolha inteligente para <tspan fill="#DC2626">seu crédito</tspan>
+      </text>
+      <text y="16" font-family="'Plus Jakarta Sans', sans-serif" font-weight="400" font-size="7.5" fill="#64748B">
+        Consignado Servidores públicos e INSS com a menor taxa do mercado,
+      </text>
+      <text y="26" font-family="'Plus Jakarta Sans', sans-serif" font-weight="400" font-size="7.5" fill="#64748B">
+        cartões consignado e benefício com aprovação rápida sem burocracia.
+      </text>
+    </g>
+
+    <!-- Hero Buttons -->
+    <g transform="translate(270, 215)">
+      <rect x="0" y="0" width="68" height="20" rx="10" fill="url(#redGrad)" />
+      <text x="14" y="13" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="7" fill="#FFFFFF">Simule Agora ></text>
+      
+      <rect x="76" y="0" width="68" height="20" rx="10" fill="url(#greenGrad)" />
+      <text x="96" y="13" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="7" fill="#FFFFFF">WhatsApp</text>
+    </g>
+
+    <!-- Section: Nossas Soluções -->
+    <text x="340" y="254" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="7" fill="#DC2626" letter-spacing="1">⚡ NOSSAS SOLUÇÕES:</text>
+    
+    <!-- Solution Cards Row -->
+    <g transform="translate(115, 264)">
+      <!-- Card 1 (INSS) -->
+      <g>
+        <rect width="85" height="70" rx="6" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1" />
+        <rect x="25" y="4" width="38" height="9" rx="2" fill="#DC2626" />
+        <text x="29" y="10.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="5" fill="#FFFFFF">MENOR TAXA</text>
+        <text x="42" y="28" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="700" font-size="7.5" fill="#991B1B">Consignado INSS</text>
+        <text x="42" y="44" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="6.5" fill="#64748B">A partir de</text>
+        <text x="42" y="56" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="8.5" fill="#DC2626">1,66% a.m.</text>
+      </g>
+
+      <!-- Card 2 (Servidores) -->
+      <g transform="translate(92, 0)">
+        <rect width="85" height="70" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+        <text x="42" y="28" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="700" font-size="7.5" fill="#0F172A">Servidores Públicos</text>
+        <text x="42" y="44" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="6.5" fill="#64748B">A partir de</text>
+        <text x="42" y="56" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="8.5" fill="#0F172A">1,51% a.m.</text>
+      </g>
+
+      <!-- Card 3 (Cartão Consignado) -->
+      <g transform="translate(184, 0)">
+        <rect width="85" height="70" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+        <text x="42" y="28" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="700" font-size="7.5" fill="#0F172A">Cartão Consignado</text>
+        <text x="42" y="44" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="6.5" fill="#64748B">A partir de</text>
+        <text x="42" y="56" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="8.5" fill="#0F172A">2,31% a.m.</text>
+      </g>
+
+      <!-- Card 4 (Portabilidade) -->
+      <g transform="translate(276, 0)">
+        <rect width="85" height="70" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+        <text x="42" y="28" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="700" font-size="7.5" fill="#0F172A">Portabilidade</text>
+        <text x="42" y="44" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="6.5" fill="#64748B">Taxas Reduzidas</text>
+        <text x="42" y="56" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="8.5" fill="#0F172A">Troco na conta</text>
+      </g>
+
+      <!-- Card 5 (FGTS) -->
+      <g transform="translate(368, 0)">
+        <rect width="85" height="70" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+        <text x="42" y="28" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="700" font-size="7.5" fill="#0F172A">CLT & FGTS</text>
+        <text x="42" y="44" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="6.5" fill="#64748B">Antecipação</text>
+        <text x="42" y="56" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="8.5" fill="#16A34A">Até 10 parcelas</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ==================================================== -->
+  <!-- 2. TABLET / IPAD (LEFT SIDE)                         -->
+  <!-- ==================================================== -->
+  <g transform="translate(60, 240)" filter="url(#deskShadow)">
+    <!-- Tablet Stand -->
+    <rect x="80" y="220" width="30" height="40" fill="#CBD5E1" />
+    <path d="M 60,260 L 130,260 L 125,250 L 65,250 Z" fill="#94A3B8" />
+
+    <!-- Tablet Body -->
+    <rect width="190" height="255" rx="14" fill="#1E293B" stroke="#475569" stroke-width="1.5" />
+    <rect x="8" y="8" width="174" height="239" rx="8" fill="#FFFFFF" />
+
+    <!-- Tablet Web Content -->
+    <!-- Mini Navbar -->
+    <rect x="8" y="8" width="174" height="24" fill="#FFFFFF" />
+    <line x1="8" y1="32" x2="182" y2="32" stroke="#F1F5F9" stroke-width="1" />
+    <circle cx="22" cy="20" r="5" fill="#DC2626" />
+    <text x="32" y="23" font-family="'Outfit', sans-serif" font-weight="900" font-size="7" fill="#DC2626">CREDITA</text>
+    <!-- Hamburger icon -->
+    <g transform="translate(160, 16)" stroke="#334155" stroke-width="1.2">
+      <line x1="0" y1="0" x2="12" y2="0" />
+      <line x1="0" y1="4" x2="12" y2="4" />
+      <line x1="0" y1="8" x2="12" y2="8" />
+    </g>
+
+    <!-- Tablet Hero -->
+    <g transform="translate(95, 55)" text-anchor="middle">
+      <!-- Badge -->
+      <rect x="-65" y="0" width="130" height="12" rx="6" fill="#FEF2F2" stroke="#FEE2E2" stroke-width="0.8" />
+      <text x="0" y="8.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="5" fill="#DC2626">• +11 ANOS NO MERCADO</text>
+      
+      <!-- Logo -->
+      <circle cx="0" cy="25" r="10" fill="#FEF2F2" stroke="#DC2626" stroke-width="1" />
+      <text x="0" y="44" font-family="'Outfit', sans-serif" font-weight="900" font-size="10" fill="#DC2626">CREDITA BSB</text>
+      
+      <!-- Headline -->
+      <text y="58" font-family="'Outfit', sans-serif" font-weight="800" font-size="8.5" fill="#0F172A">A sua escolha inteligente</text>
+      <text y="68" font-family="'Outfit', sans-serif" font-weight="800" font-size="8.5" fill="#DC2626">para seu crédito</text>
+
+      <!-- CTAs -->
+      <rect x="-55" y="78" width="50" height="14" rx="7" fill="url(#redGrad)" />
+      <text x="-30" y="88" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="5" fill="#FFFFFF">Simule Agora</text>
+      <rect x="5" y="78" width="50" height="14" rx="7" fill="url(#greenGrad)" />
+      <text x="30" y="88" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="5" fill="#FFFFFF">WhatsApp</text>
+    </g>
+
+    <!-- Tablet 2-column cards -->
+    <g transform="translate(18, 160)">
+      <rect width="72" height="42" rx="4" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="0.8" />
+      <text x="36" y="16" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="700" font-size="6" fill="#991B1B">INSS</text>
+      <text x="36" y="32" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="7" fill="#DC2626">1,66% a.m.</text>
+
+      <rect x="80" y="0" width="72" height="42" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="0.8" />
+      <text x="116" y="16" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="700" font-size="6" fill="#0F172A">SIAPE</text>
+      <text x="116" y="32" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="7" fill="#0F172A">1,51% a.m.</text>
+    </g>
+  </g>
+
+  <!-- ==================================================== -->
+  <!-- 3. MOBILE SMARTPHONE (RIGHT FRONT)                   -->
+  <!-- ==================================================== -->
+  <g transform="translate(860, 310)" filter="url(#deskShadow)">
+    <!-- Wireless Charging Base -->
+    <ellipse cx="60" cy="275" rx="55" ry="14" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.5" />
+    <circle cx="60" cy="272" r="3" fill="#22C55E" /> <!-- Green power LED -->
+
+    <!-- Phone Body -->
+    <rect width="125" height="255" rx="22" fill="#1E293B" stroke="#64748B" stroke-width="2" />
+    <rect x="4" y="4" width="117" height="247" rx="18" fill="#FFFFFF" />
+
+    <!-- Phone Dynamic Island / Notch -->
+    <rect x="44" y="8" width="36" height="8" rx="4" fill="#0F172A" />
+
+    <!-- Mobile Screen Content -->
+    <g transform="translate(62, 38)" text-anchor="middle">
+      <rect x="-45" y="0" width="90" height="10" rx="5" fill="#FEF2F2" stroke="#FEE2E2" stroke-width="0.6" />
+      <text x="0" y="7" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="4.5" fill="#DC2626">• +11 ANOS NO MERCADO</text>
+
+      <circle cx="0" cy="24" r="11" fill="#FEF2F2" stroke="#DC2626" stroke-width="1" />
+      <circle cx="0" cy="24" r="5" fill="#DC2626" />
+      
+      <text x="0" y="45" font-family="'Outfit', sans-serif" font-weight="900" font-size="9" fill="#DC2626">CREDITA</text>
+      <text x="0" y="55" font-family="'Outfit', sans-serif" font-weight="900" font-size="9" fill="#1E293B">BSB</text>
+
+      <!-- Headline -->
+      <text y="70" font-family="'Outfit', sans-serif" font-weight="800" font-size="7.5" fill="#0F172A">A sua escolha inteligente</text>
+      <text y="79" font-family="'Outfit', sans-serif" font-weight="800" font-size="7.5" fill="#DC2626">para seu crédito</text>
+
+      <text y="92" font-family="'Plus Jakarta Sans', sans-serif" font-size="4.5" fill="#64748B">Consignado com menor taxa</text>
+
+      <!-- Buttons -->
+      <rect x="-42" y="104" width="84" height="15" rx="7.5" fill="url(#redGrad)" />
+      <text x="0" y="114" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="5.5" fill="#FFFFFF">Simule Agora ></text>
+
+      <rect x="-42" y="124" width="84" height="15" rx="7.5" fill="url(#greenGrad)" />
+      <text x="0" y="134" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="5.5" fill="#FFFFFF">WhatsApp</text>
+
+      <!-- Floating Social Proof Simulation Notification on Mobile -->
+      <g transform="translate(0, 155)">
+        <rect x="-48" y="0" width="96" height="32" rx="6" fill="#0F172A" />
+        <circle cx="-34" cy="16" r="8" fill="#22C55E" opacity="0.2" />
+        <circle cx="-34" cy="16" r="4" fill="#22C55E" />
+        <text x="-20" y="12" text-anchor="start" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="5" fill="#FFFFFF">Simulação recente!</text>
+        <text x="-20" y="22" text-anchor="start" font-family="'Plus Jakarta Sans', sans-serif" font-size="4.5" fill="#94A3B8">Carlos (INSS) R$ 18.500</text>
+      </g>
+    </g>
+  </g>
+</svg>

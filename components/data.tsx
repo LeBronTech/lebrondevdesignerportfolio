@@ -315,7 +315,8 @@ export const tools = {
     { name: 'Claude AI', icon: 'https://i.postimg.cc/yxdCCdyp/q-XRYx7n.webp' },
     { name: 'React', icon: 'https://cdn.simpleicons.org/react/61DAFB' },
     { name: 'Next.js', icon: 'https://i.postimg.cc/PJhNWmht/nextjs-icon.webp' },
-    { name: 'Angular', icon: 'https://iili.io/qXR9Dva.webp' },
+    { name: 'Tailwind CSS', icon: 'https://cdn.simpleicons.org/tailwindcss/06B6D4' },
+    { name: 'Vite', icon: '/vite.svg' },
     { name: 'Node.js', icon: 'https://i.postimg.cc/vmhwPDgX/1761417804462.webp' },
     { name: 'Python', icon: 'https://i.postimg.cc/jSqP0YpJ/pngaaa-com-619137.webp' },
     { name: 'Flutter', icon: 'https://i.postimg.cc/jSjw3Qfj/pngwing-com.webp' },
@@ -327,6 +328,42 @@ export const tools = {
 };
 
 export const portfolio = [
+  {
+    id: 17,
+    category: 'Websites',
+    title: 'Credita BSB',
+    images: [
+      'https://i.postimg.cc/02dthvRM/Gemini-Generated-Image-gbrr4kgbrr4kgbrr.jpg',
+      'https://i.postimg.cc/g0Dm0QZy/Gemini-Generated-Image-opytyfopytyfopyt.jpg',
+      '/projects/credita-bsb/mobile-responsive.svg',
+      '/projects/credita-bsb/tech-stack.svg'
+    ],
+    description: 'Plataforma digital de alta performance desenvolvida para a Credita BSB, correspondente e agente de crédito em Brasília/DF. A solução integra um simulador financeiro em tempo real com cálculo instantâneo de parcelas e taxas para INSS, SIAPE e Cartões Consignados, motor de prova social dinâmica e integração direta com WhatsApp para fechamento imediato de propostas.',
+    tools: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Figma'],
+    liveUrl: 'https://creditabsb.com.br/',
+    logo: 'https://i.postimg.cc/9Q1cmsTM/Captura-de-tela-de-2026-09-10-15-44-47.png',
+    role: 'Desenvolvedor Full-Stack & UI/UX Designer',
+    timeline: 'Fev. de 2026 – Atual',
+    methodology: 'Component-Driven & Clean Architecture',
+    detailedContent: [
+      { 
+        image: 'https://i.postimg.cc/02dthvRM/Gemini-Generated-Image-gbrr4kgbrr4kgbrr.jpg', 
+        description: 'Visão geral multi-dispositivo (Desktop, Tablet e Mobile) evidenciando a responsividade fluida e a identidade visual moderna em tons de vermelho e grafite, transmitindo solidez e credibilidade financeira.' 
+      },
+      { 
+        image: 'https://i.postimg.cc/g0Dm0QZy/Gemini-Generated-Image-opytyfopytyfopyt.jpg', 
+        description: 'Simulador financeiro em tempo real com controle dinâmico de valor e parcelas, cálculo de taxas efetivas e comparativo de economia para consignado INSS, servidores públicos e cartões benefício.' 
+      },
+      { 
+        image: '/projects/credita-bsb/mobile-responsive.svg', 
+        description: 'Mobile-first com Social Proof Engine: alternância periódica de simulações recentes e geração dinâmica de links do WhatsApp com parâmetros da proposta pré-preenchidos.' 
+      },
+      { 
+        image: '/projects/credita-bsb/tech-stack.svg', 
+        description: 'Arquitetura técnica de última geração com React 19, TypeScript 5.8, Vite 6, Tailwind CSS v4, Motion para transições fluidas e tipografia estratégica combinando Outfit e Plus Jakarta Sans.' 
+      }
+    ]
+  },
   {
     id: 16,
     category: 'Product',

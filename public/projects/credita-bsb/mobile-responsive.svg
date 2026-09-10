@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#E2E8F0" />
+    </linearGradient>
+    <linearGradient id="phoneCardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F9FAFB" />
+    </linearGradient>
+    <filter id="phoneShadow" x="-20%" y="-10%" width="140%" height="130%">
+      <feDropShadow dx="0" dy="20" stdDeviation="28" flood-color="#0F172A" flood-opacity="0.18" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bgGrad3)" />
+
+  <!-- Left Side: Informative feature callouts -->
+  <g transform="translate(100, 100)">
+    <rect width="190" height="30" rx="15" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1" />
+    <text x="95" y="20" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#DC2626">CONVERSÃO MOBILE-FIRST</text>
+
+    <text y="75" font-family="'Outfit', sans-serif" font-weight="900" font-size="36" fill="#0F172A">
+      Experiência Fluida &amp;<tspan x="0" dy="46" fill="#DC2626">Social Proof Engine</tspan>
+    </text>
+
+    <text y="170" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" fill="#475569" width="460">
+      <tspan x="0" dy="0">Desenvolvido com foco total na taxa de conversão</tspan>
+      <tspan x="0" dy="26">de usuários em dispositivos móveis. A plataforma</tspan>
+      <tspan x="0" dy="26">integra prova social dinâmica que notifica simulações</tspan>
+      <tspan x="0" dy="26">reais em tempo real, gerando urgência e credibilidade.</tspan>
+    </text>
+
+    <!-- Key benefits checklist -->
+    <g transform="translate(0, 290)">
+      <g>
+        <circle cx="16" cy="16" r="14" fill="#22C55E" opacity="0.15" />
+        <path d="M 10,16 L 14,20 L 22,12" stroke="#16A34A" stroke-width="2.5" fill="none" />
+        <text x="42" y="16" font-family="'Outfit', sans-serif" font-weight="700" font-size="16" fill="#0F172A">Notificações Dinâmicas de Simulações</text>
+        <text x="42" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" fill="#64748B">Alternância periódica exibindo clientes aprovados recentemente.</text>
+      </g>
+
+      <g transform="translate(0, 60)">
+        <circle cx="16" cy="16" r="14" fill="#DC2626" opacity="0.15" />
+        <path d="M 10,16 L 14,20 L 22,12" stroke="#DC2626" stroke-width="2.5" fill="none" />
+        <text x="42" y="16" font-family="'Outfit', sans-serif" font-weight="700" font-size="16" fill="#0F172A">Links Diretos para o WhatsApp Comercial</text>
+        <text x="42" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" fill="#64748B">Mensagem pré-formatada com tipo de crédito, valor e parcelas.</text>
+      </g>
+
+      <g transform="translate(0, 120)">
+        <circle cx="16" cy="16" r="14" fill="#3B82F6" opacity="0.15" />
+        <path d="M 10,16 L 14,20 L 22,12" stroke="#2563EB" stroke-width="2.5" fill="none" />
+        <text x="42" y="16" font-family="'Outfit', sans-serif" font-weight="700" font-size="16" fill="#0F172A">Layout Ultraleve e Sem Recarregamento</text>
+        <text x="42" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" fill="#64748B">Renderização instantânea através do Vite 6 e React 19.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Side: 2 Overlapping Mobile Phones -->
+  <g transform="translate(740, 50)" filter="url(#phoneShadow)">
+    <!-- Phone 1 (Back/Angled - Home Page) -->
+    <g transform="translate(80, 20)">
+      <rect width="260" height="530" rx="36" fill="#1E293B" stroke="#475569" stroke-width="3" />
+      <rect x="8" y="8" width="244" height="514" rx="30" fill="#FFFFFF" />
+      
+      <!-- Screen elements -->
+      <rect x="100" y="14" width="60" height="12" rx="6" fill="#0F172A" />
+      
+      <!-- Top banner -->
+      <rect x="8" y="36" width="244" height="70" fill="#FEF2F2" />
+      <circle cx="45" cy="71" r="20" fill="#DC2626" />
+      <text x="75" y="68" font-family="'Outfit', sans-serif" font-weight="900" font-size="16" fill="#DC2626">CREDITA BSB</text>
+      <text x="75" y="84" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#64748B">SEU AGENTE DE CRÉDITO</text>
+      
+      <!-- Content cards on phone -->
+      <rect x="25" y="125" width="210" height="100" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+      <text x="40" y="155" font-family="'Outfit', sans-serif" font-weight="800" font-size="14" fill="#0F172A">Simulador Financeiro</text>
+      <text x="40" y="175" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#64748B">Cálculo exato de margem consignável</text>
+      <rect x="40" y="190" width="180" height="24" rx="6" fill="#DC2626" />
+      <text x="130" y="206" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="700" font-size="10" fill="#FFFFFF">Simular Agora</text>
+    </g>
+
+    <!-- Phone 2 (Front - Active Simulation with Social Proof) -->
+    <g transform="translate(0, 0)">
+      <rect width="280" height="570" rx="40" fill="#0F172A" stroke="#334155" stroke-width="3" />
+      <rect x="10" y="10" width="260" height="550" rx="32" fill="#FFFFFF" />
+
+      <!-- Dynamic Island -->
+      <rect x="105" y="18" width="70" height="14" rx="7" fill="#0F172A" />
+
+      <!-- App Header -->
+      <g transform="translate(25, 48)">
+        <circle cx="16" cy="16" r="14" fill="#DC2626" />
+        <text x="38" y="22" font-family="'Outfit', sans-serif" font-weight="900" font-size="15" fill="#DC2626">CREDITA <tspan fill="#0F172A">BSB</tspan></text>
+      </g>
+
+      <!-- Active Simulation Card -->
+      <g transform="translate(25, 100)">
+        <rect width="230" height="260" rx="16" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+        
+        <text x="20" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#DC2626">SIMULAÇÃO SELECIONADA</text>
+        <text x="20" y="55" font-family="'Outfit', sans-serif" font-weight="800" font-size="18" fill="#0F172A">Consignado INSS</text>
+
+        <rect x="20" y="70" width="190" height="60" rx="10" fill="#FEF2F2" />
+        <text x="35" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#64748B">Parcela Mensal:</text>
+        <text x="35" y="118" font-family="'Outfit', sans-serif" font-weight="900" font-size="22" fill="#DC2626">R$ 412,80</text>
+        <text x="140" y="118" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#475569">x 84 meses</text>
+
+        <!-- WhatsApp Action Button -->
+        <rect x="20" y="145" width="190" height="42" rx="10" fill="#16A34A" />
+        <text x="115" y="171" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="12" fill="#FFFFFF">CONTRATAR NO WHATSAPP</text>
+
+        <!-- Trust badge -->
+        <text x="115" y="215" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="10" fill="#64748B">🔒 100% Seguro • Sem Burocracia</text>
+      </g>
+
+      <!-- Floating Social Proof Notification Overlay -->
+      <g transform="translate(20, 420)">
+        <rect width="240" height="65" rx="14" fill="#0F172A" filter="url(#phoneShadow)" />
+        <circle cx="28" cy="32" r="14" fill="#22C55E" opacity="0.2" />
+        <circle cx="28" cy="32" r="6" fill="#22C55E" />
+        
+        <text x="52" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#FFFFFF">Nova contratação!</text>
+        <text x="52" y="42" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#94A3B8">Maria E. (Aposentada) • Brasília/DF</text>
+        <text x="52" y="55" font-family="'Outfit', sans-serif" font-weight="700" font-size="10" fill="#22C55E">R$ 32.400 liberados em conta</text>
+      </g>
+    </g>
+  </g>
+</svg>
