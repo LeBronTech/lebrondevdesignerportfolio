@@ -198,11 +198,11 @@
   }
 
   .animate-zoom-out {
-    animation: ken-burns-zoom-out 6s linear forwards;
+    animation: ken-burns-zoom-out 5s linear forwards;
     will-change: transform;
   }
   .animate-zoom-in {
-    animation: ken-burns-zoom-in 6s linear forwards;
+    animation: ken-burns-zoom-in 5s linear forwards;
     will-change: transform;
   }
   .group:hover .animate-zoom-out,
@@ -254,12 +254,12 @@
   }
 
   @keyframes ken-burns-zoom-out {
-    from { transform: scale(1.15); }
+    from { transform: scale(1.12); }
     to { transform: scale(1); }
   }
   @keyframes ken-burns-zoom-in {
     from { transform: scale(1); }
-    to { transform: scale(1.15); }
+    to { transform: scale(1.12); }
   }
 }
 

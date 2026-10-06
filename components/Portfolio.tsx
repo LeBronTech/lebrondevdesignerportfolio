@@ -2,7 +2,7 @@ import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react'
 import AOS from 'aos';
 import SectionTitle from './SectionTitle';
 import { portfolio, tools } from './data';
-import { ArrowLeft, ArrowRight, X, LayoutGrid, Globe, Smartphone, Palette, PenTool, Briefcase, Calendar, ClipboardList } from 'lucide-react';
+import { ArrowLeft, ArrowRight, X, LayoutGrid, Globe, Github, Smartphone, Palette, PenTool, Briefcase, Calendar, ClipboardList } from 'lucide-react';
 
 const allTools = Object.values(tools).flat();
 
@@ -14,6 +14,7 @@ interface Project {
   description: string;
   tools: string[];
   liveUrl: string | null;
+  githubUrl?: string | null;
   behanceUrl?: string | null;
   logo?: string;
   detailedContent?: Array<{
@@ -41,17 +42,16 @@ const ProjectCard = ({
     const [currentIndex, setCurrentIndex] = useState(0);
     const [prevIndex, setPrevIndex] = useState(-1);
     const [isHovered, setIsHovered] = useState(false);
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
+    const [loadedIndices, setLoadedIndices] = useState<Record<number, boolean>>({ 0: true });
     const cardRef = useRef<HTMLDivElement>(null);
-    // Optimization: Only load secondary images if user interacts
-    const [hasInteracted, setHasInteracted] = useState(false);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 setIsVisible(entry.isIntersecting);
             },
-            { threshold: 0.1 }
+            { threshold: 0.05 }
         );
 
         if (cardRef.current) {
@@ -66,25 +66,42 @@ const ProjectCard = ({
         return tool ? tool.icon : '';
     };
 
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-        setHasInteracted(true);
-    };
-
+    // Preload all project images immediately and track load readiness
     useEffect(() => {
-        if (project.images.length <= 1 || isPreview || !isVisible) {
-            return;
-        };
+        project.images.forEach((src, idx) => {
+            const img = new Image();
+            img.src = src;
+            if (img.complete) {
+                setLoadedIndices(prev => (prev[idx] ? prev : { ...prev, [idx]: true }));
+            } else {
+                img.onload = () => {
+                    setLoadedIndices(prev => (prev[idx] ? prev : { ...prev, [idx]: true }));
+                };
+            }
+        });
+    }, [project.images]);
 
-        // If hovered, we don't start the timer, effectively pausing the slide progression
-        if (isHovered) return;
+    // Active slide: advances only to images already downloaded, completely eliminating jumps while loading
+    useEffect(() => {
+        if (project.images.length <= 1 || isPreview || !isVisible || isHovered) {
+            return;
+        }
 
         const timer = setInterval(() => {
-            setPrevIndex(currentIndex);
-            setCurrentIndex(prev => (prev + 1) % project.images.length);
-        }, 6000);
+            setCurrentIndex(prev => {
+                const next = (prev + 1) % project.images.length;
+                // If next image is already in memory, transition smoothly with zoom!
+                // If network is still downloading it, hold current image until ready
+                if (loadedIndices[next]) {
+                    setPrevIndex(prev);
+                    return next;
+                }
+                return prev;
+            });
+        }, 4500);
+
         return () => clearInterval(timer);
-    }, [isHovered, isPreview, project.images.length, currentIndex, isVisible]);
+    }, [isHovered, isPreview, isVisible, project.images.length, loadedIndices]);
 
     const handleDetailsClick = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -95,7 +112,7 @@ const ProjectCard = ({
         <div
             ref={cardRef}
             className="group relative rounded-lg overflow-hidden cursor-pointer shadow-lg h-72 bg-muted print:h-auto print:shadow-none print:bg-white print:overflow-visible"
-            onMouseEnter={handleMouseEnter}
+            onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onClick={onTogglePreview}
             role="button"
@@ -104,29 +121,25 @@ const ProjectCard = ({
         >
             {/* Screen Version */}
             <div className="h-full relative print:hidden">
-                {/* Image Carousel with Fade Transition */}
+                {/* Image Carousel with Restored Ken Burns Zoom and Seamless Crossfade */}
                 {project.images.map((image, index) => {
                     const isActive = index === currentIndex;
                     const isPrev = index === prevIndex;
-                    const isNext = index === (currentIndex + 1) % project.images.length;
-                    
-                    // Only render if active, previous, next, or user has interacted
-                    if (!isActive && !isPrev && !isNext && !hasInteracted) return null;
-
-                    // Alternate animation: even indices zoom out, odd indices zoom in
                     const animationClass = index % 2 === 0 ? 'animate-zoom-out' : 'animate-zoom-in';
-                    const willChangeClass = (isActive || isPrev) ? 'will-change-[opacity,transform]' : '';
 
                     return (
                         <img 
-                            key={image}
+                            key={`${image}-${index}`}
                             src={image} 
                             alt={project.title}
-                            loading={index === 0 ? "eager" : "lazy"} 
+                            loading="eager" 
                             decoding="async"
                             width="800"
                             height="450"
-                            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-[2000ms] ease-in-out ${willChangeClass} ${isActive ? 'opacity-100 z-10' : 'opacity-0 z-0'} ${(isActive || isPrev) && isVisible ? animationClass : ''}`}
+                            onLoad={() => setLoadedIndices(prev => (prev[index] ? prev : { ...prev, [index]: true }))}
+                            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-[1200ms] ease-in-out ${
+                                isActive ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+                            } ${(isActive || isPrev) ? animationClass : ''}`}
                         />
                     );
                 })}
@@ -163,17 +176,35 @@ const ProjectCard = ({
                         >
                             Ver detalhes completos
                         </button>
-                        {project.liveUrl && (
-                            <a
-                                href={project.liveUrl}
-                                target="_blank"
-                                rel="noreferrer"
-                                onClick={(e) => e.stopPropagation()}
-                                className="text-xs font-semibold py-1.5 px-4 bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/20 transition-all flex items-center justify-center gap-1.5 backdrop-blur-sm hover:border-primary/50"
-                            >
-                                <Globe size={14} />
-                                Ver projeto ao vivo
-                            </a>
+                        {(project.liveUrl || project.githubUrl) && (
+                            <div className="flex gap-1.5 justify-center w-full">
+                                {project.liveUrl && (
+                                    <a
+                                        href={project.liveUrl}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        onClick={(e) => e.stopPropagation()}
+                                        className="text-xs font-semibold py-1.5 px-3 bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/20 transition-all flex items-center justify-center gap-1.5 backdrop-blur-sm hover:border-primary/50 flex-1"
+                                        title="Ver projeto ao vivo"
+                                    >
+                                        <Globe size={13} />
+                                        <span>Ao vivo</span>
+                                    </a>
+                                )}
+                                {project.githubUrl && (
+                                    <a
+                                        href={project.githubUrl}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        onClick={(e) => e.stopPropagation()}
+                                        className="text-xs font-semibold py-1.5 px-3 bg-[#24292e]/90 hover:bg-[#2f363d] text-white rounded-full border border-white/20 transition-all flex items-center justify-center gap-1.5 backdrop-blur-sm hover:border-white/50 flex-1"
+                                        title="Ver repositório no GitHub"
+                                    >
+                                        <Github size={13} />
+                                        <span>Código</span>
+                                    </a>
+                                )}
+                            </div>
                         )}
                     </div>
                 </div>
@@ -435,12 +466,18 @@ const Portfolio: React.FC = () => {
                   </div>
               </div>
 
-              {(selectedProject.liveUrl || selectedProject.behanceUrl) && (
-                <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              {(selectedProject.liveUrl || selectedProject.githubUrl || selectedProject.behanceUrl) && (
+                <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-12">
                   {selectedProject.liveUrl && (
                     <a href={selectedProject.liveUrl} target="_blank" rel="noreferrer" className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold py-3 px-8 rounded-xl hover:bg-secondary transition-all transform hover:-translate-y-1 shadow-lg shadow-primary/20">
                       <Globe size={20} />
                       Ver projeto ao vivo
+                    </a>
+                  )}
+                  {selectedProject.githubUrl && (
+                    <a href={selectedProject.githubUrl} target="_blank" rel="noreferrer" className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-[#24292e] hover:bg-[#2f363d] text-white border border-white/10 font-bold py-3 px-8 rounded-xl transition-all transform hover:-translate-y-1 shadow-lg shadow-black/30">
+                      <Github size={20} />
+                      Ver repositório
                     </a>
                   )}
                   {selectedProject.behanceUrl && (

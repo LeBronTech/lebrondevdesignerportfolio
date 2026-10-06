@@ -28,7 +28,7 @@ Este repositório contém o código-fonte do portfólio profissional de **Leandr
 ## 🌟 Principais Funcionalidades
 
 - **🗂️ Portfólio Interativo & Filtrável**: Navegação intuitiva por categorias (**Todos**, **Websites**, **Apps**, **Identidade Visual**, **Product**, **Logos**).
-- **🔍 Modal de Detalhes Completo**: Carrosséis de alta definição com zoom, visualização passo a passo do processo criativo, papel desempenhado, metodologia e links diretos para projetos em produção e Behance.
+- **🔍 Modal de Detalhes Completo**: Carrosséis de alta definição com zoom, visualização passo a passo do processo criativo, papel desempenhado, metodologia e links diretos para projetos em produção, repositórios no GitHub e Behance.
 - **📱 Feed & Social Media Grid**: Vitrine dinâmica de peças de marketing, criativos para redes sociais e Reels com players embutidos.
 - **🛠️ Grid de Ferramentas & Competências**: Demonstração visual de domínio técnico dividida entre *Desenvolvimento* (TypeScript, React, Next.js, Tailwind CSS, Vite, Node.js, Python, Flutter) e *Design & Edição* (Figma, Photoshop, Illustrator, CapCut).
 - **📄 Download de Currículos Segmentados**: Acesso rápido a currículos específicos para *Infraestrutura*, *UI/UX Design* e *Social Media*.
@@ -42,10 +42,12 @@ Este repositório contém o código-fonte do portfólio profissional de **Leandr
 | Projeto | Categoria | Stack Principal | Destaques |
 | :--- | :--- | :--- | :--- |
 | [**Credita BSB**](https://creditabsb.com.br/) | Websites | React 19, TypeScript, Tailwind CSS, Vite | Plataforma para agente de crédito consignado com simulador financeiro em tempo real, motor de prova social e captação de leads via WhatsApp. |
+| [**Têca Estoque**](https://tecalojas.vercel.app/) | Apps | Flutter, Next.js, React, Node.js | Aplicativo corporativo para gestão de estoque e catálogo digital integrado para rede de lojas físicas. |
+| [**Corações Sagrados**](https://coracoessagradosbsb.vercel.app/) | Websites | React, Next.js, TypeScript, Figma | Portal completo para comunidade com UI/UX exclusiva, novenas interativas e acervo histórico. |
 | **NovaCasa - Qualitex** | Product | Illustrator, Photoshop, 3D Mockups | Design de embalagem para linha de tintas spray, catálogo técnico de produtos e estratégia de divulgação industrial. |
-| **VitalTrimPro** | Websites | HTML5, CSS3, JavaScript, UI Design | Landing page internacional de alta conversão focada em Direct Response Marketing com sistema de notificações em tempo real. |
-| **Corações Sagrados** | Websites | React, Next.js, TypeScript, Figma | Portal completo para comunidade com UI/UX exclusiva, novenas interativas e acervo histórico. |
-| **Têca Estoque** | Apps | Mobile, UI/UX, Design System | Aplicativo corporativo para gestão de estoque e catálogo digital integrado para rede de lojas físicas. |
+| [**Doo&Dou**](https://www.behance.net/gallery/238148345/Doo-DouPetshop) | Identidade Visual | Illustrator, Photoshop, Figma | Identidade visual completa, manual de marca e aplicações em embalagens para petshop. |
+| [**Restaurante Gusto**](https://lebrontech.github.io/Restaurante-Gusto/index.html) | Websites | HTML5, CSS3, JavaScript, Bootstrap | Website institucional com cardápio digital interativo e agendamento de reservas online. |
+| [**VitalTrimPro**](https://vital-trim-pro.vercel.app/) | Websites | HTML5, CSS3, JavaScript, UI Design | Landing page internacional de alta conversão focada em Direct Response Marketing com sistema de notificações em tempo real. |
 
 ---
 
