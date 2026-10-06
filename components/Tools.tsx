@@ -25,9 +25,14 @@ const Tools: React.FC = () => {
           {Object.entries(tools).map(([category, toolList]) => (
             <div key={category} data-aos="fade-up">
               <h3 className="text-2xl font-secondary font-bold text-center mb-8 gradient-title-animation">{category}</h3>
-              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-x-4 gap-y-10 md:gap-x-8 md:gap-y-12 justify-items-center">
+              <div className="flex flex-wrap justify-center gap-x-4 gap-y-10 sm:gap-x-6 sm:gap-y-12 md:gap-x-8 max-w-6xl mx-auto">
                 {toolList.map((tool, index) => (
-                  <div key={tool.name} className="flex flex-col items-center group w-full" data-aos="icon-entry" data-aos-delay={index * 30}>
+                  <div 
+                    key={tool.name} 
+                    className="flex flex-col items-center group w-[calc(33.333%-1.2rem)] sm:w-24 md:w-28 flex-shrink-0" 
+                    data-aos="icon-entry" 
+                    data-aos-delay={index * 30}
+                  >
                     <button
                       onClick={() => handleToolClick(tool.name)}
                       className={`relative w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-background flex items-center justify-center transition-all duration-300 transform group-hover:-translate-y-2 shadow-lg ${activeTool === tool.name ? 'scale-110 ring-2 ring-primary' : 'hover:shadow-primary/20'}`}

@@ -308,22 +308,23 @@ export const tools = {
     { name: 'Nano Banana', icon: 'https://i.postimg.cc/Gt9xCw84/q-XAOXkv.webp' },
   ],
   "Desenvolvimento": [
-    { name: 'TypeScript', icon: 'https://iili.io/Kpz8mIp.png' },
+    { name: 'JavaScript', icon: 'https://i.postimg.cc/y8J6Sf9G/1761770699957.webp' },
     { name: 'HTML', icon: 'https://i.postimg.cc/QxFNHgBw/1024x1024-logo-2582748-1280.webp' },
     { name: 'CSS', icon: 'https://i.postimg.cc/XY0M499C/1024x1024-logo-2582747-960-720.webp' },
-    { name: 'JavaScript', icon: 'https://i.postimg.cc/y8J6Sf9G/1761770699957.webp' },
+    { name: 'TypeScript', icon: 'https://iili.io/Kpz8mIp.png' },
     { name: 'Claude AI', icon: 'https://i.postimg.cc/yxdCCdyp/q-XRYx7n.webp' },
     { name: 'React', icon: 'https://cdn.simpleicons.org/react/61DAFB' },
     { name: 'Next.js', icon: 'https://i.postimg.cc/PJhNWmht/nextjs-icon.webp' },
     { name: 'Tailwind CSS', icon: 'https://cdn.simpleicons.org/tailwindcss/06B6D4' },
+    { name: 'Bootstrap', icon: 'https://i.postimg.cc/qqnXRcwR/q-X1i1m-G.webp' },
     { name: 'Vite', icon: '/vite.svg' },
     { name: 'Node.js', icon: 'https://i.postimg.cc/vmhwPDgX/1761417804462.webp' },
     { name: 'Python', icon: 'https://i.postimg.cc/jSqP0YpJ/pngaaa-com-619137.webp' },
     { name: 'Flutter', icon: 'https://i.postimg.cc/jSjw3Qfj/pngwing-com.webp' },
     { name: 'Android Studio', icon: 'https://i.postimg.cc/DftxT06s/q-XAZo9p.webp' },
-    { name: 'Bootstrap', icon: 'https://i.postimg.cc/qqnXRcwR/q-X1i1m-G.webp' },
     { name: 'WordPress', icon: 'https://i.postimg.cc/wBXphnBR/word500.webp' },
     { name: 'VSCode', icon: 'https://i.postimg.cc/25K479X6/vscode500.webp' },
+    { name: 'Antigravity', icon: '/antigravity.svg' },
   ],
 };
 
@@ -705,6 +706,15 @@ export const softSkills = [
 ];
 
 export const testimonials = [
+  {
+    name: "Patrícia",
+    title: "Cliente Creditas BSB",
+    project: "Creditas BSB",
+    quote: "Obrigada, Gostei muito!",
+    image: "https://lh3.googleusercontent.com/d/1HOddT8vRbrQHsK9YdD4Vm04IHBEZKZYE",
+    rating: 5,
+    projectLogo: "https://i.postimg.cc/9Q1cmsTM/Captura-de-tela-de-2026-09-10-15-44-47.png",
+  },
   {
     name: "Ione Lourenço",
     title: "CEO da Têca Lojas",
